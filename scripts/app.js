@@ -1226,7 +1226,7 @@
     "use strict";
     angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular", "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization", "app.chart.ctrls", "app.chart.directives"]).config(["$routeProvider", function($routeProvider) {
       return $routeProvider.when("/", {
-        redirectTo: "/dashboard"
+        redirectTo: "/pages/signup"
       }).when("/dashboard", {
         templateUrl: "views/dashboard.html"
       }).when("/ui/typography", {
@@ -1519,7 +1519,7 @@
         var path;
         return path = $location.path(), _.contains(["/404", "/pages/500", "/pages/login", "/pages/signin", "/pages/signin1", "/pages/signin2", "/pages/signup", "/pages/signup1", "/pages/signup2", "/pages/lock-screen"], path)
       }, $scope.main = {
-        brand: "Flatify",
+        brand: "ServiceLive",
         name: "Lisa Doe"
       }
     }]).controller("NavCtrl", ["$scope", "taskStorage", "filterFilter", function($scope, taskStorage, filterFilter) {

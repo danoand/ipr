@@ -1515,6 +1515,7 @@
   function() {
     "use strict";
     angular.module("app.controllers", []).controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
+      console.log('Inside the AppCtrl controller');
       return $scope.isSpecificPage = function() {
         var path;
         return path = $location.path(), _.contains(["/404", "/pages/500", "/pages/login", "/pages/signin", "/pages/signin1", "/pages/signin2", "/pages/signup", "/pages/signup1", "/pages/signup2", "/pages/lock-screen"], path)
@@ -1523,6 +1524,7 @@
         name: "Lisa Doe"
       }
     }]).controller("NavCtrl", ["$scope", "taskStorage", "filterFilter", function($scope, taskStorage, filterFilter) {
+      console.log('Inside the NavCtrl controller');
       var tasks;
       return tasks = $scope.tasks = taskStorage.get(), $scope.taskRemainingCount = filterFilter(tasks, {
         completed: !1
@@ -1530,6 +1532,7 @@
         return $scope.taskRemainingCount = count
       })
     }]).controller("DashboardCtrl", ["$scope", function($scope) {
+      console.log('Inside the DashboardCtrl controller');
       return $scope.comboChartData = [
         ["Month", "Bolivia", "Ecuador", "Madagascar", "Papua New Guinea", "Rwanda", "Average"],
         ["2014/05", 165, 938, 522, 998, 450, 614.6],
@@ -1544,5 +1547,12 @@
         ["2012", 660, 1120],
         ["2013", 1030, 540]
       ]
+    }]).controller("SignUpPageCtrl", ["$scope", function($scope) {
+      console.log('Inside the SignUpPageCtrl controller');
+      $scope.company = "starter company"
+      return $scope.clickCompany = function() {
+        console.log('Inside the clickCompany function');
+        $scope.company = "ending company"
+      }
     }])
   }.call(this);

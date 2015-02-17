@@ -22,16 +22,17 @@
 
                 <span class="line-thru">OR</span>
 
-                <form class="form-horizontal">
+                <form class="form-horizontal" data-ng-controller="SignUpCtrl">
                     <fieldset>
                         <div class="form-group">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <span class="glyphicon glyphicon-envelope" ng-click="clickCompany()"></span>
                                 </span>
                                 <input type="email"
                                        class="form-control"
                                        placeholder="Email"
+                                       data-ng-model="company"
                                        >
                             </div>
                         </div>
@@ -58,7 +59,7 @@
                     <p class="text-center"><a href="javascript:;">Forgot your password?</a></p>
                     <p class="text-center text-muted text-small">Don't have an account yet? <a href="#/pages/signup">Sign up</a></p>
                 </section>
-                
+
             </div>
         </div>
     </div>

@@ -1224,9 +1224,17 @@
   }.call(this),
   function() {
     "use strict";
-    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular", "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization", "app.chart.ctrls", "app.chart.directives"]).config(["$routeProvider", function($routeProvider) {
+    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular", "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization", "app.chart.ctrls", "app.chart.directives", "app.dataPopulation"]).config(["$routeProvider", function($routeProvider) {
       return $routeProvider.when("/", {
         redirectTo: "/pages/signup"
+      }).when("/ui/timeline", {
+        templateUrl: "views/ui/timeline.html"
+      }).when("/pages/getorganized", {
+        templateUrl: "views/pages/getorganized.html"
+      }).when("/pages/companyname", {
+        templateUrl: "views/pages/companyname.html"
+      }).when("/pages/account", {
+        templateUrl: "views/pages/account.html"
       }).when("/dashboard", {
         templateUrl: "views/dashboard.html"
       }).when("/ui/typography", {
@@ -1241,8 +1249,6 @@
         templateUrl: "views/ui/widgets.html"
       }).when("/ui/components", {
         templateUrl: "views/ui/components.html"
-      }).when("/ui/timeline", {
-        templateUrl: "views/ui/timeline.html"
       }).when("/ui/pricing-tables", {
         templateUrl: "views/ui/pricing-tables.html"
       }).when("/forms/elements", {
@@ -1287,8 +1293,6 @@
         templateUrl: "views/pages/500.html"
       }).when("/pages/blank", {
         templateUrl: "views/pages/blank.html"
-      }).when("/pages/getorganized", {
-        templateUrl: "views/pages/getorganized.html"
       }).when("/pages/invoice", {
         templateUrl: "views/pages/invoice.html"
       }).when("/tasks", {
@@ -1516,6 +1520,22 @@
   }.call(this),
   function() {
     "use strict";
+    angular.module("app.dataPopulation", []).factory("svcDataPopulation", [function() {
+      return {
+        companyName: function() {
+          return 'Acme Plumbing';
+        },
+        companyZip: function() {
+          return '60179';
+        },
+        primaryIndustry: function() {
+          return 'Home Electronics';
+        }
+      }
+    }])
+  }.call(this),
+  function() {
+    "use strict";
     angular.module("app.controllers", []).controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
       console.log('Inside the AppCtrl controller');
       return $scope.isSpecificPage = function() {
@@ -1549,12 +1569,49 @@
         ["2012", 660, 1120],
         ["2013", 1030, 540]
       ]
-    }]).controller("SignUpPageCtrl", ["$scope", function($scope) {
-      console.log('Inside the SignUpPageCtrl controller');
-      $scope.company = "starter company"
+    }]).controller("SignUpPageCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      $scope.primaryIndustry = 'Primary Industry';
+
       return $scope.clickCompany = function() {
-        console.log('Inside the clickCompany function');
-        $scope.company = "ending company"
+        $scope.company = svcDataPopulation.companyName();
+        $scope.zipCode = svcDataPopulation.companyZip();
+        $scope.primaryIndustry = svcDataPopulation.primaryIndustry();
       }
+    }]).controller("CompanyNameCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+        $scope.openIndustry = function() {
+          var modelInstanceIndustry;
+
+          modelInstanceIndustry = $modal.open({
+              templateUrl: "myModalIndustry.html"
+            });
+
+          };
+
+          $scope.openZipCode = function() {
+            var modelInstanceZipCode;
+
+            modelInstanceZipCode = $modal.open({
+                templateUrl: "myModalZip.html"
+              });
+
+            };
+    }]).controller("AccountCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+        $scope.openIndustry = function() {
+          var modelInstanceIndustry;
+
+          modelInstanceIndustry = $modal.open({
+              templateUrl: "myModalIndustry.html"
+            });
+
+          };
+
+          $scope.openZipCode = function() {
+            var modelInstanceZipCode;
+
+            modelInstanceZipCode = $modal.open({
+                templateUrl: "myModalZip.html"
+              });
+
+            };
     }])
-  }.call(this);
+}.call(this);

@@ -1239,6 +1239,10 @@
         templateUrl: "views/pages/verify.html"
       }).when("/pages/administrator", {
         templateUrl: "views/pages/administrator.html"
+      }).when("/pages/businessprofile", {
+        templateUrl: "views/pages/businessprofile.html"
+      }).when("/pages/insurance", {
+        templateUrl: "views/pages/insurance.html"
       }).when("/dashboard", {
         templateUrl: "views/dashboard.html"
       }).when("/ui/typography", {

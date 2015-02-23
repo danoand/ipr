@@ -52,6 +52,7 @@
           </div>
         </div>
       </div>
+      <button class="btn btn-info btn-xs pull-right">See More SPNs <i class="fa fa-chevron-right"></i></button>
     </div>
     <script type="text/ng-template" id="myModalIndustry.html">
       <div class="modal-header">
@@ -110,6 +111,32 @@
                 <input class="form-control" id="coEmail" type="email">
               </div>
             </div>
+            <hr>
+            <div class="form-group">
+              <label for="coUsername" class="col-sm-2 control-label">Username</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="coUsername" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="coPassword" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <div class="form-inline">
+                  <input type="password" class="form-control" placeholder="Enter Password"/>
+                  <input type="password" class="form-control" placeholder="Confirm Password"/>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="coBusinessPhone" class="col-sm-2 control-label">Business Phone</label>
+              <div class="col-sm-10">
+                <div class="form-inline">
+                  <input type="text" class="form-control" placeholder="Phone Number"/>
+                  <input type="text" class="form-control" placeholder="Extension"/>
+                </div>
+              </div>
+            </div>
             <div class="form-group">
               <label for="coBusinessPhone" class="col-sm-2 control-label">Business Phone</label>
               <div class="col-sm-10">
@@ -126,9 +153,10 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="selectBestContact" class="col-sm-2 control-label">Best Phone for Service Inquiries</label>
+              <label for="selectBestContact" class="col-sm-2 control-label">Service Inquiries</label>
               <div class="col-sm-10">
                 <select class="form-control">
+                  <option>-- Select Method --</option>
                   <option>Business Phone</option>
                   <option>Mobile Phone</option>
                   <option>Other Phone</option>
@@ -141,4 +169,5 @@
       </div>
     </div>
   </section>
+  <a href="/#/pages/verify" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Verify Login</a>
 </div>

@@ -1235,6 +1235,8 @@
         templateUrl: "views/pages/companyname.html"
       }).when("/pages/account", {
         templateUrl: "views/pages/account.html"
+      }).when("/pages/verify", {
+        templateUrl: "views/pages/verify.html"
       }).when("/dashboard", {
         templateUrl: "views/dashboard.html"
       }).when("/ui/typography", {

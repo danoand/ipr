@@ -1570,10 +1570,30 @@
         },
         insTypeGet: function(inType) {
           return myInsuranceType;
+        },
+        uploadStatusNotStarted: function(inType) {
+          var tmpHTML = '<span class="label label-default">NOT STARTED</span>';
+          return {
+            sequence: 1,
+            markup: tmpHTML
+          };
+        },
+        uploadStatusStarted: function(inType) {
+          var tmpHTML = '<span class="label label-info">UPLOADING</span>';
+          return {
+            sequence: 2,
+            markup: tmpHTML
+          };
+        },
+        uploadStatusCompleted: function(inType) {
+          var tmpHTML = '<span class="label label-success">COMPLETED</span>';
+          return {
+            sequence: 3,
+            markup: tmpHTML
+          };
         }
       }
-    }])
-  }.call(this),
+    }])  }.call(this),
   function() {
     "use strict";
     angular.module("app.controllers", []).controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
@@ -1618,78 +1638,102 @@
         $scope.primaryIndustry = svcDataPopulation.primaryIndustry();
       }
     }]).controller("CompanyNameCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
-        $scope.openIndustry = function() {
-          var modelInstanceIndustry;
+      $scope.openIndustry = function() {
+        var modelInstanceIndustry;
 
-          modelInstanceIndustry = $modal.open({
-              templateUrl: "myModalIndustry.html"
-            });
+        modelInstanceIndustry = $modal.open({
+          templateUrl: "myModalIndustry.html"
+        });
 
-          };
+      };
 
-          $scope.openZipCode = function() {
-            var modelInstanceZipCode;
+      $scope.openZipCode = function() {
+        var modelInstanceZipCode;
 
-            modelInstanceZipCode = $modal.open({
-                templateUrl: "myModalZip.html"
-              });
+        modelInstanceZipCode = $modal.open({
+          templateUrl: "myModalZip.html"
+        });
 
-            };
+      };
     }]).controller("AccountCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
-        $scope.openIndustry = function() {
-          var modelInstanceIndustry;
+      $scope.openIndustry = function() {
+        var modelInstanceIndustry;
 
-          modelInstanceIndustry = $modal.open({
-              templateUrl: "myModalIndustry.html",
-              size: 'lg'
-            });
+        modelInstanceIndustry = $modal.open({
+          templateUrl: "myModalIndustry.html",
+          size: 'lg'
+        });
 
-          };
+      };
 
-          $scope.openZipCode = function() {
-            var modelInstanceZipCode;
+      $scope.openZipCode = function() {
+        var modelInstanceZipCode;
 
-            modelInstanceZipCode = $modal.open({
-                templateUrl: "myModalZip.html"
-              });
+        modelInstanceZipCode = $modal.open({
+          templateUrl: "myModalZip.html"
+        });
 
-            };
+      };
     }]).controller("InsuranceCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
 
-        $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
-        $scope.coverageAmountWorkers = svcDataPopulation.insAmount();
-        $scope.coverageAmountVehicle = svcDataPopulation.insAmount();
+      $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
+      $scope.coverageAmountWorkers = svcDataPopulation.insAmount();
+      $scope.coverageAmountVehicle = svcDataPopulation.insAmount();
 
-        $scope.openInsuranceModal = function(inInsuranceType) {
-          svcDataPopulation.insTypeSet(inInsuranceType);
+      $scope.openInsuranceModal = function(inInsuranceType) {
+        svcDataPopulation.insTypeSet(inInsuranceType);
 
-          var modalInstanceInsurance = $modal.open({
-              templateUrl: "myModalContentInsurance.html",
-              controller: 'InsuranceModalCtrl'
-            });
+        var modalInstanceInsurance = $modal.open({
+          templateUrl: "myModalContentInsurance.html",
+          controller: 'InsuranceModalCtrl'
+        });
 
-          };
+      };
 
     }]).controller("InsuranceModalCtrl", ["$scope", "$modalInstance", "svcDataPopulation", function($scope, $modalInstance, svcDataPopulation) {
-          $scope.insuranceName = svcDataPopulation.insTypeGet();
-          $scope.insPolicy = svcDataPopulation.insPolicy();
-          $scope.insAmount = svcDataPopulation.insAmount();
-          $scope.insIssueDate = svcDataPopulation.insIssueDate();
-          $scope.insExpirationDate = svcDataPopulation.insExpirationDate();
-          $scope.insCarrier = svcDataPopulation.insCarrier();
-          $scope.insAgency = svcDataPopulation.insAgency();
-          $scope.insAgencyCounty = svcDataPopulation.insAgencyCounty();
-          $scope.insAgencyState = svcDataPopulation.insAgencyState();
+      $scope.insuranceName = svcDataPopulation.insTypeGet();
+      $scope.insPolicy = svcDataPopulation.insPolicy();
+      $scope.insAmount = svcDataPopulation.insAmount();
+      $scope.insIssueDate = svcDataPopulation.insIssueDate();
+      $scope.insExpirationDate = svcDataPopulation.insExpirationDate();
+      $scope.insCarrier = svcDataPopulation.insCarrier();
+      $scope.insAgency = svcDataPopulation.insAgency();
+      $scope.insAgencyCounty = svcDataPopulation.insAgencyCounty();
+      $scope.insAgencyState = svcDataPopulation.insAgencyState();
 
-          $scope.ok = function () {
-            console.log('Inside the ok function');
-            $modalInstance.close('Clicked Ok button');
-          };
+      $scope.ok = function() {
+        console.log('Inside the ok function');
+        $modalInstance.close('Clicked Ok button');
+      };
 
-          $scope.cancel = function () {
-            console.log('Inside the cancel function');
-            $modalInstance.dismiss('Clicked Cancel button');
-          };
+      $scope.cancel = function() {
+        console.log('Inside the cancel function');
+        $modalInstance.dismiss('Clicked Cancel button');
+      };
+
+    }]).controller("GetOrganizedCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
+      $scope.uploadStatusMarkup = $scope.uploadStatus.markup;
+
+      $scope.uploadStatusClick = function() {
+        switch ($scope.uploadStatus.sequence) {
+          case 1:
+            $scope.uploadStatus       = svcDataPopulation.uploadStatusStarted();
+            $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+            break;
+          case 2:
+            $scope.uploadStatus       = svcDataPopulation.uploadStatusCompleted();
+            $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+            break;
+          case 3:
+            $scope.uploadStatus       = svcDataPopulation.uploadStatusNotStarted();
+            $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+            break
+          default:
+            $scope.uploadStatus       = svcDataPopulation.uploadStatusNotStarted();
+            $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+        }
+      };
 
     }])
-}.call(this);
+  }.call(this);

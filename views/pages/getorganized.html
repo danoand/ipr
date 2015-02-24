@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" ng-controller="GetOrganizedCtrl">
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Get Organized</strong></div>
     <div class="panel-body">
@@ -20,7 +20,7 @@
     </div>
   </section>
   <section class="panel panel-info">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-flash"></span> Jump In!</strong><span class="label label-default pull-right">NOT STARTED</span></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-flash"></span> Jump In!</strong><div class="pull-right" ng-click="uploadStatusClick()" ng-bind-html="uploadStatusMarkup"></div></div>
     <div class="panel-body">
       <h4>Get a Jumpstart by Uploading a Document</h4>
       <p>Scan or take a picture of your insurance certificate.  We'll process it and pre-populate some of your information.</p>

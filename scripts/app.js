@@ -1529,6 +1529,8 @@
   function() {
     "use strict";
     angular.module("app.dataPopulation", []).factory("svcDataPopulation", [function() {
+      var myInsuranceType = 'General Liability';
+
       return {
         companyName: function() {
           return 'Acme Plumbing';
@@ -1538,6 +1540,36 @@
         },
         primaryIndustry: function() {
           return 'Home Electronics';
+        },
+        insPolicy: function() {
+          return 'DFHAEFUQ970';
+        },
+        insAmount: function() {
+          return '$1,000,0000';
+        },
+        insIssueDate: function() {
+          return '2015-01-01';
+        },
+        insExpirationDate: function() {
+          return '2015-12-31';
+        },
+        insCarrier: function() {
+          return 'State Farm';
+        },
+        insAgency: function() {
+          return 'Nortwest Suburban Business Insurance';
+        },
+        insAgencyCounty: function() {
+          return 'Cook';
+        },
+        insAgencyState: function() {
+          return 'IL - Illinois';
+        },
+        insTypeSet: function(inType) {
+          myInsuranceType = 'General Liability';
+        },
+        insTypeGet: function(inType) {
+          return myInsuranceType;
         }
       }
     }])
@@ -1608,7 +1640,8 @@
           var modelInstanceIndustry;
 
           modelInstanceIndustry = $modal.open({
-              templateUrl: "myModalIndustry.html"
+              templateUrl: "myModalIndustry.html",
+              size: 'lg'
             });
 
           };
@@ -1621,5 +1654,42 @@
               });
 
             };
+    }]).controller("InsuranceCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+
+        $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
+        $scope.coverageAmountWorkers = svcDataPopulation.insAmount();
+        $scope.coverageAmountVehicle = svcDataPopulation.insAmount();
+
+        $scope.openInsuranceModal = function(inInsuranceType) {
+          svcDataPopulation.insTypeSet(inInsuranceType);
+
+          var modalInstanceInsurance = $modal.open({
+              templateUrl: "myModalContentInsurance.html",
+              controller: 'InsuranceModalCtrl'
+            });
+
+          };
+
+    }]).controller("InsuranceModalCtrl", ["$scope", "$modalInstance", "svcDataPopulation", function($scope, $modalInstance, svcDataPopulation) {
+          $scope.insuranceName = svcDataPopulation.insTypeGet();
+          $scope.insPolicy = svcDataPopulation.insPolicy();
+          $scope.insAmount = svcDataPopulation.insAmount();
+          $scope.insIssueDate = svcDataPopulation.insIssueDate();
+          $scope.insExpirationDate = svcDataPopulation.insExpirationDate();
+          $scope.insCarrier = svcDataPopulation.insCarrier();
+          $scope.insAgency = svcDataPopulation.insAgency();
+          $scope.insAgencyCounty = svcDataPopulation.insAgencyCounty();
+          $scope.insAgencyState = svcDataPopulation.insAgencyState();
+
+          $scope.ok = function () {
+            console.log('Inside the ok function');
+            $modalInstance.close('Clicked Ok button');
+          };
+
+          $scope.cancel = function () {
+            console.log('Inside the cancel function');
+            $modalInstance.dismiss('Clicked Cancel button');
+          };
+
     }])
 }.call(this);

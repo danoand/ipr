@@ -1,5 +1,5 @@
 <div class="page" ng-controller="CompanyNameCtrl">
-  <section class="panel panel-default">
+  <section class="panel panel-primary">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Business Activity</strong></div>
     <div class="panel-body">
       <p>Check out the business activity for <a ng-click="openIndustry()">Home Electronics</a> in <a ng-click="openZipCode()">60179</a> in the last month!</p>
@@ -152,4 +152,7 @@
     </div>
   </section>
   <a href="/#/pages/account" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Account</a>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
 </div>

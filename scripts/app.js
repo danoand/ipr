@@ -1658,6 +1658,36 @@
           companyZip: function() {
             return '60179';
           },
+          companyPhone: function() {
+            return '(312) 555-1212';
+          },
+          companyFullName: function() {
+            return 'Chris Plummer';
+          },
+          companyFullNameFirst: function() {
+            return 'Chris';
+          },
+          companyFullNameLast: function() {
+            return 'Plummer';
+          },
+          companyEmail: function() {
+            return 'cplummer@acmeplummingnw.com';
+          },
+          companyUsername: function() {
+            return 'acmeplumbingchris';
+          },
+          companyPassword1: function() {
+            return 'Test123!';
+          },
+          companyPassword2: function() {
+            return 'Test123!';
+          },
+          companyMobilePhone: function() {
+            return '(312) 555-1213';
+          },
+          companyInquiryMethod: function() {
+            return 'Mobile Phone';
+          },
           primaryIndustry: function() {
             return 'Home Electronics';
           },
@@ -1885,6 +1915,18 @@
         };
       }])
       .controller("AccountCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+        $scope.companyPhone = svcDataPopulation.companyPhone();
+
+        $scope.virtualType = function() {
+          $scope.companyFullName = svcDataPopulation.companyFullName();
+          $scope.companyEmail = svcDataPopulation.companyEmail();
+          $scope.companyUsername = svcDataPopulation.companyUsername();
+          $scope.companyPassword1 = svcDataPopulation.companyPassword1();
+          $scope.companyPassword2 = svcDataPopulation.companyPassword2();
+          $scope.companyMobilePhone = svcDataPopulation.companyMobilePhone();
+          $scope.companyInquiryMethod = svcDataPopulation.companyInquiryMethod();
+        };
+
         $scope.openIndustry = function() {
           var modelInstanceIndustry;
 
@@ -1975,6 +2017,17 @@
           // Redirect to a particular path
           $location.path(inRoute);
         };
+
+      }])
+      .controller("VerifyCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+        $scope.companyUsername = svcDataPopulation.companyUsername();
+
+      }])
+      .controller("AdministratorCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+        $scope.companyUsername      = svcDataPopulation.companyUsername();
+        $scope.companyEmail         = svcDataPopulation.companyEmail();
+        $scope.companyFullNameFirst = svcDataPopulation.companyFullNameFirst();
+        $scope.companyFullNameLast  = svcDataPopulation.companyFullNameLast();
 
       }])
   }.call(this);

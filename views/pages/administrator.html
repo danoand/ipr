@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" ng-controller="AdministratorCtrl">
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Administrator&#39;s Primary Contact Information</strong></div>
     <div class="panel-body">
@@ -32,13 +32,13 @@
                 <div class="form-group">
                   <label for="adLegalFirstName" class="col-sm-3 control-label">Legal First Name*</label>
                   <div class="col-sm-9">
-                    <input class="form-control" id="adLegalFirstName" type="text">
+                    <input class="form-control" id="adLegalFirstName" type="text" ng-model="companyFullNameFirst">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="adLegalLastName" class="col-sm-3 control-label">Legal Last Name*</label>
                   <div class="col-sm-9">
-                    <input class="form-control" id="adLegalLastName" type="text">
+                    <input class="form-control" id="adLegalLastName" type="text" ng-model="companyFullNameLast">
                   </div>
                 </div>
                 <div class="form-group">
@@ -73,16 +73,16 @@
       <form role="form" class="form-horizontal">
         <div class="form-group">
           <label class="col-sm-2" for="adUsername">Username</label>
-          <div class="col-sm-3"><input id="adUsername" class="form-control" type="text" placeholder="acmepladmin" readonly></div>
+          <div class="col-sm-3"><input id="adUsername" class="form-control" type="text" ng-model="companyUsername" readonly></div>
         </div>
         <div class="form-group">
           <label class="col-sm-2">Email Address*</label>
           <div class="col-sm-5">
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" ng-model="companyEmail">
             <div class="help">Email Address</div>
           </div>
           <div class="col-sm-5">
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" ng-model="companyEmail">
             <div class="help">Confirm Email Address</div>
           </div>
         </div>
@@ -111,14 +111,16 @@
           </dd>
         </dl>
         <hr>
-        <p><strong>Will you be performing work in the ServiceLive Marketplace?</strong>* <a>Get Help</a></p>
-        <dl class="dl-horizontal">
-          <dt>Status</dt>
-          <dd>
-            <label class="ui-radio"><input name="radio1" type="radio" value="yes"><span>Yes</span></label>
-            <label class="ui-radio"><input name="radio1" type="radio" value="no"><span>No</span></label>
-          </dd>
-        </dl>
+        <div class="callout callout-danger">
+          <p><strong>Will you be performing work in the ServiceLive Marketplace?</strong>* <a>Get Help</a></p>
+          <dl class="dl-horizontal">
+            <dt>Status</dt>
+            <dd>
+              <label class="ui-radio"><input name="radio1" type="radio" value="yes"><span>Yes</span></label>
+              <label class="ui-radio"><input name="radio1" type="radio" value="no"><span>No</span></label>
+            </dd>
+          </dl>
+        </div>
       </form>
     </div>
   </section>

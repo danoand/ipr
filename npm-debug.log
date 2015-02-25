@@ -1,17 +1,152 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
-2 info using npm@1.4.21
-3 info using node@v0.10.30
-4 error install Couldn't read dependencies
-5 error package.json ENOENT, open '/Users/danoand/Documents/Dropbox/dropdocs/personal/danocode/TwitterBoostrapTemplates/flatify-v1.3.0/dist/package.json'
-5 error package.json This is most likely not a problem with npm itself.
-5 error package.json npm can't find a package.json file in your current directory.
-6 error System Darwin 13.4.0
-7 error command "node" "/usr/local/bin/npm" "install"
-8 error cwd /Users/danoand/Documents/Dropbox/dropdocs/personal/danocode/TwitterBoostrapTemplates/flatify-v1.3.0/dist
-9 error node -v v0.10.30
-10 error npm -v 1.4.21
-11 error path /Users/danoand/Documents/Dropbox/dropdocs/personal/danocode/TwitterBoostrapTemplates/flatify-v1.3.0/dist/package.json
-12 error code ENOPACKAGEJSON
-13 error errno 34
-14 verbose exit [ 34, true ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', '-g', 'install', 'static-server' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'static-server', null ]
+5 verbose cache add name=undefined spec="static-server" args=["static-server",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'static-server',
+6 verbose parsed url   path: 'static-server',
+6 verbose parsed url   href: 'static-server' }
+7 silly lockFile 3bd8fc47-static-server static-server
+8 verbose lock static-server /Users/danoand/.npm/3bd8fc47-static-server.lock
+9 silly lockFile 3bd8fc47-static-server static-server
+10 silly lockFile 3bd8fc47-static-server static-server
+11 verbose addNamed [ 'static-server', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 717be335-static-server static-server@
+14 verbose lock static-server@ /Users/danoand/.npm/717be335-static-server.lock
+15 silly addNameRange { name: 'static-server', range: '*', hasData: false }
+16 verbose request where is /static-server
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 66628351dcd5ff1e
+19 verbose url raw /static-server
+20 verbose url resolving [ 'https://registry.npmjs.org/', './static-server' ]
+21 verbose url resolved https://registry.npmjs.org/static-server
+22 verbose request where is https://registry.npmjs.org/static-server
+23 info trying registry request attempt 1 at 20:27:53
+24 http GET https://registry.npmjs.org/static-server
+25 http 200 https://registry.npmjs.org/static-server
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Wed, 25 Feb 2015 02:27:54 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"AZ8X0XHC2M3LEAPNE4QLLO86I"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '8777',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-atl6230-ATL',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1424831274.597178,VS0,VE26',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'static-server', range: '*', hasData: true }
+28 silly addNameRange versions [ 'static-server', [ '1.0.0', '1.0.1', '1.0.2', '2.0.0' ] ]
+29 verbose addNamed [ 'static-server', '2.0.0' ]
+30 verbose addNamed [ '2.0.0', '2.0.0' ]
+31 silly lockFile 34998a80-static-server-2-0-0 static-server@2.0.0
+32 verbose lock static-server@2.0.0 /Users/danoand/.npm/34998a80-static-server-2-0-0.lock
+33 silly lockFile 13507450-c-server-static-server-2-0-0-tgz https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz
+34 verbose lock https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz /Users/danoand/.npm/13507450-c-server-static-server-2-0-0-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz',
+35 verbose addRemoteTarball   '1a52851aade5c9a4cbad61a8765b8d2c9063d41d' ]
+36 info retry fetch attempt 1 at 20:27:54
+37 verbose fetch to= /var/folders/nv/dq8w02t973x_sb1tvn5vj74h0000gn/T/npm-3255-OuNwv4Xt/registry.npmjs.org/static-server/-/static-server-2.0.0.tgz
+38 http GET https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz
+39 http 200 https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz
+40 silly lockFile 13507450-c-server-static-server-2-0-0-tgz https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz
+41 silly lockFile 13507450-c-server-static-server-2-0-0-tgz https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz
+42 silly lockFile 34998a80-static-server-2-0-0 static-server@2.0.0
+43 silly lockFile 34998a80-static-server-2-0-0 static-server@2.0.0
+44 silly lockFile 717be335-static-server static-server@
+45 silly lockFile 717be335-static-server static-server@
+46 silly resolved [ { name: 'static-server',
+46 silly resolved     description: 'A simple http server to serve static resource files from a local directory.',
+46 silly resolved     version: '2.0.0',
+46 silly resolved     author: { name: 'Eduardo Bohrer', email: 'nbluisrs@gmail.com' },
+46 silly resolved     keywords: [ 'static', 'server', 'local', 'assets' ],
+46 silly resolved     main: './server.js',
+46 silly resolved     repository: { type: 'git', url: 'git@github.com:nbluis/static-server.git' },
+46 silly resolved     bin: { 'static-server': './bin/static-server.js' },
+46 silly resolved     scripts:
+46 silly resolved      { test: 'mocha',
+46 silly resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha',
+46 silly resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly',
+46 silly resolved        start: 'node server.js' },
+46 silly resolved     engines: { node: '>= 0.10.0' },
+46 silly resolved     dependencies:
+46 silly resolved      { chalk: '^0.5.1',
+46 silly resolved        commander: '^2.3.0',
+46 silly resolved        'file-size': '0.0.5',
+46 silly resolved        mime: '^1.2.11' },
+46 silly resolved     license: { type: 'MIT', url: 'http://creativecommons.org/licenses/MIT/' },
+46 silly resolved     devDependencies:
+46 silly resolved      { istanbul: '^0.3.0',
+46 silly resolved        mocha: '^1.21.4',
+46 silly resolved        should: '^4.0.4',
+46 silly resolved        supertest: '^0.15.0' },
+46 silly resolved     gitHead: '5dc905f0f2ba1f9d0e03c247f8dbdea9c13420bc',
+46 silly resolved     bugs: { url: 'https://github.com/nbluis/static-server/issues' },
+46 silly resolved     homepage: 'https://github.com/nbluis/static-server',
+46 silly resolved     _id: 'static-server@2.0.0',
+46 silly resolved     _shasum: '1a52851aade5c9a4cbad61a8765b8d2c9063d41d',
+46 silly resolved     _from: 'static-server@',
+46 silly resolved     _npmVersion: '2.1.11',
+46 silly resolved     _nodeVersion: '0.10.25',
+46 silly resolved     _npmUser: { name: 'nbluis', email: 'nbluisrs@gmail.com' },
+46 silly resolved     maintainers: [ [Object] ],
+46 silly resolved     dist:
+46 silly resolved      { shasum: '1a52851aade5c9a4cbad61a8765b8d2c9063d41d',
+46 silly resolved        tarball: 'http://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz' },
+46 silly resolved     directories: {},
+46 silly resolved     _resolved: 'https://registry.npmjs.org/static-server/-/static-server-2.0.0.tgz' } ]
+47 info install static-server@2.0.0 into /usr/local/lib
+48 info installOne static-server@2.0.0
+49 verbose lib/node_modules/static-server unbuild
+50 verbose tar unpack /Users/danoand/.npm/static-server/2.0.0/package.tgz
+51 silly lockFile ed891122-l-lib-node-modules-static-server tar:///usr/local/lib/node_modules/static-server
+52 verbose lock tar:///usr/local/lib/node_modules/static-server /Users/danoand/.npm/ed891122-l-lib-node-modules-static-server.lock
+53 silly lockFile 3264def7--static-server-2-0-0-package-tgz tar:///Users/danoand/.npm/static-server/2.0.0/package.tgz
+54 verbose lock tar:///Users/danoand/.npm/static-server/2.0.0/package.tgz /Users/danoand/.npm/3264def7--static-server-2-0-0-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/static-server'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/static-server']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/static-server',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/static-server',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:107:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Darwin 14.0.0
+59 error command "node" "/usr/local/bin/npm" "-g" "install" "static-server"
+60 error cwd /Users/danoand/Documents/liveservice/ipr
+61 error node -v v0.10.33
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/static-server
+64 error fstream_path /usr/local/lib/node_modules/static-server
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/static-server'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:107:15)
+71 verbose exit [ 3, true ]

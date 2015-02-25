@@ -1706,6 +1706,15 @@
           companyOwnerPrincipal: function() {
             return true;
           },
+          companyBusinessStart: function() {
+            return '2005-05-01';
+          },
+          companyBusinessStructure: function() {
+            return 'Sole Proprietor';
+          },
+          companyNumberEmployees: function() {
+            return '2 -10 Employees';
+          },
           primaryIndustry: function() {
             return 'Home Electronics';
           },
@@ -2092,7 +2101,20 @@
         $scope.primaryIndustry      = svcDataPopulation.primaryIndustry();
 
         $scope.virtualType = function() {
+          $scope.companyBusinessStart     = svcDataPopulation.companyBusinessStart();
+          $scope.companyBusinessStructure = svcDataPopulation.companyBusinessStructure();
+          $scope.companyNumberEmployees   = svcDataPopulation.companyNumberEmployees();
+        }
 
+        $scope.inspectMailingCheckbox = function() {
+          console.log('Inside func inspectMailingCheckbox with checkbox flag: ' + $scope.checkMailingAddressCheckbox);
+
+          if ($scope.checkMailingAddressCheckbox) {
+            $scope.companyMailingAddress1 = $scope.companyAddress1;
+            $scope.companyMailingCity     = $scope.companyCity;
+            $scope.companyMailingState    = $scope.companyState;
+            $scope.companyMailingZip      = $scope.companyZip
+          };
         }
 
       }])

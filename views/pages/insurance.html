@@ -1,4 +1,8 @@
 <div class="page" ng-controller="InsuranceCtrl">
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Your uploaded document has been processed. Please verify your information
+  </div>
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Business Insurance</strong></div>
     <div class="panel-body">
@@ -8,10 +12,6 @@
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> General Liability</strong></div>
     <div class="panel-body">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Your uploaded document has been processed. Please verify your information
-      </div>
       <h4>General Liability Insurance*</h4>
       <label class="ui-radio"><input name="radio1" type="radio" value="yes"><span>Yes, my Provider Firm has this insurance and I agree to the certification set forth below. </span></label>
       <div class="form-group">
@@ -39,10 +39,6 @@
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Vehicle Liability</strong></div>
     <div class="panel-body">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Your uploaded document has been processed. Please verify your information
-      </div>
       <h4>Vehicle Liability Insurance*</h4>
       <label class="ui-radio"><input name="radio1" type="radio" value="yes"><span>Yes, my Provider Firm has this insurance and I agree to the certification set forth below. </span></label>
       <div class="form-group">
@@ -70,10 +66,6 @@
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Worker&#39;s Compensation Insurance</strong></div>
     <div class="panel-body">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Your uploaded document has been processed. Please verify your information
-      </div>
       <h4>Worker&#39;s Compensation Insurance*</h4>
       <label class="ui-radio"><input name="radio1" type="radio" value="yes"><span>Yes, my Provider Firm has this insurance and I agree to the certification set forth below. </span></label>
       <div class="form-group">
@@ -212,4 +204,5 @@
   </div>
 
 </script>
+<a type="button" class="btn btn-link pull-right">Save</a>
 </div>

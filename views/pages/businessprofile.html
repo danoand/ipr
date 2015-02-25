@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" ng-controller="BusinessProfileCtrl">
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Business Profile</strong></div>
     <div class="panel-body">
@@ -12,11 +12,11 @@
         <div class="form-group">
           <label class="col-sm-2">Business Name*</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyLegalName">
             <div class="help">Legal Name</div>
           </div>
           <div class="col-sm-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyName">
             <div class="help">DBA Name</div>
           </div>
         </div>
@@ -24,7 +24,8 @@
           <label class="col-sm-2">Primary Industry*</label>
           <div class="col-sm-5">
             <span class="ui-select">
-              <select>
+              <select ng-model="primaryIndustry">
+                <option>-Select Primary Industry-</option>
                 <option>Automotive</option>
                 <option>Cabinets &amp; Countertops</option>
                 <option>Carpentry &amp; Woodworking</option>
@@ -82,7 +83,7 @@
           <div class="col-sm-5">
             <span class="ui-select">
               <select>
-                <option value="-Employees-">-Employees-</option>
+                <option value="-Select Number of Employees-">-Employees-</option>
                 <option value="Sole Proprietor">Sole Proprietor</option>
                 <option value="2 -10 Employees">2 -10 Employees</option>
                 <option value="11-50 Employees">11-50 Employees</option>
@@ -98,7 +99,7 @@
         <div class="form-group">
           <label class="col-sm-2">Contact for Service Inquiries</label>
           <div class="col-sm-5">
-            <select class="form-control">
+            <select class="form-control" ng-model="companyInquiryMethod">
               <option>-- Select Method --</option>
               <option>Business Phone</option>
               <option>Mobile Phone</option>
@@ -117,7 +118,7 @@
         <div class="form-group">
           <label class="col-sm-2">Address*</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyAddress1">
             <div class="help">Address 1*</div>
           </div>
           <div class="col-sm-5">
@@ -128,13 +129,13 @@
         <div class="form-group">
           <label class="col-sm-2"></label>
           <div class="col-sm-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyCity">
             <div class="help">City*</div>
           </div>
           <div class="col-sm-3">
             <span class="ui-select">
-              <select>
-                <option>-- Select State --</option>
+              <select ng-model="companyState">
+                <option>-Select State-</option>
                 <option>AL - Alabama</option>
                 <option>AK - Alaska</option>
                 <option>AZ - Arizona</option>
@@ -190,7 +191,7 @@
             <div class="help">State*</div>
           </div>
           <div class="col-sm-2">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyZip">
             <div class="help">Zip*</div>
           </div>
         </div>
@@ -206,7 +207,7 @@
         <div class="form-group">
           <label class="col-sm-2">Address*</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyAddress1">
             <div class="help">Address 1*</div>
           </div>
           <div class="col-sm-5">
@@ -217,13 +218,13 @@
         <div class="form-group">
           <label class="col-sm-2"></label>
           <div class="col-sm-5">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="companyCity">
             <div class="help">City*</div>
           </div>
           <div class="col-sm-3">
             <span class="ui-select">
-              <select>
-                <option>-- Select State --</option>
+              <select ng-model="companyState">
+                <option>-Select State-</option>
                 <option>AL - Alabama</option>
                 <option>AK - Alaska</option>
                 <option>AZ - Arizona</option>
@@ -287,4 +288,8 @@
     </div>
   </section>
   <a href="/#/pages/insurance" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Insurance</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
 </div>

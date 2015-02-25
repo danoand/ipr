@@ -16,13 +16,22 @@
         <li>Contact information such as phone numbers and email address</li>
         <li>Details for the person will be the Administrator for your ServiceLive account. <span class="highlight">We assume that's you!</span></li>
         <li>Information on your business insurance. Scan and upload your insurance certificate and we can automatically populate some of your data!</li>
-        <li>Information for your first Pro.  If you're not going out and fulfilling on service, you'll need to <span class="highlight">enter at least one</span> Pro who will get a <span class="highlight">background check</span>.</li>
+        <li>Information for your first Pro.  If you're not going out and fulfilling on service, you'll need to enter at least one Pro who will get a background check.</li>
       </ul>
     </div>
   </section>
   <section class="panel panel-info">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-flash"></span> Jump In!</strong><div class="pull-right" ng-click="uploadStatusClick()" ng-bind-html="uploadStatusMarkup"></div></div>
+    <div class="panel-heading">
+      <strong><span class="glyphicon glyphicon-flash"></span> Jump In!</strong>
+      <div class="pull-right" ng-click="uploadStatusClick()" ng-bind-html="uploadStatusMarkup"></div>
+    </div>
     <div class="panel-body">
+      <div ng-show="uploadMessage">
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          Your document has been loaded and we have pre-populated some of your business information.  Please verify and make edits if needed.
+        </div>
+      </div>
       <h4>Get a Jumpstart by Uploading a Document</h4>
       <p>Scan or take a picture of your insurance certificate.  We'll process it and pre-populate some of your information.</p>
       <div>

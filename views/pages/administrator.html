@@ -44,7 +44,7 @@
                 <div class="form-group">
                   <label for="adMiddleName" class="col-sm-3 control-label">Middle Name</label>
                   <div class="col-sm-9">
-                    <input class="form-control" id="adMiddleName" type="text">
+                    <input class="form-control" id="adMiddleName" type="text" ng-model="companyMiddleName">
                   </div>
                 </div>
                 <div class="form-group">
@@ -88,7 +88,7 @@
         </div>
         <div class="form-group">
           <label class="col-sm-2" for="adJobTitle">Job Title</label>
-          <div class="col-sm-10"><input id="adJobTitle" type="text" class="form-control"></div>
+          <div class="col-sm-10"><input id="adJobTitle" type="text" class="form-control" ng-model="companyJobTitle"></div>
         </div>
       </form>
     </div>
@@ -104,7 +104,7 @@
           <dd>
             <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" disabled checked><span>ADMINISTRATOR</span></label>
             <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option2"><span>SERVICE PROVIDER</span></label>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>OWNER / PRINCIPLE</span></label>
+            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3" ng-model="companyOwnerPrincipal"><span>OWNER / PRINCIPAL</span></label>
             <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>DISPATCHER / SCHEDULER</span></label>
             <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>MANAGER</span></label>
             <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>SERVICE ASSISTANT</span></label>
@@ -125,4 +125,8 @@
     </div>
   </section>
   <a href="/#/pages/businessprofile" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Business Profile</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
 </div>

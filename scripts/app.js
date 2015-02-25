@@ -1658,6 +1658,15 @@
           companyZip: function() {
             return '60179';
           },
+          companyAddress1: function() {
+            return '230 S. Wacker Drove';
+          },
+          companyCity: function() {
+            return 'Chicago';
+          },
+          companyState: function() {
+            return 'IL - Illinois';
+          },
           companyPhone: function() {
             return '(312) 555-1212';
           },
@@ -1687,6 +1696,15 @@
           },
           companyInquiryMethod: function() {
             return 'Mobile Phone';
+          },
+          companyMiddleName: function() {
+            return 'James';
+          },
+          companyJobTitle: function() {
+            return 'Owner & General Manager';
+          },
+          companyOwnerPrincipal: function() {
+            return true;
           },
           primaryIndustry: function() {
             return 'Home Electronics';
@@ -1913,6 +1931,19 @@
           });
 
         };
+
+        $scope.openEnterAddress = function() {
+          var modalInstanceEnterAddress;
+
+          modalInstanceEnterAddress = $modal.open({
+            templateUrl: "myModalEnterAddress.html"
+          });
+
+        };
+
+        $scope.virtualType = function() {
+          $scope.clickLegalName();
+        };
       }])
       .controller("AccountCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
         $scope.companyPhone = svcDataPopulation.companyPhone();
@@ -1942,6 +1973,15 @@
 
           modelInstanceZipCode = $modal.open({
             templateUrl: "myModalZip.html"
+          });
+
+        };
+
+        $scope.openViewSPNs = function() {
+          var modalInstanceViewSPNs;
+
+          modalInstanceViewSPNs = $modal.open({
+            templateUrl: "myModalViewSPNs.html"
           });
 
         };
@@ -1989,24 +2029,29 @@
         $scope.companyName = svcDataPopulation.companyName();
         $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
         $scope.uploadStatusMarkup = $scope.uploadStatus.markup;
+        $scope.uploadMessage = false;
 
         $scope.uploadStatusClick = function() {
           switch ($scope.uploadStatus.sequence) {
             case 1:
               $scope.uploadStatus = svcDataPopulation.uploadStatusStarted();
               $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+              $scope.uploadMessage = false;
               break;
             case 2:
               $scope.uploadStatus = svcDataPopulation.uploadStatusCompleted();
               $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+              $scope.uploadMessage = true;
               break;
             case 3:
               $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
               $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+              $scope.uploadMessage = false;
               break
             default:
               $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
               $scope.uploadStatusMarkup = $scope.uploadStatus.markup
+              $scope.uploadMessage = false;
           }
         };
 
@@ -2024,10 +2069,31 @@
 
       }])
       .controller("AdministratorCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
-        $scope.companyUsername      = svcDataPopulation.companyUsername();
-        $scope.companyEmail         = svcDataPopulation.companyEmail();
+        $scope.companyUsername = svcDataPopulation.companyUsername();
+        $scope.companyEmail = svcDataPopulation.companyEmail();
         $scope.companyFullNameFirst = svcDataPopulation.companyFullNameFirst();
-        $scope.companyFullNameLast  = svcDataPopulation.companyFullNameLast();
+        $scope.companyFullNameLast = svcDataPopulation.companyFullNameLast();
+
+        $scope.virtualType = function() {
+          $scope.companyMiddleName      = svcDataPopulation.companyMiddleName();
+          $scope.companyJobTitle        = svcDataPopulation.companyJobTitle();
+          $scope.companyOwnerPrincipal  = svcDataPopulation.companyOwnerPrincipal();
+        }
+
+      }])
+      .controller("BusinessProfileCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+        $scope.companyAddress1      = svcDataPopulation.companyAddress1();
+        $scope.companyCity          = svcDataPopulation.companyCity();
+        $scope.companyZip           = svcDataPopulation.companyZip();
+        $scope.companyInquiryMethod = svcDataPopulation.companyInquiryMethod();
+        $scope.companyLegalName     = svcDataPopulation.companyLegalName();
+        $scope.companyName          = svcDataPopulation.companyName();
+        $scope.companyState         = svcDataPopulation.companyState();
+        $scope.primaryIndustry      = svcDataPopulation.primaryIndustry();
+
+        $scope.virtualType = function() {
+
+        }
 
       }])
   }.call(this);

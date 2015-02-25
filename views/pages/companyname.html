@@ -64,7 +64,6 @@
             <input class="form-control" placeholder="Legal Name" type="text" ng-model="companyLegalName">
           </div>
           <div class="divider"></div>
-          <button type="submit" class="btn btn-info btn-xs pull-right">SAVE</button>
         </div>
       </div>
     </div>
@@ -73,7 +72,15 @@
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Select Your Location</strong></div>
     <div class="panel-body">
       <p>We found these business locations for you.  Select one or enter your primary physical address.</p>
-      <p>I don't see my address. I'll enter one on my own. <button class="btn btn-info btn-xs">ENTER ADDRESS</button></p>
+      <p>I don't see my address. I'll enter one on my own. <button ng-click="openEnterAddress()" class="btn btn-info btn-xs">ENTER ADDRESS</button></p>
+      <script type="text/ng-template" id="myModalEnterAddress.html">
+        <div class="modal-header">
+            <h3>Enter Address</h3>
+        </div>
+        <div class="modal-body">
+          <p>Modal page to enable the user to enter an updated address.</p>
+        </div>
+      </script>
       <div class="row">
         <div class="col-sm-6">
           <div class="thumbnail">
@@ -85,12 +92,10 @@
                   <ul class="list-unstyled list-info">
                     <li>
                       <span class="icon glyphicon glyphicon-home"> </span>
-
                       230 S. Wacker Drive, STE#3301, Chicago IL 60606
                     </li>
                     <li>
                       <span class="icon glyphicon glyphicon-earphone"> </span>
-
                       312-555-1212
                     </li>
                   </ul>
@@ -152,6 +157,7 @@
     </div>
   </section>
   <a href="/#/pages/account" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Account</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>
   </div>

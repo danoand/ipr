@@ -1268,7 +1268,10 @@
   }.call(this),
   function() {
     "use strict";
-    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular", "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization", "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML"])
+    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular",
+    "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives",
+    "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization",
+    "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML", "app.dataTeamProgressBar"])
       .config(["$routeProvider", function($routeProvider) {
         return $routeProvider.when("/", {
             redirectTo: "/pages/signup"
@@ -1296,6 +1299,9 @@
           })
           .when("/pages/insurance", {
             templateUrl: "views/pages/insurance.html"
+          })
+          .when("/pages/team/general", {
+            templateUrl: "views/pages/general.html"
           })
           .when("/dashboard", {
             templateUrl: "views/dashboard.html"
@@ -1818,6 +1824,28 @@
       }])  }.call(this),
   function() {
     "use strict";
+    angular.module("app.dataTeamProgressBar", [])
+      .factory("svcTeamProgressBar", [function() {
+        var progBarValue   = '10';
+        var progBarStep    = '0';
+
+        return {
+          setProgBarValue: function(inValue) {
+            progBarValue = inValue;
+          },
+          setProgBarStep: function(inValue) {
+            progBarStep = inValue;
+          },
+          getProgBarValue: function(inValue) {
+            progBarValue = inValue;
+          },
+          getProgBarStep: function(inValue) {
+            progBarStep = inValue;
+          }
+        };
+      }])  }.call(this),
+  function() {
+    "use strict";
     angular.module("app.controllers", [])
       .controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
         return $scope.isSpecificPage = function() {
@@ -2189,4 +2217,22 @@
           $scope.getAdminIcon = svcDataHTML.getAdminIcon();
         });
       }])
+      .controller("TeamGeneralCtrl", ["$scope", "$rootScope", "svcDataHTML", function($scope, $rootScope, svcTeamProgressBar) {
+        $scope.progress      = {};
+        $scope.progress.now  = svcTeamProgressBar.getProgBarValue();
+        $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+
+        $rootScope.$on('evTechProgressBar', function(event, data) {
+          $scope.progress.now  = svcTeamProgressBar.getProgBarValue();
+          $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+        });
+
+
+        $scope.virtualType = function() {
+
+
+        }
+
+      }])
+
   }.call(this);

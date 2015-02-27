@@ -1,0 +1,139 @@
+<div class="page" ng-controller="TeamGeneralCtrl">
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Add a Technician</strong>
+    </div>
+    <div class="panel-body">
+      <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered.</p>
+      <p>Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
+      <h5>Your Progress</h5>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
+          {{ progress.step }} of 4 steps
+        </div>
+      </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Role in the Marketplace</strong>
+    </div>
+    <div class="panel-body">
+      <p>Will this person perform service on orders in the ServiceLive Marketplace?*</p>
+      <dl class="dl-horizontal">
+        <dd>
+          <label class="ui-radio">
+            <input name="radio1" type="radio" value="yes"><span>Yes</span>
+          </label>
+          <label class="ui-radio">
+            <input name="radio1" type="radio" value="no"><span>No</span>
+          </label>
+        </dd>
+      </dl>
+    </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Personal Information</strong></div>
+    <div class="panel-body">
+      <p>Please enter the personal information requested below.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <label for="techLegalFirstName">Legal First Name*</label>
+                  <input class="form-control" id="techLegalFirstName" type="text" ng-model="techFullNameFirst">
+                </div>
+                <div class="form-group">
+                  <label for="techLegalLastName">Legal Last Name*</label>
+                  <input class="form-control" id="techLegalLastName" type="text" ng-model="techFullNameLast">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form>
+                <div class="form-group col-md-12">
+                  <label for="techMiddleName">Middle Name</label>
+                  <input class="form-control" id="techMiddleName" type="text" ng-model="techMiddleName">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="techSuffix">Suffix</label>
+                  <input class="form-control" id="techSuffix" type="text" ng-model="techSuffix">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Role</strong></div>
+    <div class="panel-body">
+      <p>What is the Pro's role within your company? More than one role can be assigned to each person you register.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">Service Provider
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Dispatch Address</strong></div>
+    <div class="panel-body">
+      <p>The dispatch address helps determine the service pro's distance from the service location. It does not have to be the same as your business address. The more areas your service providers cover, the more orders you have the potential to receive.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">Use my business address as the Pro's dispatch address
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <label for="techLegalFirstName">Legal First Name*</label>
+                  <input class="form-control" id="techLegalFirstName" type="text" ng-model="techFullNameFirst">
+                </div>
+                <div class="form-group">
+                  <label for="techLegalLastName">Legal Last Name*</label>
+                  <input class="form-control" id="techLegalLastName" type="text" ng-model="techFullNameLast">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form>
+                <div class="form-group col-md-12">
+                  <label for="techMiddleName">Middle Name</label>
+                  <input class="form-control" id="techMiddleName" type="text" ng-model="techMiddleName">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="techSuffix">Suffix</label>
+                  <input class="form-control" id="techSuffix" type="text" ng-model="techSuffix">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
+  </div>

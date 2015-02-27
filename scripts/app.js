@@ -1268,7 +1268,7 @@
   }.call(this),
   function() {
     "use strict";
-    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular", "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization", "app.chart.ctrls", "app.chart.directives", "app.dataPopulation"])
+    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular", "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization", "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML"])
       .config(["$routeProvider", function($routeProvider) {
         return $routeProvider.when("/", {
             redirectTo: "/pages/signup"
@@ -1774,9 +1774,52 @@
   }.call(this),
   function() {
     "use strict";
+    angular.module("app.dataHTML", [])
+      .factory("svcDataHTML", [function() {
+        var navCompanyIcon = '<span></span>';
+        var navCompanyName = '<span></span>';
+        var navAdminIcon   = '<span></span>';
+        var navAdminName   = '<span></span>';
+
+        return {
+          htmlCompanyIcon:     '<i class="fa fa-building-o"></i>',
+          htmlCompanyName:     '<span data-i18n="Acme Plumbing Corporation LLC (#86175)">Acme Plumbing Corporation LLC (#86175)</span>',
+          htmlAdminIcon:       '<i class="fa fa-user"></i>',
+          htmlAdminName:       '<span data-i18n="Chris Plummer (#47639)">Chris Plummer (#47639)</span>',
+          htmlCompanyIconNull: '<span></span>',
+          htmlCompanyNameNull: '<span></span>',
+          htmlAdminIconNull:   '<span></span>',
+          htmlAdminNameNull:   '<span></span>',
+          setCompanyIcon: function(inHTML) {
+            navCompanyIcon = inHTML;
+          },
+          setCompanyName: function(inHTML) {
+            navCompanyName = inHTML;
+          },
+          setAdminIcon: function(inHTML) {
+            navAdminIcon = inHTML;
+          },
+          setAdminName: function(inHTML) {
+            navAdminName = inHTML;
+          },
+          getCompanyIcon: function() {
+            return navCompanyIcon;
+          },
+          getCompanyName: function() {
+            return navCompanyName;
+          },
+          getAdminIcon: function() {
+            return navAdminIcon;
+          },
+          getAdminName: function() {
+            return navAdminName;
+          }
+        };
+      }])  }.call(this),
+  function() {
+    "use strict";
     angular.module("app.controllers", [])
       .controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
-        console.log('Inside the AppCtrl controller');
         return $scope.isSpecificPage = function() {
           var path;
           return path = $location.path(), _.contains(["/404", "/pages/500", "/pages/login", "/pages/signin", "/pages/signin1", "/pages/signin2", "/pages/signup", "/pages/signup1", "/pages/signup2", "/pages/lock-screen"], path)
@@ -1786,7 +1829,6 @@
         }
       }])
       .controller("NavCtrl", ["$scope", "taskStorage", "filterFilter", function($scope, taskStorage, filterFilter) {
-        console.log('Inside the NavCtrl controller');
         var tasks;
         return tasks = $scope.tasks = taskStorage.get(), $scope.taskRemainingCount = filterFilter(tasks, {
             completed: !1
@@ -1796,7 +1838,6 @@
           })
       }])
       .controller("DashboardCtrl", ["$scope", function($scope) {
-        console.log('Inside the DashboardCtrl controller');
         return $scope.comboChartData = [
           ["Month", "Bolivia", "Ecuador", "Madagascar", "Papua New Guinea", "Rwanda", "Average"],
           ["2014/05", 165, 938, 522, 998, 450, 614.6],
@@ -1821,7 +1862,7 @@
           $scope.primaryIndustry = svcDataPopulation.primaryIndustry();
         }
       }])
-      .controller("CompanyNameCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+      .controller("CompanyNameCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
         // Initialize the company name
         $scope.companyDBAName = svcDataPopulation.companyName();
         // Initialize 'SELECT' button look & feel
@@ -1895,7 +1936,6 @@
 
         // Function to change a button to selected
         $scope.selectMe = function(inButtonID) {
-          console.log('Just inside the selectMe button with inButtonID: ' + inButtonID);
           switch (inButtonID) {
             case 1:
               helperSelectMe(1)
@@ -1953,8 +1993,17 @@
         $scope.virtualType = function() {
           $scope.clickLegalName();
         };
+
+        $scope.nextPage = function() {
+          svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+          svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+
+          $rootScope.$emit('evCompanyData');
+          $location.path("/pages/account");
+        }
       }])
-      .controller("AccountCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+      .controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
+
         $scope.companyPhone = svcDataPopulation.companyPhone();
 
         $scope.virtualType = function() {
@@ -1994,6 +2043,14 @@
           });
 
         };
+
+        $scope.nextPage = function() {
+          svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
+          svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
+
+          $rootScope.$emit('evAdminData');
+          $location.path("/pages/verify");
+        }
       }])
       .controller("InsuranceCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
 
@@ -2024,12 +2081,10 @@
         $scope.insAgencyState = svcDataPopulation.insAgencyState();
 
         $scope.ok = function() {
-          console.log('Inside the ok function');
           $modalInstance.close('Clicked Ok button');
         };
 
         $scope.cancel = function() {
-          console.log('Inside the cancel function');
           $modalInstance.dismiss('Clicked Cancel button');
         };
 
@@ -2107,7 +2162,6 @@
         }
 
         $scope.inspectMailingCheckbox = function() {
-          console.log('Inside func inspectMailingCheckbox with checkbox flag: ' + $scope.checkMailingAddressCheckbox);
 
           if ($scope.checkMailingAddressCheckbox) {
             $scope.companyMailingAddress1 = $scope.companyAddress1;
@@ -2117,5 +2171,22 @@
           };
         }
 
+      }])
+      .controller("NavBarCtrl", ["$scope", "$rootScope", "svcDataHTML", function($scope, $rootScope, svcDataHTML) {
+        $scope.getCompanyIcon = svcDataHTML.getCompanyIcon();
+        $scope.getCompanyName = svcDataHTML.getCompanyName();
+        $scope.getAdminIcon   = svcDataHTML.getAdminIcon();
+        $scope.getAdminName   = svcDataHTML.getAdminName();
+
+        $rootScope.$on('evCompanyData', function(event, data) {
+          $scope.getCompanyName = svcDataHTML.getCompanyName();
+          $scope.getCompanyIcon = svcDataHTML.getCompanyIcon();
+        });
+
+        $rootScope.$on('evAdminData', function(event, data) {
+          console.log('Just got the evAdminData event ' + svcDataHTML.getAdminName() + ' ' + svcDataHTML.getAdminIcon());
+          $scope.getAdminName = svcDataHTML.getAdminName();
+          $scope.getAdminIcon = svcDataHTML.getAdminIcon();
+        });
       }])
   }.call(this);

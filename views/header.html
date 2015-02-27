@@ -47,6 +47,16 @@
             </li>
         </ul>
 
+        <ul class="nav-right pull-right list-unstyled" ng-controller="NavBarCtrl">
+            <li class="text-normal nav-profile">
+              <span ng-bind-html="getCompanyIcon"></span>
+              <span ng-bind-html="getCompanyName"></span>
+              &nbsp;
+              <span ng-bind-html="getAdminIcon"></span>
+              <span ng-bind-html="getAdminName"></span>
+            </li>
+        </ul>
+
     </div>
 
 </header>

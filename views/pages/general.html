@@ -98,38 +98,45 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-9">
           <div class="panel panel-default">
             <div class="panel-body">
               <form>
                 <div class="form-group">
-                  <label for="techLegalFirstName">Legal First Name*</label>
-                  <input class="form-control" id="techLegalFirstName" type="text" ng-model="techFullNameFirst">
+                  <label for="techAddress1">Address 1*</label>
+                  <input class="form-control" id="techAddress1" type="text" ng-model="techAddress1">
                 </div>
                 <div class="form-group">
-                  <label for="techLegalLastName">Legal Last Name*</label>
-                  <input class="form-control" id="techLegalLastName" type="text" ng-model="techFullNameLast">
+                  <label for="techAddress2">Address 2</label>
+                  <input class="form-control" id="techAddress2" type="text" ng-model="techAddress2">
                 </div>
-              </form>
+                <div class="form-group">
+                  <label for="coPassword">City &amp; State</label>
+                    <div class="form-inline">
+                      <input type="text" class="form-control" placeholder="City"/>
+                      <input type="text" class="form-control" placeholder="Zip"/>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <form>
-                <div class="form-group col-md-12">
-                  <label for="techMiddleName">Middle Name</label>
-                  <input class="form-control" id="techMiddleName" type="text" ng-model="techMiddleName">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="techSuffix">Suffix</label>
-                  <input class="form-control" id="techSuffix" type="text" ng-model="techSuffix">
-                </div>
-              </form>
+          <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <form>
+                  <div class="form-group col-md-12">
+                    <label for="techMiddleName">Middle Name</label>
+                    <input class="form-control" id="techMiddleName" type="text" ng-model="techMiddleName">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="techSuffix">Suffix</label>
+                    <input class="form-control" id="techSuffix" type="text" ng-model="techSuffix">
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </section>

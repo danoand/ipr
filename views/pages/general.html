@@ -11,6 +11,7 @@
           {{ progress.step }} of 4 steps
         </div>
       </div>
+    </div>
   </section>
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Role in the Marketplace</strong>
@@ -30,47 +31,47 @@
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Personal Information</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Personal Information</strong>
+    </div>
     <div class="panel-body">
       <p>Please enter the personal information requested below.</p>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <form>
+              <form role="form" class="form-horizontal">
                 <div class="form-group">
-                  <label for="techLegalFirstName">Legal First Name*</label>
-                  <input class="form-control" id="techLegalFirstName" type="text" ng-model="techFullNameFirst">
+                  <label class="col-md-12">Legal Name*</label>
+                  <div class="col-md-7">
+                    <input class="form-control" type="text" id="techLegalNameFirst" ng-model="techLegalNameFirst">
+                    <div class="help">First Name*</div>
+                  </div>
+                  <div class="col-md-5">
+                    <input class="form-control" type="text" id="techLegalNameMiddle" ng-model="techLegalNameMiddle">
+                    <div class="help">Middle Name</div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="techLegalLastName">Legal Last Name*</label>
-                  <input class="form-control" id="techLegalLastName" type="text" ng-model="techFullNameLast">
+                  <label class="col-md-12"></label>
+                  <div class="col-md-7">
+                    <input class="form-control" type="text" id="techLegalNameLast" ng-model="techLegalNameLast">
+                    <div class="help">Last Name*</div>
+                  </div>
+                  <div class="col-md-2">
+                    <input class="form-control" type="text" id="techLegalNameSuffix" ng-model="techLegalNameSuffix">
+                    <div class="help">Suffix</div>
+                  </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <form>
-                <div class="form-group col-md-12">
-                  <label for="techMiddleName">Middle Name</label>
-                  <input class="form-control" id="techMiddleName" type="text" ng-model="techMiddleName">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="techSuffix">Suffix</label>
-                  <input class="form-control" id="techSuffix" type="text" ng-model="techSuffix">
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Role</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Role</strong>
+    </div>
     <div class="panel-body">
       <p>What is the Pro's role within your company? More than one role can be assigned to each person you register.</p>
       <div class="row">
@@ -85,62 +86,150 @@
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Dispatch Address</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Dispatch Address</strong>
+    </div>
     <div class="panel-body">
       <p>The dispatch address helps determine the service pro's distance from the service location. It does not have to be the same as your business address. The more areas your service providers cover, the more orders you have the potential to receive.</p>
       <div class="row">
         <div class="col-md-12">
           <div class="checkbox">
             <label>
-              <input type="checkbox">Use my business address as the Pro's dispatch address
+              <input type="checkbox" ng-change="inspectDispatchCheckbox()" ng-model="checkMailingAddressCheckbox">Use my business address as the Pro's dispatch address
             </label>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <form>
+              <form role="form" class="form-horizontal">
                 <div class="form-group">
-                  <label for="techAddress1">Address 1*</label>
-                  <input class="form-control" id="techAddress1" type="text" ng-model="techAddress1">
+                  <label class="col-md-12">Address 1*</label>
+                  <div class="col-md-10">
+                    <input class="form-control" type="text" id="techAddress1" ng-model="techAddress1">
+                    <div class="help">Street &amp; Number</div>
+                  </div>
+                  <div class="col-md-2">
+                    <input class="form-control" type="text">
+                    <div class="help">Apt.</div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="techAddress2">Address 2</label>
-                  <input class="form-control" id="techAddress2" type="text" ng-model="techAddress2">
+                  <label class="col-md-12" for="techAddress2">Address 2</label>
+                  <div class="col-md-10">
+                    <input class="form-control" type="text" id="techAddress2" ng-model="techAddress2">
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="coPassword">City &amp; State</label>
-                    <div class="form-inline">
-                      <input type="text" class="form-control" placeholder="City"/>
-                      <input type="text" class="form-control" placeholder="Zip"/>
-                    </div>
+                  <label class="col-md-12">Location*</label>
+                  <div class="col-md-3">
+                    <input class="form-control" type="text" ng-model="techCity">
+                    <div class="help">City</div>
                   </div>
-                </form>
-              </div>
+                  <div class="col-md-3">
+                    <span class="ui-select">
+                      <select ng-model="techState">
+                        <option>-Select State-</option>
+                        <option>AL - Alabama</option>
+                        <option>AK - Alaska</option>
+                        <option>AZ - Arizona</option>
+                        <option>AR - Arkansas</option>
+                        <option>CA - California</option>
+                        <option>CO - Colorado</option>
+                        <option>CT - Connecticut</option>
+                        <option>DE - Delaware</option>
+                        <option>FL - Florida</option>
+                        <option>GA - Georgia</option>
+                        <option>HI - Hawaii</option>
+                        <option>ID - Idaho</option>
+                        <option>IL - Illinois</option>
+                        <option>IN - Indiana</option>
+                        <option>IA - Iowa</option>
+                        <option>KS - Kansas</option>
+                        <option>KY - Kentucky</option>
+                        <option>LA - Louisiana</option>
+                        <option>ME - Maine</option>
+                        <option>MD - Maryland</option>
+                        <option>MA - Massachusetts</option>
+                        <option>MI - Michigan</option>
+                        <option>MN - Minnesota</option>
+                        <option>MS - Mississippi</option>
+                        <option>MO - Missouri</option>
+                        <option>MT - Montana</option>
+                        <option>NE - Nebraska</option>
+                        <option>NV - Nevada</option>
+                        <option>NH - New Hampshire</option>
+                        <option>NJ - New Jersey</option>
+                        <option>NM - New Mexico</option>
+                        <option>NY - New York</option>
+                        <option>NC - North Carolina</option>
+                        <option>ND - North Dakota</option>
+                        <option>OH - Ohio</option>
+                        <option>OK - Oklahoma</option>
+                        <option>OR - Oregon</option>
+                        <option>PA - Pennsylvania</option>
+                        <option>RI - Rhode Island</option>
+                        <option>SC - South Carolina</option>
+                        <option>SD - South Dakota</option>
+                        <option>TN - Tennessee</option>
+                        <option>TX - Texas</option>
+                        <option>UT - Utah</option>
+                        <option>VT - Vermont</option>
+                        <option>VA - Virginia[G]</option>
+                        <option>WA - Washington</option>
+                        <option>WV - West Virginia</option>
+                        <option>WI - Wisconsin</option>
+                        <option>WY - Wyoming</option>
+                    </select>
+                    </span>
+                    <div class="help">State</div>
+                  </div>
+                  <div class="col-md-2">
+                    <input class="form-control" type="text" ng-model="techZip">
+                    <div class="help">Zip</div>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label class="col-md-12">Geographical Range*</label>
+                  <span class="ui-select">
+                    <select ng-model="companyState">
+                      <option>-Select One-</option>
+                        <option>10 miles or less</option>
+                        <option>25 miles or less</option>
+                        <option>50 miles or less</option>
+                        <option>100 miles or less</option>
+                        <option>200 miles or less</option>
+                    </select>
+                  </span>
+                </div>
+              </form>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <form>
-                  <div class="form-group col-md-12">
-                    <label for="techMiddleName">Middle Name</label>
-                    <input class="form-control" id="techMiddleName" type="text" ng-model="techMiddleName">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="techSuffix">Suffix</label>
-                    <input class="form-control" id="techSuffix" type="text" ng-model="techSuffix">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+        </div>
       </div>
+    </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Role in the Marketplace</strong>
+    </div>
+    <div class="panel-body">
+      <p>If this Pro is going to access the ServiceLive Platform including the Provider mobile app, please create a login user below.</p>
+      <p>Create a login for this Pro?</p>
+      <dl class="dl-horizontal">
+        <dd>
+          <label class="ui-radio">
+            <input name="radio1" type="radio" value="yes"><span>Yes</span>
+          </label>
+          <label class="ui-radio">
+            <input name="radio1" type="radio" value="no"><span>No</span>
+          </label>
+        </dd>
+      </dl>
     </div>
   </section>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>
   </div>
-  </div>
+</div>

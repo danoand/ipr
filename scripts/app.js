@@ -1269,9 +1269,10 @@
   function() {
     "use strict";
     angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular",
-    "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives",
-    "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization",
-    "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML", "app.dataTeamProgressBar"])
+        "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives",
+        "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization",
+        "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML", "app.dataTeamProgressBar"
+      ])
       .config(["$routeProvider", function($routeProvider) {
         return $routeProvider.when("/", {
             redirectTo: "/pages/signup"
@@ -1784,18 +1785,18 @@
       .factory("svcDataHTML", [function() {
         var navCompanyIcon = '<span></span>';
         var navCompanyName = '<span></span>';
-        var navAdminIcon   = '<span></span>';
-        var navAdminName   = '<span></span>';
+        var navAdminIcon = '<span></span>';
+        var navAdminName = '<span></span>';
 
         return {
-          htmlCompanyIcon:     '<i class="fa fa-building-o"></i>',
-          htmlCompanyName:     '<span data-i18n="Acme Plumbing Corporation LLC (#86175)">Acme Plumbing Corporation LLC (#86175)</span>',
-          htmlAdminIcon:       '<i class="fa fa-user"></i>',
-          htmlAdminName:       '<span data-i18n="Chris Plummer (#47639)">Chris Plummer (#47639)</span>',
+          htmlCompanyIcon: '<i class="fa fa-building-o"></i>',
+          htmlCompanyName: '<span data-i18n="Acme Plumbing Corporation LLC (#86175)">Acme Plumbing Corporation LLC (#86175)</span>',
+          htmlAdminIcon: '<i class="fa fa-user"></i>',
+          htmlAdminName: '<span data-i18n="Chris Plummer (#47639)">Chris Plummer (#47639)</span>',
           htmlCompanyIconNull: '<span></span>',
           htmlCompanyNameNull: '<span></span>',
-          htmlAdminIconNull:   '<span></span>',
-          htmlAdminNameNull:   '<span></span>',
+          htmlAdminIconNull: '<span></span>',
+          htmlAdminNameNull: '<span></span>',
           setCompanyIcon: function(inHTML) {
             navCompanyIcon = inHTML;
           },
@@ -1821,13 +1822,14 @@
             return navAdminName;
           }
         };
-      }])  }.call(this),
+      }])
+  }.call(this),
   function() {
     "use strict";
     angular.module("app.dataTeamProgressBar", [])
       .factory("svcTeamProgressBar", [function() {
-        var progBarValue   = '10';
-        var progBarStep    = '0';
+        var progBarValue = '7';
+        var progBarStep = '0';
 
         return {
           setProgBarValue: function(inValue) {
@@ -1836,14 +1838,15 @@
           setProgBarStep: function(inValue) {
             progBarStep = inValue;
           },
-          getProgBarValue: function(inValue) {
-            progBarValue = inValue;
+          getProgBarValue: function() {
+            return progBarValue;
           },
-          getProgBarStep: function(inValue) {
-            progBarStep = inValue;
+          getProgBarStep: function() {
+            return progBarStep;
           }
         };
-      }])  }.call(this),
+      }])
+  }.call(this),
   function() {
     "use strict";
     angular.module("app.controllers", [])
@@ -2167,44 +2170,44 @@
         $scope.companyFullNameLast = svcDataPopulation.companyFullNameLast();
 
         $scope.virtualType = function() {
-          $scope.companyMiddleName      = svcDataPopulation.companyMiddleName();
-          $scope.companyJobTitle        = svcDataPopulation.companyJobTitle();
-          $scope.companyOwnerPrincipal  = svcDataPopulation.companyOwnerPrincipal();
+          $scope.companyMiddleName = svcDataPopulation.companyMiddleName();
+          $scope.companyJobTitle = svcDataPopulation.companyJobTitle();
+          $scope.companyOwnerPrincipal = svcDataPopulation.companyOwnerPrincipal();
         }
 
       }])
       .controller("BusinessProfileCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
-        $scope.companyAddress1      = svcDataPopulation.companyAddress1();
-        $scope.companyCity          = svcDataPopulation.companyCity();
-        $scope.companyZip           = svcDataPopulation.companyZip();
+        $scope.companyAddress1 = svcDataPopulation.companyAddress1();
+        $scope.companyCity = svcDataPopulation.companyCity();
+        $scope.companyZip = svcDataPopulation.companyZip();
         $scope.companyInquiryMethod = svcDataPopulation.companyInquiryMethod();
-        $scope.companyLegalName     = svcDataPopulation.companyLegalName();
-        $scope.companyName          = svcDataPopulation.companyName();
-        $scope.companyState         = svcDataPopulation.companyState();
-        $scope.primaryIndustry      = svcDataPopulation.primaryIndustry();
+        $scope.companyLegalName = svcDataPopulation.companyLegalName();
+        $scope.companyName = svcDataPopulation.companyName();
+        $scope.companyState = svcDataPopulation.companyState();
+        $scope.primaryIndustry = svcDataPopulation.primaryIndustry();
 
         $scope.virtualType = function() {
-          $scope.companyBusinessStart     = svcDataPopulation.companyBusinessStart();
+          $scope.companyBusinessStart = svcDataPopulation.companyBusinessStart();
           $scope.companyBusinessStructure = svcDataPopulation.companyBusinessStructure();
-          $scope.companyNumberEmployees   = svcDataPopulation.companyNumberEmployees();
-        }
+          $scope.companyNumberEmployees = svcDataPopulation.companyNumberEmployees();
+        };
 
         $scope.inspectMailingCheckbox = function() {
 
           if ($scope.checkMailingAddressCheckbox) {
             $scope.companyMailingAddress1 = $scope.companyAddress1;
-            $scope.companyMailingCity     = $scope.companyCity;
-            $scope.companyMailingState    = $scope.companyState;
-            $scope.companyMailingZip      = $scope.companyZip
+            $scope.companyMailingCity = $scope.companyCity;
+            $scope.companyMailingState = $scope.companyState;
+            $scope.companyMailingZip = $scope.companyZip
           };
-        }
+        };
 
       }])
       .controller("NavBarCtrl", ["$scope", "$rootScope", "svcDataHTML", function($scope, $rootScope, svcDataHTML) {
         $scope.getCompanyIcon = svcDataHTML.getCompanyIcon();
         $scope.getCompanyName = svcDataHTML.getCompanyName();
-        $scope.getAdminIcon   = svcDataHTML.getAdminIcon();
-        $scope.getAdminName   = svcDataHTML.getAdminName();
+        $scope.getAdminIcon = svcDataHTML.getAdminIcon();
+        $scope.getAdminName = svcDataHTML.getAdminName();
 
         $rootScope.$on('evCompanyData', function(event, data) {
           $scope.getCompanyName = svcDataHTML.getCompanyName();
@@ -2217,16 +2220,27 @@
           $scope.getAdminIcon = svcDataHTML.getAdminIcon();
         });
       }])
-      .controller("TeamGeneralCtrl", ["$scope", "$rootScope", "svcDataHTML", function($scope, $rootScope, svcTeamProgressBar) {
-        $scope.progress      = {};
-        $scope.progress.now  = svcTeamProgressBar.getProgBarValue();
+      .controller("TeamGeneralCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcTeamProgressBar", function($scope,
+        $rootScope, svcDataPopulation, svcTeamProgressBar) {
+        $scope.progress = {};
+        $scope.progress.now = svcTeamProgressBar.getProgBarValue();
         $scope.progress.step = svcTeamProgressBar.getProgBarStep();
 
         $rootScope.$on('evTechProgressBar', function(event, data) {
-          $scope.progress.now  = svcTeamProgressBar.getProgBarValue();
+          $scope.progress.now = svcTeamProgressBar.getProgBarValue();
           $scope.progress.step = svcTeamProgressBar.getProgBarStep();
         });
 
+        $scope.inspectDispatchCheckbox = function() {
+
+          if ($scope.checkMailingAddressCheckbox) {
+            $scope.techAddress1 = svcDataPopulation.companyAddress1();
+            $scope.techAddress2 = "";
+            $scope.techCity     = svcDataPopulation.companyCity();
+            $scope.techState    = svcDataPopulation.companyState();
+            $scope.techZip      = svcDataPopulation.companyZip();
+          };
+        };
 
         $scope.virtualType = function() {
 

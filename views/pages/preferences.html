@@ -1,0 +1,115 @@
+<div class="page" ng-controller="TeamPreferencesCtrl">
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Marketplace Preferences</strong>
+    </div>
+    <div class="panel-body">
+      <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered.</p>
+      <p>Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
+      <h5>Your Progress</h5>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
+          {{ progress.step }} of 4 steps
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> User Permissions</strong>
+    </div>
+    <div class="panel-body">
+      <p>Check all permissions that apply. Service Pro accounts can have other permissions. You can view other permissions after completing your registration.</p>
+      <div class="col-md-12">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="techPermissionViewOrderPricing">View Order Pricing
+          </label>
+        </div>
+      </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Communication Preferences</strong>
+    </div>
+    <div class="panel-body">
+      <p>Please enter the Pro's contact information. All Pros must have at least two ways by which they can be contacted.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form role="form" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-md-12">Phone*</label>
+                  <div class="col-md-3">
+                    <input class="form-control" type="text" id="techBusinessPhone" ng-model="techBusinessPhone">
+                    <div class="help">Business Phone*</div>
+                  </div>
+                  <div class="col-md-2">
+                    <input class="form-control" type="text" id="techBusinessPhoneExtension" ng-model="techBusinessPhoneExtension">
+                    <div class="help">Extension</div>
+                  </div>
+                  <div class="col-md-3">
+                    <input class="form-control" type="text" id="techMobilePhone" ng-model="techMobilePhone">
+                    <div class="help">Mobile Phone*</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12">Primary Email*</label>
+                  <div class="col-md-6">
+                    <input class="form-control" type="email" id="techPrimaryEmail1" ng-model="techPrimaryEmailConfirm1">
+                    <div class="help">Email Address*</div>
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control" type="email" id="techPrimaryEmail2" ng-model="techPrimaryEmailConfirm2">
+                    <div class="help">Confirm Email Address*</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12">Alternate Email*</label>
+                  <div class="col-md-6">
+                    <input class="form-control" type="email" id="techAlternateEmail1" ng-model="techAlternateEmailConfirm1">
+                    <div class="help">Alternate Email Address*</div>
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control" type="email" id="techAlternateEmail2" ng-model="techAlternateEmailConfirm2">
+                    <div class="help">Confirm Alternate Email Address*</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12">SMS</label>
+                  <div class="col-md-6">
+                    <input class="form-control" type="email" id="techSMSAddress1" ng-model="techSMSAddressConfirm1">
+                    <div class="help">SMS Address</div>
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control" type="email" id="techSMSAddress2" ng-model="techSMSAddressConfirm2">
+                    <div class="help">Confirm SMS Address*</div>
+                  </div>
+                </div>
+                <p><small>Text messages are sent whenever you receive a posted Service Order from ServiceLive buyers. Frequency of text messages varies based on the number of Service Orders received. Message and data rates may apply. Must be at least 18 years old to participate.</small>
+                </p>
+                <p><small>To get help by text message, text HELP or contact ServiceLive support. To stop receiving service orders by text message, text STOP or change your Secondary Contact Method preference below.</small>
+                </p>
+                <p>Service orders will be sent to the primary email address listed above.  If you would like service orders to be sent via an alternative method, please select from the list below.</p>
+                <div class="form-group">
+                  <label class="col-md-12">Secondary Contact Method</label>
+                  <span class="ui-select">
+                    <select ng-model="techSecondaryContactMethod">
+                      <option>-Select One-</option>
+                        <option>Primary Email Address</option>
+                        <option>Alternate Email Address</option>
+                        <option>SMS Address</option>
+                    </select>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a href="/#/pages/team/skills" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Skills &amp; Services</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
+  </div>

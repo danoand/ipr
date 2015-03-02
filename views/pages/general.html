@@ -21,10 +21,10 @@
       <dl class="dl-horizontal">
         <dd>
           <label class="ui-radio">
-            <input name="radio1" type="radio" value="yes"><span>Yes</span>
+            <input name="radio1" type="radio" ng-model="techPerformService" value="yes"><span>Yes</span>
           </label>
           <label class="ui-radio">
-            <input name="radio1" type="radio" value="no"><span>No</span>
+            <input name="radio1" type="radio" ng-model="techPerformService" value="no"><span>No</span>
           </label>
         </dd>
       </dl>
@@ -78,7 +78,7 @@
         <div class="col-md-12">
           <div class="checkbox">
             <label>
-              <input type="checkbox">Service Provider
+              <input type="checkbox" ng-model="techServiceProviderRole">Service Provider
             </label>
           </div>
         </div>
@@ -194,7 +194,7 @@
                 <div class="form-group">
                   <label class="col-md-12">Geographical Range*</label>
                   <span class="ui-select">
-                    <select ng-model="companyState">
+                    <select ng-model="techServiceRange">
                       <option>-Select One-</option>
                         <option>10 miles or less</option>
                         <option>25 miles or less</option>
@@ -220,15 +220,24 @@
       <dl class="dl-horizontal">
         <dd>
           <label class="ui-radio">
-            <input name="radio1" type="radio" value="yes"><span>Yes</span>
+            <input name="radio1" type="radio" value="yes" ng-change="changeCreateUserAccount()" ng-model="techCreateUser"><span>Yes</span>
           </label>
           <label class="ui-radio">
-            <input name="radio1" type="radio" value="no"><span>No</span>
+            <input name="radio1" type="radio" value="no" ng-change="changeCreateUserAccount()" ng-model="techCreateUser"><span>No</span>
           </label>
         </dd>
       </dl>
+      <div ng-show="showTechUsernameField" class="form-group">
+        <label class="col-md-12">Username*</label>
+        <div class="col-md-3">
+          <input class="form-control" type="text" id="techUsername" ng-model="techUsername">
+          <div class="help">Enter a username for this account</div>
+        </div>
+      </div>
     </div>
   </section>
+  <a type="button" ng-click="nextPage()" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Preferences</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>
   </div>

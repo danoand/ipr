@@ -1,528 +1,540 @@
 (function() {
   "use strict";
   angular.module("app.chart.ctrls", [])
-    .controller("chartCtrl", ["$scope", function($scope) {
-      return $scope.easypiechart = {
-        percent: 65,
-        options: {
-          animate: {
-            duration: 1e3,
-            enabled: !0
+    .controller("chartCtrl", ["$scope",
+      function($scope) {
+        return $scope.easypiechart = {
+          percent: 65,
+          options: {
+            animate: {
+              duration: 1e3,
+              enabled: !0
+            },
+            barColor: "#1C7EBB",
+            lineCap: "round",
+            size: 180,
+            lineWidth: 5
+          }
+        }, $scope.easypiechart2 = {
+          percent: 35,
+          options: {
+            animate: {
+              duration: 1e3,
+              enabled: !0
+            },
+            barColor: "#23AE89",
+            lineCap: "round",
+            size: 180,
+            lineWidth: 10
+          }
+        }, $scope.easypiechart3 = {
+          percent: 68,
+          options: {
+            animate: {
+              duration: 1e3,
+              enabled: !0
+            },
+            barColor: "#2EC1CC",
+            lineCap: "square",
+            size: 180,
+            lineWidth: 20,
+            scaleLength: 0
+          }
+        }, $scope.gaugeChart1 = {
+          data: {
+            maxValue: 3e3,
+            animationSpeed: 40,
+            val: 1375
           },
-          barColor: "#1C7EBB",
-          lineCap: "round",
-          size: 180,
-          lineWidth: 5
-        }
-      }, $scope.easypiechart2 = {
-        percent: 35,
-        options: {
-          animate: {
-            duration: 1e3,
-            enabled: !0
+          options: {
+            lines: 12,
+            angle: 0,
+            lineWidth: .47,
+            pointer: {
+              length: .6,
+              strokeWidth: .03,
+              color: "#000000"
+            },
+            limitMax: "false",
+            colorStart: "#A3C86D",
+            colorStop: "#A3C86D",
+            strokeColor: "#E0E0E0",
+            generateGradient: !0,
+            percentColors: [
+              [0, "#A3C86D"],
+              [1, "#A3C86D"]
+            ]
+          }
+        }, $scope.gaugeChart2 = {
+          data: {
+            maxValue: 3e3,
+            animationSpeed: 45,
+            val: 1200
           },
-          barColor: "#23AE89",
-          lineCap: "round",
-          size: 180,
-          lineWidth: 10
-        }
-      }, $scope.easypiechart3 = {
-        percent: 68,
-        options: {
-          animate: {
-            duration: 1e3,
-            enabled: !0
+          options: {
+            lines: 12,
+            angle: 0,
+            lineWidth: .47,
+            pointer: {
+              length: .6,
+              strokeWidth: .03,
+              color: "#464646"
+            },
+            limitMax: "true",
+            colorStart: "#7ACBEE",
+            colorStop: "#7ACBEE",
+            strokeColor: "#F1F1F1",
+            generateGradient: !0,
+            percentColors: [
+              [0, "#7ACBEE"],
+              [1, "#7ACBEE"]
+            ]
+          }
+        }, $scope.gaugeChart3 = {
+          data: {
+            maxValue: 3e3,
+            animationSpeed: 50,
+            val: 1100
           },
-          barColor: "#2EC1CC",
-          lineCap: "square",
-          size: 180,
-          lineWidth: 20,
-          scaleLength: 0
-        }
-      }, $scope.gaugeChart1 = {
-        data: {
-          maxValue: 3e3,
-          animationSpeed: 40,
-          val: 1375
-        },
-        options: {
-          lines: 12,
-          angle: 0,
-          lineWidth: .47,
-          pointer: {
-            length: .6,
-            strokeWidth: .03,
-            color: "#000000"
-          },
-          limitMax: "false",
-          colorStart: "#A3C86D",
-          colorStop: "#A3C86D",
-          strokeColor: "#E0E0E0",
-          generateGradient: !0,
-          percentColors: [
-            [0, "#A3C86D"],
-            [1, "#A3C86D"]
-          ]
-        }
-      }, $scope.gaugeChart2 = {
-        data: {
-          maxValue: 3e3,
-          animationSpeed: 45,
-          val: 1200
-        },
-        options: {
-          lines: 12,
-          angle: 0,
-          lineWidth: .47,
-          pointer: {
-            length: .6,
-            strokeWidth: .03,
-            color: "#464646"
-          },
-          limitMax: "true",
-          colorStart: "#7ACBEE",
-          colorStop: "#7ACBEE",
-          strokeColor: "#F1F1F1",
-          generateGradient: !0,
-          percentColors: [
-            [0, "#7ACBEE"],
-            [1, "#7ACBEE"]
-          ]
-        }
-      }, $scope.gaugeChart3 = {
-        data: {
-          maxValue: 3e3,
-          animationSpeed: 50,
-          val: 1100
-        },
-        options: {
-          lines: 12,
-          angle: 0,
-          lineWidth: .47,
-          pointer: {
-            length: .6,
-            strokeWidth: .03,
-            color: "#464646"
-          },
-          limitMax: "true",
-          colorStart: "#FF7857",
-          colorStop: "#FF7857",
-          strokeColor: "#F1F1F1",
-          generateGradient: !0,
-          percentColors: [
-            [0, "#FF7857"],
-            [1, "#FF7857"]
-          ]
+          options: {
+            lines: 12,
+            angle: 0,
+            lineWidth: .47,
+            pointer: {
+              length: .6,
+              strokeWidth: .03,
+              color: "#464646"
+            },
+            limitMax: "true",
+            colorStart: "#FF7857",
+            colorStop: "#FF7857",
+            strokeColor: "#F1F1F1",
+            generateGradient: !0,
+            percentColors: [
+              [0, "#FF7857"],
+              [1, "#FF7857"]
+            ]
+          }
         }
       }
-    }])
-    .controller("morrisChartCtrl", ["$scope", function($scope) {
-      return $scope.mainData = [{
-        month: "2013-01",
-        xbox: 294e3,
-        will: 136e3,
-        playstation: 244e3
-      }, {
-        month: "2013-02",
-        xbox: 228e3,
-        will: 335e3,
-        playstation: 127e3
-      }, {
-        month: "2013-03",
-        xbox: 199e3,
-        will: 159e3,
-        playstation: 13e4
-      }, {
-        month: "2013-04",
-        xbox: 174e3,
-        will: 16e4,
-        playstation: 82e3
-      }, {
-        month: "2013-05",
-        xbox: 255e3,
-        will: 318e3,
-        playstation: 82e3
-      }, {
-        month: "2013-06",
-        xbox: 298400,
-        will: 401800,
-        playstation: 98600
-      }, {
-        month: "2013-07",
-        xbox: 37e4,
-        will: 225e3,
-        playstation: 159e3
-      }, {
-        month: "2013-08",
-        xbox: 376700,
-        will: 303600,
-        playstation: 13e4
-      }, {
-        month: "2013-09",
-        xbox: 527800,
-        will: 301e3,
-        playstation: 119400
-      }], $scope.simpleData = [{
-        year: "2008",
-        value: 20
-      }, {
-        year: "2009",
-        value: 10
-      }, {
-        year: "2010",
-        value: 5
-      }, {
-        year: "2011",
-        value: 5
-      }, {
-        year: "2012",
-        value: 20
-      }, {
-        year: "2013",
-        value: 19
-      }], $scope.comboData = [{
-        year: "2008",
-        a: 20,
-        b: 16,
-        c: 12
-      }, {
-        year: "2009",
-        a: 10,
-        b: 22,
-        c: 30
-      }, {
-        year: "2010",
-        a: 5,
-        b: 14,
-        c: 20
-      }, {
-        year: "2011",
-        a: 5,
-        b: 12,
-        c: 19
-      }, {
-        year: "2012",
-        a: 20,
-        b: 19,
-        c: 13
-      }, {
-        year: "2013",
-        a: 28,
-        b: 22,
-        c: 20
-      }], $scope.donutData = [{
-        label: "Download Sales",
-        value: 12
-      }, {
-        label: "In-Store Sales",
-        value: 30
-      }, {
-        label: "Mail-Order Sales",
-        value: 20
-      }, {
-        label: "Online Sales",
-        value: 19
-      }]
-    }])
-    .controller("flotChartCtrl", ["$scope", function($scope) {
-      var areaChart, barChart;
-      return areaChart = {}, areaChart.data1 = [
-        [2007, 15],
-        [2008, 20],
-        [2009, 10],
-        [2010, 5],
-        [2011, 5],
-        [2012, 20],
-        [2013, 28]
-      ], areaChart.data2 = [
-        [2007, 15],
-        [2008, 16],
-        [2009, 22],
-        [2010, 14],
-        [2011, 12],
-        [2012, 19],
-        [2013, 22]
-      ], $scope.area = {}, $scope.area.data = [{
-        data: areaChart.data1,
-        label: "Value A",
-        lines: {
-          fill: !0
-        }
-      }, {
-        data: areaChart.data2,
-        label: "Value B",
-        points: {
-          show: !0
-        },
-        yaxis: 2
-      }], $scope.area.options = {
-        series: {
-          lines: {
-            show: !0,
-            fill: !1
-          },
-          points: {
-            show: !0,
-            lineWidth: 2,
-            fill: !0,
-            fillColor: "#ffffff",
-            symbol: "circle",
-            radius: 5
-          },
-          shadowSize: 0
-        },
-        grid: {
-          hoverable: !0,
-          clickable: !0,
-          tickColor: "#f9f9f9",
-          borderWidth: 1,
-          borderColor: "#eeeeee"
-        },
-        colors: ["#23AE89", "#6A55C2"],
-        tooltip: !0,
-        tooltipOpts: {
-          defaultTheme: !1
-        },
-        xaxis: {
-          mode: "time"
-        },
-        yaxes: [{}, {
-          position: "right"
+    ])
+    .controller("morrisChartCtrl", ["$scope",
+      function($scope) {
+        return $scope.mainData = [{
+          month: "2013-01",
+          xbox: 294e3,
+          will: 136e3,
+          playstation: 244e3
+        }, {
+          month: "2013-02",
+          xbox: 228e3,
+          will: 335e3,
+          playstation: 127e3
+        }, {
+          month: "2013-03",
+          xbox: 199e3,
+          will: 159e3,
+          playstation: 13e4
+        }, {
+          month: "2013-04",
+          xbox: 174e3,
+          will: 16e4,
+          playstation: 82e3
+        }, {
+          month: "2013-05",
+          xbox: 255e3,
+          will: 318e3,
+          playstation: 82e3
+        }, {
+          month: "2013-06",
+          xbox: 298400,
+          will: 401800,
+          playstation: 98600
+        }, {
+          month: "2013-07",
+          xbox: 37e4,
+          will: 225e3,
+          playstation: 159e3
+        }, {
+          month: "2013-08",
+          xbox: 376700,
+          will: 303600,
+          playstation: 13e4
+        }, {
+          month: "2013-09",
+          xbox: 527800,
+          will: 301e3,
+          playstation: 119400
+        }], $scope.simpleData = [{
+          year: "2008",
+          value: 20
+        }, {
+          year: "2009",
+          value: 10
+        }, {
+          year: "2010",
+          value: 5
+        }, {
+          year: "2011",
+          value: 5
+        }, {
+          year: "2012",
+          value: 20
+        }, {
+          year: "2013",
+          value: 19
+        }], $scope.comboData = [{
+          year: "2008",
+          a: 20,
+          b: 16,
+          c: 12
+        }, {
+          year: "2009",
+          a: 10,
+          b: 22,
+          c: 30
+        }, {
+          year: "2010",
+          a: 5,
+          b: 14,
+          c: 20
+        }, {
+          year: "2011",
+          a: 5,
+          b: 12,
+          c: 19
+        }, {
+          year: "2012",
+          a: 20,
+          b: 19,
+          c: 13
+        }, {
+          year: "2013",
+          a: 28,
+          b: 22,
+          c: 20
+        }], $scope.donutData = [{
+          label: "Download Sales",
+          value: 12
+        }, {
+          label: "In-Store Sales",
+          value: 30
+        }, {
+          label: "Mail-Order Sales",
+          value: 20
+        }, {
+          label: "Online Sales",
+          value: 19
         }]
-      }, barChart = {}, barChart.data1 = [
-        [2008, 20],
-        [2009, 10],
-        [2010, 5],
-        [2011, 5],
-        [2012, 20],
-        [2013, 28]
-      ], barChart.data2 = [
-        [2008, 16],
-        [2009, 22],
-        [2010, 14],
-        [2011, 12],
-        [2012, 19],
-        [2013, 22]
-      ], barChart.data3 = [
-        [2008, 12],
-        [2009, 30],
-        [2010, 20],
-        [2011, 19],
-        [2012, 13],
-        [2013, 20]
-      ], $scope.barChart = {}, $scope.barChart.data = [{
-        label: "Value A",
-        data: barChart.data1
-      }, {
-        label: "Value B",
-        data: barChart.data2
-      }, {
-        label: "Value C",
-        data: barChart.data3
-      }], $scope.barChart.options = {
-        series: {
-          stack: !0,
-          bars: {
-            show: !0,
-            fill: 1,
-            barWidth: .3,
-            align: "center",
-            horizontal: !1,
-            order: 1
+      }
+    ])
+    .controller("flotChartCtrl", ["$scope",
+      function($scope) {
+        var areaChart, barChart;
+        return areaChart = {}, areaChart.data1 = [
+          [2007, 15],
+          [2008, 20],
+          [2009, 10],
+          [2010, 5],
+          [2011, 5],
+          [2012, 20],
+          [2013, 28]
+        ], areaChart.data2 = [
+          [2007, 15],
+          [2008, 16],
+          [2009, 22],
+          [2010, 14],
+          [2011, 12],
+          [2012, 19],
+          [2013, 22]
+        ], $scope.area = {}, $scope.area.data = [{
+          data: areaChart.data1,
+          label: "Value A",
+          lines: {
+            fill: !0
           }
-        },
-        grid: {
-          hoverable: !0,
-          borderWidth: 1,
-          borderColor: "#eeeeee"
-        },
-        tooltip: !0,
-        tooltipOpts: {
-          defaultTheme: !1
-        },
-        colors: ["#23AE89", "#2EC1CC", "#FFB61C", "#E94B3B"]
-      }, $scope.pieChart = {}, $scope.pieChart.data = [{
-        label: "Download Sales",
-        data: 12
-      }, {
-        label: "In-Store Sales",
-        data: 30
-      }, {
-        label: "Mail-Order Sales",
-        data: 20
-      }, {
-        label: "Online Sales",
-        data: 19
-      }], $scope.pieChart.options = {
-        series: {
-          pie: {
+        }, {
+          data: areaChart.data2,
+          label: "Value B",
+          points: {
             show: !0
+          },
+          yaxis: 2
+        }], $scope.area.options = {
+          series: {
+            lines: {
+              show: !0,
+              fill: !1
+            },
+            points: {
+              show: !0,
+              lineWidth: 2,
+              fill: !0,
+              fillColor: "#ffffff",
+              symbol: "circle",
+              radius: 5
+            },
+            shadowSize: 0
+          },
+          grid: {
+            hoverable: !0,
+            clickable: !0,
+            tickColor: "#f9f9f9",
+            borderWidth: 1,
+            borderColor: "#eeeeee"
+          },
+          colors: ["#23AE89", "#6A55C2"],
+          tooltip: !0,
+          tooltipOpts: {
+            defaultTheme: !1
+          },
+          xaxis: {
+            mode: "time"
+          },
+          yaxes: [{}, {
+            position: "right"
+          }]
+        }, barChart = {}, barChart.data1 = [
+          [2008, 20],
+          [2009, 10],
+          [2010, 5],
+          [2011, 5],
+          [2012, 20],
+          [2013, 28]
+        ], barChart.data2 = [
+          [2008, 16],
+          [2009, 22],
+          [2010, 14],
+          [2011, 12],
+          [2012, 19],
+          [2013, 22]
+        ], barChart.data3 = [
+          [2008, 12],
+          [2009, 30],
+          [2010, 20],
+          [2011, 19],
+          [2012, 13],
+          [2013, 20]
+        ], $scope.barChart = {}, $scope.barChart.data = [{
+          label: "Value A",
+          data: barChart.data1
+        }, {
+          label: "Value B",
+          data: barChart.data2
+        }, {
+          label: "Value C",
+          data: barChart.data3
+        }], $scope.barChart.options = {
+          series: {
+            stack: !0,
+            bars: {
+              show: !0,
+              fill: 1,
+              barWidth: .3,
+              align: "center",
+              horizontal: !1,
+              order: 1
+            }
+          },
+          grid: {
+            hoverable: !0,
+            borderWidth: 1,
+            borderColor: "#eeeeee"
+          },
+          tooltip: !0,
+          tooltipOpts: {
+            defaultTheme: !1
+          },
+          colors: ["#23AE89", "#2EC1CC", "#FFB61C", "#E94B3B"]
+        }, $scope.pieChart = {}, $scope.pieChart.data = [{
+          label: "Download Sales",
+          data: 12
+        }, {
+          label: "In-Store Sales",
+          data: 30
+        }, {
+          label: "Mail-Order Sales",
+          data: 20
+        }, {
+          label: "Online Sales",
+          data: 19
+        }], $scope.pieChart.options = {
+          series: {
+            pie: {
+              show: !0
+            }
+          },
+          legend: {
+            show: !0
+          },
+          grid: {
+            hoverable: !0,
+            clickable: !0
+          },
+          colors: ["#23AE89", "#2EC1CC", "#FFB61C", "#E94B3B"],
+          tooltip: !0,
+          tooltipOpts: {
+            content: "%p.0%, %s",
+            defaultTheme: !1
           }
-        },
-        legend: {
-          show: !0
-        },
-        grid: {
-          hoverable: !0,
-          clickable: !0
-        },
-        colors: ["#23AE89", "#2EC1CC", "#FFB61C", "#E94B3B"],
-        tooltip: !0,
-        tooltipOpts: {
-          content: "%p.0%, %s",
-          defaultTheme: !1
-        }
-      }, $scope.donutChart = {}, $scope.donutChart.data = [{
-        label: "Download Sales",
-        data: 12
-      }, {
-        label: "In-Store Sales",
-        data: 30
-      }, {
-        label: "Mail-Order Sales",
-        data: 20
-      }, {
-        label: "Online Sales",
-        data: 19
-      }], $scope.donutChart.options = {
-        series: {
-          pie: {
-            show: !0,
-            innerRadius: .5
+        }, $scope.donutChart = {}, $scope.donutChart.data = [{
+          label: "Download Sales",
+          data: 12
+        }, {
+          label: "In-Store Sales",
+          data: 30
+        }, {
+          label: "Mail-Order Sales",
+          data: 20
+        }, {
+          label: "Online Sales",
+          data: 19
+        }], $scope.donutChart.options = {
+          series: {
+            pie: {
+              show: !0,
+              innerRadius: .5
+            }
+          },
+          legend: {
+            show: !0
+          },
+          grid: {
+            hoverable: !0,
+            clickable: !0
+          },
+          colors: ["#23AE89", "#2EC1CC", "#FFB61C", "#E94B3B"],
+          tooltip: !0,
+          tooltipOpts: {
+            content: "%p.0%, %s",
+            defaultTheme: !1
           }
-        },
-        legend: {
-          show: !0
-        },
-        grid: {
-          hoverable: !0,
-          clickable: !0
-        },
-        colors: ["#23AE89", "#2EC1CC", "#FFB61C", "#E94B3B"],
-        tooltip: !0,
-        tooltipOpts: {
-          content: "%p.0%, %s",
-          defaultTheme: !1
-        }
-      }, $scope.donutChart2 = {}, $scope.donutChart2.data = [{
-        label: "Download Sales",
-        data: 12
-      }, {
-        label: "In-Store Sales",
-        data: 30
-      }, {
-        label: "Mail-Order Sales",
-        data: 20
-      }, {
-        label: "Online Sales",
-        data: 19
-      }, {
-        label: "Direct Sales",
-        data: 15
-      }], $scope.donutChart2.options = {
-        series: {
-          pie: {
-            show: !0,
-            innerRadius: .45
+        }, $scope.donutChart2 = {}, $scope.donutChart2.data = [{
+          label: "Download Sales",
+          data: 12
+        }, {
+          label: "In-Store Sales",
+          data: 30
+        }, {
+          label: "Mail-Order Sales",
+          data: 20
+        }, {
+          label: "Online Sales",
+          data: 19
+        }, {
+          label: "Direct Sales",
+          data: 15
+        }], $scope.donutChart2.options = {
+          series: {
+            pie: {
+              show: !0,
+              innerRadius: .45
+            }
+          },
+          legend: {
+            show: !1
+          },
+          grid: {
+            hoverable: !0,
+            clickable: !0
+          },
+          colors: ["#176799", "#2F87B0", "#42A4BB", "#5BC0C4", "#78D6C7"],
+          tooltip: !0,
+          tooltipOpts: {
+            content: "%p.0%, %s",
+            defaultTheme: !1
           }
-        },
-        legend: {
-          show: !1
-        },
-        grid: {
-          hoverable: !0,
-          clickable: !0
-        },
-        colors: ["#176799", "#2F87B0", "#42A4BB", "#5BC0C4", "#78D6C7"],
-        tooltip: !0,
-        tooltipOpts: {
-          content: "%p.0%, %s",
-          defaultTheme: !1
         }
       }
-    }])
-    .controller("flotChartCtrl.realtime", ["$scope", function() {}])
-    .controller("sparklineCtrl", ["$scope", function($scope) {
-      return $scope.demoData1 = {
-        data: [3, 1, 2, 2, 4, 6, 4, 5, 2, 4, 5, 3, 4, 6, 4, 7],
-        options: {
-          type: "line",
-          lineColor: "#fff",
-          highlightLineColor: "#fff",
-          fillColor: "#23AE89",
-          spotColor: !1,
-          minSpotColor: !1,
-          maxSpotColor: !1,
-          width: "100%",
-          height: "150px"
-        }
-      }, $scope.simpleChart1 = {
-        data: [3, 1, 2, 3, 5, 3, 4, 2],
-        options: {
-          type: "line",
-          lineColor: "#1FB5AD",
-          fillColor: "#bce0df",
-          spotColor: !1,
-          minSpotColor: !1,
-          maxSpotColor: !1
-        }
-      }, $scope.simpleChart2 = {
-        data: [3, 1, 2, 3, 5, 3, 4, 2],
-        options: {
-          type: "bar",
-          barColor: "#1FB5AD"
-        }
-      }, $scope.simpleChart3 = {
-        data: [3, 1, 2, 3, 5, 3, 4, 2],
-        options: {
-          type: "pie",
-          sliceColors: ["#1fb5ad", "#95b75d", "#57c8f1", "#8175c7", "#f3c022", "#fa8564"]
-        }
-      }, $scope.tristateChart1 = {
-        data: [1, 2, -3, -5, 3, 1, -4, 2],
-        options: {
-          type: "tristate",
-          posBarColor: "#95b75d",
-          negBarColor: "#fa8564"
-        }
-      }, $scope.largeChart1 = {
-        data: [3, 1, 2, 3, 5, 3, 4, 2],
-        options: {
-          type: "line",
-          lineColor: "#674E9E",
-          highlightLineColor: "#7ACBEE",
-          fillColor: "#927ED1",
-          spotColor: !1,
-          minSpotColor: !1,
-          maxSpotColor: !1,
-          width: "100%",
-          height: "150px"
-        }
-      }, $scope.largeChart2 = {
-        data: [3, 1, 2, 3, 5, 3, 4, 2],
-        options: {
-          type: "bar",
-          barColor: "#A3C86D",
-          barWidth: 10,
-          width: "100%",
-          height: "150px"
-        }
-      }, $scope.largeChart3 = {
-        data: [3, 1, 2, 3, 5],
-        options: {
-          type: "pie",
-          sliceColors: ["#A3C86D", "#7ACBEE", "#927ED1", "#FDD761", "#FF7857", "#674E9E"],
-          width: "150px",
-          height: "150px"
+    ])
+    .controller("flotChartCtrl.realtime", ["$scope",
+      function() {}
+    ])
+    .controller("sparklineCtrl", ["$scope",
+      function($scope) {
+        return $scope.demoData1 = {
+          data: [3, 1, 2, 2, 4, 6, 4, 5, 2, 4, 5, 3, 4, 6, 4, 7],
+          options: {
+            type: "line",
+            lineColor: "#fff",
+            highlightLineColor: "#fff",
+            fillColor: "#23AE89",
+            spotColor: !1,
+            minSpotColor: !1,
+            maxSpotColor: !1,
+            width: "100%",
+            height: "150px"
+          }
+        }, $scope.simpleChart1 = {
+          data: [3, 1, 2, 3, 5, 3, 4, 2],
+          options: {
+            type: "line",
+            lineColor: "#1FB5AD",
+            fillColor: "#bce0df",
+            spotColor: !1,
+            minSpotColor: !1,
+            maxSpotColor: !1
+          }
+        }, $scope.simpleChart2 = {
+          data: [3, 1, 2, 3, 5, 3, 4, 2],
+          options: {
+            type: "bar",
+            barColor: "#1FB5AD"
+          }
+        }, $scope.simpleChart3 = {
+          data: [3, 1, 2, 3, 5, 3, 4, 2],
+          options: {
+            type: "pie",
+            sliceColors: ["#1fb5ad", "#95b75d", "#57c8f1", "#8175c7", "#f3c022", "#fa8564"]
+          }
+        }, $scope.tristateChart1 = {
+          data: [1, 2, -3, -5, 3, 1, -4, 2],
+          options: {
+            type: "tristate",
+            posBarColor: "#95b75d",
+            negBarColor: "#fa8564"
+          }
+        }, $scope.largeChart1 = {
+          data: [3, 1, 2, 3, 5, 3, 4, 2],
+          options: {
+            type: "line",
+            lineColor: "#674E9E",
+            highlightLineColor: "#7ACBEE",
+            fillColor: "#927ED1",
+            spotColor: !1,
+            minSpotColor: !1,
+            maxSpotColor: !1,
+            width: "100%",
+            height: "150px"
+          }
+        }, $scope.largeChart2 = {
+          data: [3, 1, 2, 3, 5, 3, 4, 2],
+          options: {
+            type: "bar",
+            barColor: "#A3C86D",
+            barWidth: 10,
+            width: "100%",
+            height: "150px"
+          }
+        }, $scope.largeChart3 = {
+          data: [3, 1, 2, 3, 5],
+          options: {
+            type: "pie",
+            sliceColors: ["#A3C86D", "#7ACBEE", "#927ED1", "#FDD761", "#FF7857", "#674E9E"],
+            width: "150px",
+            height: "150px"
+          }
         }
       }
-    }])
+    ])
 })
-.call(this),
-  function() {
-    "use strict";
-    angular.module("app.chart.directives", [])
-      .directive("gaugeChart", [function() {
+  .call(this),
+function() {
+  "use strict";
+  angular.module("app.chart.directives", [])
+    .directive("gaugeChart", [
+
+      function() {
         return {
           restrict: "A",
           scope: {
@@ -535,8 +547,11 @@
               .setOptions(options), gauge.maxValue = data.maxValue, gauge.animationSpeed = data.animationSpeed, gauge.set(data.val)
           }
         }
-      }])
-      .directive("flotChart", [function() {
+      }
+    ])
+    .directive("flotChart", [
+
+      function() {
         return {
           restrict: "A",
           scope: {
@@ -548,8 +563,11 @@
             return data = scope.data, options = scope.options, plot = $.plot(ele[0], data, options)
           }
         }
-      }])
-      .directive("flotChartRealtime", [function() {
+      }
+    ])
+    .directive("flotChartRealtime", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -585,8 +603,11 @@
             }), update()
           }
         }
-      }])
-      .directive("sparkline", [function() {
+      }
+    ])
+    .directive("sparkline", [
+
+      function() {
         return {
           restrict: "A",
           scope: {
@@ -596,15 +617,18 @@
           link: function(scope, ele) {
             var data, options, sparkResize, sparklineDraw;
             return data = scope.data, options = scope.options, sparkResize = void 0, sparklineDraw = function() {
-                return ele.sparkline(data, options)
-              }, $(window)
+              return ele.sparkline(data, options)
+            }, $(window)
               .resize(function() {
                 return clearTimeout(sparkResize), sparkResize = setTimeout(sparklineDraw, 200)
               }), sparklineDraw()
           }
         }
-      }])
-      .directive("morrisChart", [function() {
+      }
+    ])
+    .directive("morrisChart", [
+
+      function() {
         return {
           restrict: "A",
           scope: {
@@ -659,12 +683,14 @@
             }
           }
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.ui.form.ctrls", [])
-      .controller("DatepickerDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.ui.form.ctrls", [])
+    .controller("DatepickerDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.today = function() {
           return $scope.dt = new Date
         }, $scope.today(), $scope.showWeeks = !0, $scope.toggleWeeks = function() {
@@ -684,8 +710,10 @@
           "year-format": "'yy'",
           "starting-day": 1
         }, $scope.formats = ["dd-MMMM-yyyy", "yyyy/MM/dd", "shortDate"], $scope.format = $scope.formats[0]
-      }])
-      .controller("TimepickerDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("TimepickerDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.mytime = new Date, $scope.hstep = 1, $scope.mstep = 15, $scope.options = {
           hstep: [1, 2, 3],
           mstep: [1, 5, 10, 15, 25, 30]
@@ -699,11 +727,15 @@
         }, $scope.clear = function() {
           return $scope.mytime = null
         }
-      }])
-      .controller("TypeaheadCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("TypeaheadCtrl", ["$scope",
+      function($scope) {
         return $scope.selected = void 0, $scope.states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
-      }])
-      .controller("RatingDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("RatingDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.rate = 7, $scope.max = 10, $scope.isReadonly = !1, $scope.hoveringOver = function(value) {
           return $scope.overStar = value, $scope.percent = 100 * (value / $scope.max)
         }, $scope.ratingStates = [{
@@ -720,27 +752,36 @@
         }, {
           stateOff: "glyphicon-off"
         }]
-      }])
-  }.call(this),
-  function() {
-    angular.module("app.ui.form.directives", [])
-      .directive("uiRangeSlider", [function() {
+      }
+    ])
+}.call(this),
+function() {
+  angular.module("app.ui.form.directives", [])
+    .directive("uiRangeSlider", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
             return ele.slider()
           }
         }
-      }])
-      .directive("uiFileUpload", [function() {
+      }
+    ])
+    .directive("uiFileUpload", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
             return ele.bootstrapFileInput()
           }
         }
-      }])
-      .directive("uiSpinner", [function() {
+      }
+    ])
+    .directive("uiSpinner", [
+
+      function() {
         return {
           restrict: "A",
           compile: function(ele) {
@@ -751,19 +792,24 @@
             }
           }
         }
-      }])
-      .directive("uiWizardForm", [function() {
+      }
+    ])
+    .directive("uiWizardForm", [
+
+      function() {
         return {
           link: function(scope, ele) {
             return ele.steps()
           }
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.form.validation", [])
-      .controller("wizardFormCtrl", ["$scope", function($scope) {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.form.validation", [])
+    .controller("wizardFormCtrl", ["$scope",
+      function($scope) {
         return $scope.wizard = {
           firstName: "some name",
           lastName: "",
@@ -776,8 +822,10 @@
         }, $scope.finishedWizard = function() {
           return void 0
         }
-      }])
-      .controller("formConstraintsCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("formConstraintsCtrl", ["$scope",
+      function($scope) {
         var original;
         return $scope.form = {
           required: "",
@@ -801,8 +849,10 @@
         }, $scope.canSubmit = function() {
           return $scope.form_constraints.$valid && !angular.equals($scope.form, original)
         }
-      }])
-      .controller("signinCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("signinCtrl", ["$scope",
+      function($scope) {
         var original;
         return $scope.user = {
           email: "",
@@ -816,8 +866,10 @@
         }, $scope.submitForm = function() {
           return $scope.showInfoOnSubmit = !0, $scope.revert()
         }
-      }])
-      .controller("signupCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("signupCtrl", ["$scope",
+      function($scope) {
         var original;
         return $scope.user = {
           name: "",
@@ -834,8 +886,11 @@
         }, $scope.submitForm = function() {
           return $scope.showInfoOnSubmit = !0, $scope.revert()
         }
-      }])
-      .directive("validateEquals", [function() {
+      }
+    ])
+    .directive("validateEquals", [
+
+      function() {
         return {
           require: "ngModel",
           link: function(scope, ele, attrs, ngModelCtrl) {
@@ -850,12 +905,14 @@
             })
           }
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.tables", [])
-      .controller("tableCtrl", ["$scope", "$filter", function($scope, $filter) {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.tables", [])
+    .controller("tableCtrl", ["$scope", "$filter",
+      function($scope, $filter) {
         var init;
         return $scope.stores = [{
           name: "Nijiya Market",
@@ -998,23 +1055,25 @@
         }, $scope.numPerPageOpt = [3, 5, 10, 20], $scope.numPerPage = $scope.numPerPageOpt[2], $scope.currentPage = 1, $scope.currentPageStores = [], (init = function() {
           return $scope.search(), $scope.select($scope.currentPage)
         })()
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.task", [])
-      .factory("taskStorage", function() {
-        var DEMO_TASKS, STORAGE_ID;
-        return STORAGE_ID = "tasks", DEMO_TASKS = '[ {"title": "Finish homework", "completed": true}, {"title": "Make a call", "completed": true}, {"title": "Play games with friends", "completed": false}, {"title": "Shopping", "completed": false}, {"title": "One more dance", "completed": false}, {"title": "Try Google glass", "completed": false} ]', {
-          get: function() {
-            return JSON.parse(localStorage.getItem(STORAGE_ID) || DEMO_TASKS)
-          },
-          put: function(tasks) {
-            return localStorage.setItem(STORAGE_ID, JSON.stringify(tasks))
-          }
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.task", [])
+    .factory("taskStorage", function() {
+      var DEMO_TASKS, STORAGE_ID;
+      return STORAGE_ID = "tasks", DEMO_TASKS = '[ {"title": "Finish homework", "completed": true}, {"title": "Make a call", "completed": true}, {"title": "Play games with friends", "completed": false}, {"title": "Shopping", "completed": false}, {"title": "One more dance", "completed": false}, {"title": "Try Google glass", "completed": false} ]', {
+        get: function() {
+          return JSON.parse(localStorage.getItem(STORAGE_ID) || DEMO_TASKS)
+        },
+        put: function(tasks) {
+          return localStorage.setItem(STORAGE_ID, JSON.stringify(tasks))
         }
-      })
-      .directive("taskFocus", ["$timeout", function($timeout) {
+      }
+    })
+    .directive("taskFocus", ["$timeout",
+      function($timeout) {
         return {
           link: function(scope, ele, attrs) {
             return scope.$watch(attrs.taskFocus, function(newVal) {
@@ -1024,61 +1083,65 @@
             })
           }
         }
-      }])
-      .controller("taskCtrl", ["$scope", "taskStorage", "filterFilter", "$rootScope", "logger", function($scope, taskStorage, filterFilter, $rootScope, logger) {
+      }
+    ])
+    .controller("taskCtrl", ["$scope", "taskStorage", "filterFilter", "$rootScope", "logger",
+      function($scope, taskStorage, filterFilter, $rootScope, logger) {
         var tasks;
         return tasks = $scope.tasks = taskStorage.get(), $scope.newTask = "", $scope.remainingCount = filterFilter(tasks, {
-            completed: !1
-          })
+          completed: !1
+        })
           .length, $scope.editedTask = null, $scope.statusFilter = {
             completed: !1
-          }, $scope.filter = function(filter) {
-            switch (filter) {
-              case "all":
-                return $scope.statusFilter = "";
-              case "active":
-                return $scope.statusFilter = {
-                  completed: !1
-                };
-              case "completed":
-                return $scope.statusFilter = {
-                  completed: !0
-                }
-            }
-          }, $scope.add = function() {
-            var newTask;
-            return newTask = $scope.newTask.trim(), 0 !== newTask.length ? (tasks.push({
-              title: newTask,
-              completed: !1
-            }), logger.logSuccess('New task: "' + newTask + '" added'), taskStorage.put(tasks), $scope.newTask = "", $scope.remainingCount++) : void 0
-          }, $scope.edit = function(task) {
-            return $scope.editedTask = task
-          }, $scope.doneEditing = function(task) {
-            return $scope.editedTask = null, task.title = task.title.trim(), task.title ? logger.log("Task updated") : $scope.remove(task), taskStorage.put(tasks)
-          }, $scope.remove = function(task) {
-            var index;
-            return $scope.remainingCount -= task.completed ? 0 : 1, index = $scope.tasks.indexOf(task), $scope.tasks.splice(index, 1), taskStorage.put(tasks), logger.logError("Task removed")
-          }, $scope.completed = function(task) {
-            return $scope.remainingCount += task.completed ? -1 : 1, taskStorage.put(tasks), task.completed ? $scope.remainingCount > 0 ? logger.log(1 === $scope.remainingCount ? "Almost there! Only " + $scope.remainingCount + " task left" : "Good job! Only " + $scope.remainingCount + " tasks left") : logger.logSuccess("Congrats! All done :)") : void 0
-          }, $scope.clearCompleted = function() {
-            return $scope.tasks = tasks = tasks.filter(function(val) {
-              return !val.completed
-            }), taskStorage.put(tasks)
-          }, $scope.markAll = function(completed) {
-            return tasks.forEach(function(task) {
-              return task.completed = completed
-            }), $scope.remainingCount = completed ? 0 : tasks.length, taskStorage.put(tasks), completed ? logger.logSuccess("Congrats! All done :)") : void 0
-          }, $scope.$watch("remainingCount == 0", function(val) {
-            return $scope.allChecked = val
-          }), $scope.$watch("remainingCount", function(newVal) {
-            return $rootScope.$broadcast("taskRemaining:changed", newVal)
-          })
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.ui.ctrls", [])
-      .controller("LoaderCtrl", ["$scope", "cfpLoadingBar", function($scope, cfpLoadingBar) {
+        }, $scope.filter = function(filter) {
+          switch (filter) {
+            case "all":
+              return $scope.statusFilter = "";
+            case "active":
+              return $scope.statusFilter = {
+                completed: !1
+              };
+            case "completed":
+              return $scope.statusFilter = {
+                completed: !0
+              }
+          }
+        }, $scope.add = function() {
+          var newTask;
+          return newTask = $scope.newTask.trim(), 0 !== newTask.length ? (tasks.push({
+            title: newTask,
+            completed: !1
+          }), logger.logSuccess('New task: "' + newTask + '" added'), taskStorage.put(tasks), $scope.newTask = "", $scope.remainingCount++) : void 0
+        }, $scope.edit = function(task) {
+          return $scope.editedTask = task
+        }, $scope.doneEditing = function(task) {
+          return $scope.editedTask = null, task.title = task.title.trim(), task.title ? logger.log("Task updated") : $scope.remove(task), taskStorage.put(tasks)
+        }, $scope.remove = function(task) {
+          var index;
+          return $scope.remainingCount -= task.completed ? 0 : 1, index = $scope.tasks.indexOf(task), $scope.tasks.splice(index, 1), taskStorage.put(tasks), logger.logError("Task removed")
+        }, $scope.completed = function(task) {
+          return $scope.remainingCount += task.completed ? -1 : 1, taskStorage.put(tasks), task.completed ? $scope.remainingCount > 0 ? logger.log(1 === $scope.remainingCount ? "Almost there! Only " + $scope.remainingCount + " task left" : "Good job! Only " + $scope.remainingCount + " tasks left") : logger.logSuccess("Congrats! All done :)") : void 0
+        }, $scope.clearCompleted = function() {
+          return $scope.tasks = tasks = tasks.filter(function(val) {
+            return !val.completed
+          }), taskStorage.put(tasks)
+        }, $scope.markAll = function(completed) {
+          return tasks.forEach(function(task) {
+            return task.completed = completed
+          }), $scope.remainingCount = completed ? 0 : tasks.length, taskStorage.put(tasks), completed ? logger.logSuccess("Congrats! All done :)") : void 0
+        }, $scope.$watch("remainingCount == 0", function(val) {
+          return $scope.allChecked = val
+        }), $scope.$watch("remainingCount", function(newVal) {
+          return $rootScope.$broadcast("taskRemaining:changed", newVal)
+        })
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.ui.ctrls", [])
+    .controller("LoaderCtrl", ["$scope", "cfpLoadingBar",
+      function($scope, cfpLoadingBar) {
         return $scope.start = function() {
           return cfpLoadingBar.start()
         }, $scope.inc = function() {
@@ -1088,8 +1151,10 @@
         }, $scope.complete = function() {
           return cfpLoadingBar.complete()
         }
-      }])
-      .controller("NotifyCtrl", ["$scope", "logger", function($scope, logger) {
+      }
+    ])
+    .controller("NotifyCtrl", ["$scope", "logger",
+      function($scope, logger) {
         return $scope.notify = function(type) {
           switch (type) {
             case "info":
@@ -1102,8 +1167,10 @@
               return logger.logError("Oh snap! Change a few things up and try submitting again.")
           }
         }
-      }])
-      .controller("AlertDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("AlertDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.alerts = [{
           type: "success",
           msg: "Well done! You successfully read this important alert message."
@@ -1141,14 +1208,18 @@
         }, $scope.closeAlert = function(index) {
           return $scope.alerts.splice(index, 1)
         }
-      }])
-      .controller("ProgressDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("ProgressDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.max = 200, $scope.random = function() {
           var type, value;
           value = Math.floor(100 * Math.random() + 10), type = void 0, type = 25 > value ? "success" : 50 > value ? "info" : 75 > value ? "warning" : "danger", $scope.showWarning = "danger" === type || "warning" === type, $scope.dynamic = value, $scope.type = type
         }, $scope.random()
-      }])
-      .controller("AccordionDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("AccordionDemoCtrl", ["$scope",
+      function($scope) {
         $scope.oneAtATime = !0, $scope.groups = [{
           title: "Dynamic Group Header - 1",
           content: "Dynamic Group Body - 1"
@@ -1162,11 +1233,15 @@
           var newItemNo;
           newItemNo = $scope.items.length + 1, $scope.items.push("Item " + newItemNo)
         }
-      }])
-      .controller("CollapseDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("CollapseDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.isCollapsed = !1
-      }])
-      .controller("ModalDemoCtrl", ["$scope", "$modal", "$log", function($scope, $modal, $log) {
+      }
+    ])
+    .controller("ModalDemoCtrl", ["$scope", "$modal", "$log",
+      function($scope, $modal, $log) {
         $scope.items = ["item1", "item2", "item3"], $scope.open = function() {
           var modalInstance;
           modalInstance = $modal.open({
@@ -1183,8 +1258,10 @@
             $log.info("Modal dismissed at: " + new Date)
           })
         }
-      }])
-      .controller("ModalInstanceCtrl", ["$scope", "$modalInstance", "items", function($scope, $modalInstance, items) {
+      }
+    ])
+    .controller("ModalInstanceCtrl", ["$scope", "$modalInstance", "items",
+      function($scope, $modalInstance, items) {
         $scope.items = items, $scope.selected = {
           item: $scope.items[0]
         }, $scope.ok = function() {
@@ -1192,13 +1269,17 @@
         }, $scope.cancel = function() {
           $modalInstance.dismiss("cancel")
         }
-      }])
-      .controller("PaginationDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("PaginationDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.totalItems = 64, $scope.currentPage = 4, $scope.maxSize = 5, $scope.setPage = function(pageNo) {
           return $scope.currentPage = pageNo
         }, $scope.bigTotalItems = 175, $scope.bigCurrentPage = 1
-      }])
-      .controller("TabsDemoCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("TabsDemoCtrl", ["$scope",
+      function($scope) {
         return $scope.tabs = [{
           title: "Dynamic Title 1",
           content: "Dynamic content 1.  Consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at."
@@ -1207,12 +1288,15 @@
           content: "Dynamic content 2.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at.",
           disabled: !0
         }], $scope.navType = "pills"
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.ui.directives", [])
-      .directive("uiTime", [function() {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.ui.directives", [])
+    .directive("uiTime", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1225,8 +1309,11 @@
             }, startTime()
           }
         }
-      }])
-      .directive("uiWeather", [function() {
+      }
+    ])
+    .directive("uiWeather", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele, attrs) {
@@ -1237,12 +1324,15 @@
             }), skycons.add(ele[0], icon), skycons.play()
           }
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.ui.services", [])
-      .factory("logger", [function() {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.ui.services", [])
+    .factory("logger", [
+
+      function() {
         var logIt;
         return toastr.options = {
           closeButton: !0,
@@ -1264,19 +1354,21 @@
             logIt(message, "error")
           }
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular",
-        "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives",
-        "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization",
-        "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML", "app.dataTeamProgressBar"
-      ])
-      .config(["$routeProvider", function($routeProvider) {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "mgo-angular-wizard", "textAngular",
+    "angular-loading-bar", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.controllers", "app.directives",
+    "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.localization",
+    "app.chart.ctrls", "app.chart.directives", "app.dataPopulation", "app.dataHTML", "app.dataTeamProgressBar"
+  ])
+    .config(["$routeProvider",
+      function($routeProvider) {
         return $routeProvider.when("/", {
-            redirectTo: "/pages/signup"
-          })
+          redirectTo: "/pages/signup"
+        })
           .when("/ui/timeline", {
             templateUrl: "views/ui/timeline.html"
           })
@@ -1304,68 +1396,11 @@
           .when("/pages/team/general", {
             templateUrl: "views/pages/general.html"
           })
-          .when("/dashboard", {
-            templateUrl: "views/dashboard.html"
+          .when("/pages/team/preferences", {
+            templateUrl: "views/pages/preferences.html"
           })
-          .when("/ui/typography", {
-            templateUrl: "views/ui/typography.html"
-          })
-          .when("/ui/buttons", {
-            templateUrl: "views/ui/buttons.html"
-          })
-          .when("/ui/icons", {
-            templateUrl: "views/ui/icons.html"
-          })
-          .when("/ui/grids", {
-            templateUrl: "views/ui/grids.html"
-          })
-          .when("/ui/widgets", {
-            templateUrl: "views/ui/widgets.html"
-          })
-          .when("/ui/components", {
-            templateUrl: "views/ui/components.html"
-          })
-          .when("/ui/pricing-tables", {
-            templateUrl: "views/ui/pricing-tables.html"
-          })
-          .when("/forms/elements", {
-            templateUrl: "views/forms/elements.html"
-          })
-          .when("/forms/layouts", {
-            templateUrl: "views/forms/layouts.html"
-          })
-          .when("/forms/validation", {
-            templateUrl: "views/forms/validation.html"
-          })
-          .when("/forms/wizard", {
-            templateUrl: "views/forms/wizard.html"
-          })
-          .when("/tables/static", {
-            templateUrl: "views/tables/static.html"
-          })
-          .when("/tables/responsive", {
-            templateUrl: "views/tables/responsive.html"
-          })
-          .when("/tables/dynamic", {
-            templateUrl: "views/tables/dynamic.html"
-          })
-          .when("/charts/others", {
-            templateUrl: "views/charts/charts.html"
-          })
-          .when("/charts/morris", {
-            templateUrl: "views/charts/morris.html"
-          })
-          .when("/charts/flot", {
-            templateUrl: "views/charts/flot.html"
-          })
-          .when("/mail/inbox", {
-            templateUrl: "views/mail/inbox.html"
-          })
-          .when("/mail/compose", {
-            templateUrl: "views/mail/compose.html"
-          })
-          .when("/mail/single", {
-            templateUrl: "views/mail/single.html"
+          .when("/pages/team/skills", {
+            templateUrl: "views/pages/skills.html"
           })
           .when("/pages/features", {
             templateUrl: "views/pages/features.html"
@@ -1400,11 +1435,14 @@
           .otherwise({
             redirectTo: "/404"
           })
-      }])
-  }.call(this),
-  function() {
-    angular.module("app.directives", [])
-      .directive("imgHolder", [function() {
+      }
+    ])
+}.call(this),
+function() {
+  angular.module("app.directives", [])
+    .directive("imgHolder", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1413,11 +1451,13 @@
             })
           }
         }
-      }])
-      .directive("customBackground", function() {
-        return {
-          restrict: "A",
-          controller: ["$scope", "$element", "$location", function($scope, $element, $location) {
+      }
+    ])
+    .directive("customBackground", function() {
+      return {
+        restrict: "A",
+        controller: ["$scope", "$element", "$location",
+          function($scope, $element, $location) {
             var addBg, path;
             return path = function() {
               return $location.path()
@@ -1438,10 +1478,13 @@
             }, addBg($location.path()), $scope.$watch(path, function(newVal, oldVal) {
               return newVal !== oldVal ? addBg($location.path()) : void 0
             })
-          }]
-        }
-      })
-      .directive("uiColorSwitch", [function() {
+          }
+        ]
+      }
+    })
+    .directive("uiColorSwitch", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1459,8 +1502,10 @@
               })
           }
         }
-      }])
-      .directive("toggleMinNav", ["$rootScope", function($rootScope) {
+      }
+    ])
+    .directive("toggleMinNav", ["$rootScope",
+      function($rootScope) {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1476,8 +1521,11 @@
             })
           }
         }
-      }])
-      .directive("collapseNav", [function() {
+      }
+    ])
+    .directive("collapseNav", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1503,26 +1551,34 @@
               })
           }
         }
-      }])
-      .directive("highlightActive", [function() {
+      }
+    ])
+    .directive("highlightActive", [
+
+      function() {
         return {
           restrict: "A",
-          controller: ["$scope", "$element", "$attrs", "$location", function($scope, $element, $attrs, $location) {
-            var highlightActive, links, path;
-            return links = $element.find("a"), path = function() {
-              return $location.path()
-            }, highlightActive = function(links, path) {
-              return path = "#" + path, angular.forEach(links, function(link) {
-                var $li, $link, href;
-                return $link = angular.element(link), $li = $link.parent("li"), href = $link.attr("href"), $li.hasClass("active") && $li.removeClass("active"), 0 === path.indexOf(href) ? $li.addClass("active") : void 0
+          controller: ["$scope", "$element", "$attrs", "$location",
+            function($scope, $element, $attrs, $location) {
+              var highlightActive, links, path;
+              return links = $element.find("a"), path = function() {
+                return $location.path()
+              }, highlightActive = function(links, path) {
+                return path = "#" + path, angular.forEach(links, function(link) {
+                  var $li, $link, href;
+                  return $link = angular.element(link), $li = $link.parent("li"), href = $link.attr("href"), $li.hasClass("active") && $li.removeClass("active"), 0 === path.indexOf(href) ? $li.addClass("active") : void 0
+                })
+              }, highlightActive(links, $location.path()), $scope.$watch(path, function(newVal, oldVal) {
+                return newVal !== oldVal ? highlightActive(links, $location.path()) : void 0
               })
-            }, highlightActive(links, $location.path()), $scope.$watch(path, function(newVal, oldVal) {
-              return newVal !== oldVal ? highlightActive(links, $location.path()) : void 0
-            })
-          }]
+            }
+          ]
         }
-      }])
-      .directive("toggleOffCanvas", [function() {
+      }
+    ])
+    .directive("toggleOffCanvas", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1532,8 +1588,11 @@
             })
           }
         }
-      }])
-      .directive("slimScroll", [function() {
+      }
+    ])
+    .directive("slimScroll", [
+
+      function() {
         return {
           restrict: "A",
           link: function(scope, ele) {
@@ -1542,22 +1601,29 @@
             })
           }
         }
-      }])
-      .directive("goBack", [function() {
+      }
+    ])
+    .directive("goBack", [
+
+      function() {
         return {
           restrict: "A",
-          controller: ["$scope", "$element", "$window", function($scope, $element, $window) {
-            return $element.on("click", function() {
-              return $window.history.back()
-            })
-          }]
+          controller: ["$scope", "$element", "$window",
+            function($scope, $element, $window) {
+              return $element.on("click", function() {
+                return $window.history.back()
+              })
+            }
+          ]
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.localization", [])
-      .factory("localize", ["$http", "$rootScope", "$window", function($http, $rootScope, $window) {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.localization", [])
+    .factory("localize", ["$http", "$rootScope", "$window",
+      function($http, $rootScope, $window) {
         var localize;
         return localize = {
           language: "",
@@ -1580,10 +1646,10 @@
           initLocalizedResources: function() {
             var url;
             return url = localize.url || localize.buildUrl(), $http({
-                method: "GET",
-                url: url,
-                cache: !1
-              })
+              method: "GET",
+              url: url,
+              cache: !1
+            })
               .success(localize.successCallback)
               .error(function() {
                 return $rootScope.$broadcast("localizeResourcesUpdated")
@@ -1594,8 +1660,10 @@
             return result = void 0, localize.dictionary && value ? (valueLowerCase = value.toLowerCase(), result = "" === localize.dictionary[valueLowerCase] ? value : localize.dictionary[valueLowerCase]) : result = value, result
           }
         }
-      }])
-      .directive("i18n", ["localize", function(localize) {
+      }
+    ])
+    .directive("i18n", ["localize",
+      function(localize) {
         var i18nDirective;
         return i18nDirective = {
           restrict: "EA",
@@ -1611,8 +1679,10 @@
             })
           }
         }
-      }])
-      .controller("LangCtrl", ["$scope", "localize", function($scope, localize) {
+      }
+    ])
+    .controller("LangCtrl", ["$scope", "localize",
+      function($scope, localize) {
         return $scope.lang = "English", $scope.setLang = function(lang) {
           switch (lang) {
             case "English":
@@ -1647,12 +1717,15 @@
           }
           return $scope.lang = lang
         }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.dataPopulation", [])
-      .factory("svcDataPopulation", [function() {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.dataPopulation", [])
+    .factory("svcDataPopulation", [
+
+      function() {
         var myInsuranceType = 'General Liability';
 
         return {
@@ -1775,14 +1848,59 @@
               sequence: 3,
               markup: tmpHTML
             };
+          },
+          techLegalNameFirst: function() {
+            return 'Terry';
+          },
+          techLegalNameLast: function() {
+            return 'Techout';
+          },
+          techServiceProviderRole: function() {
+            return true;
+          },
+          techServiceRange: function() {
+            return '50 miles or less';
+          },
+          techPermissionViewOrderPricing: function() {
+            return true;
+          },
+          techBusinessPhone: function() {
+            return '708-555-1212';
+          },
+          techMobilePhone: function() {
+            return '773-555-1213';
+          },
+          techPrimaryEmailConfirm1: function() {
+            return 'ttechout@geemail.com';
+          },
+          techPrimaryEmailConfirm2: function() {
+            return 'ttechout@geemail.com';
+          },
+          techAlternateEmailConfirm1: function() {
+            return 'ttechout@yeahoo.com';
+          },
+          techAlternateEmailConfirm2: function() {
+            return 'ttechout@yeahoo.com';
+          },
+          techSMSAddressConfirm1: function() {
+            return '7736891245@messaging.sprintpcs.com';
+          },
+          techSMSAddressConfirm2: function() {
+            return '7736891245@messaging.sprintpcs.com';
+          },
+          techSecondaryContactMethod: function() {
+            return 'Alternate Email Address';
           }
-        }
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.dataHTML", [])
-      .factory("svcDataHTML", [function() {
+        };
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.dataHTML", [])
+    .factory("svcDataHTML", [
+
+      function() {
         var navCompanyIcon = '<span></span>';
         var navCompanyName = '<span></span>';
         var navAdminIcon = '<span></span>';
@@ -1822,12 +1940,15 @@
             return navAdminName;
           }
         };
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.dataTeamProgressBar", [])
-      .factory("svcTeamProgressBar", [function() {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.dataTeamProgressBar", [])
+    .factory("svcTeamProgressBar", [
+
+      function() {
         var progBarValue = '7';
         var progBarStep = '0';
 
@@ -1845,12 +1966,14 @@
             return progBarStep;
           }
         };
-      }])
-  }.call(this),
-  function() {
-    "use strict";
-    angular.module("app.controllers", [])
-      .controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
+      }
+    ])
+}.call(this),
+function() {
+  "use strict";
+  angular.module("app.controllers", [])
+    .controller("AppCtrl", ["$scope", "$location",
+      function($scope, $location) {
         return $scope.isSpecificPage = function() {
           var path;
           return path = $location.path(), _.contains(["/404", "/pages/500", "/pages/login", "/pages/signin", "/pages/signin1", "/pages/signin2", "/pages/signup", "/pages/signup1", "/pages/signup2", "/pages/lock-screen"], path)
@@ -1858,17 +1981,21 @@
           brand: "ServiceLive Registration",
           name: "Lisa Doe"
         }
-      }])
-      .controller("NavCtrl", ["$scope", "taskStorage", "filterFilter", function($scope, taskStorage, filterFilter) {
+      }
+    ])
+    .controller("NavCtrl", ["$scope", "taskStorage", "filterFilter",
+      function($scope, taskStorage, filterFilter) {
         var tasks;
         return tasks = $scope.tasks = taskStorage.get(), $scope.taskRemainingCount = filterFilter(tasks, {
-            completed: !1
-          })
+          completed: !1
+        })
           .length, $scope.$on("taskRemaining:changed", function(event, count) {
             return $scope.taskRemainingCount = count
           })
-      }])
-      .controller("DashboardCtrl", ["$scope", function($scope) {
+      }
+    ])
+    .controller("DashboardCtrl", ["$scope",
+      function($scope) {
         return $scope.comboChartData = [
           ["Month", "Bolivia", "Ecuador", "Madagascar", "Papua New Guinea", "Rwanda", "Average"],
           ["2014/05", 165, 938, 522, 998, 450, 614.6],
@@ -1883,8 +2010,10 @@
           ["2012", 660, 1120],
           ["2013", 1030, 540]
         ]
-      }])
-      .controller("SignUpPageCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      }
+    ])
+    .controller("SignUpPageCtrl", ["$scope", "svcDataPopulation",
+      function($scope, svcDataPopulation) {
         $scope.primaryIndustry = 'Primary Industry';
 
         return $scope.clickCompany = function() {
@@ -1892,8 +2021,10 @@
           $scope.zipCode = svcDataPopulation.companyZip();
           $scope.primaryIndustry = svcDataPopulation.primaryIndustry();
         }
-      }])
-      .controller("CompanyNameCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
+      }
+    ])
+    .controller("CompanyNameCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML",
+      function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
         // Initialize the company name
         $scope.companyDBAName = svcDataPopulation.companyName();
         // Initialize 'SELECT' button look & feel
@@ -2032,8 +2163,10 @@
           $rootScope.$emit('evCompanyData');
           $location.path("/pages/account");
         }
-      }])
-      .controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
+      }
+    ])
+    .controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML",
+      function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
 
         $scope.companyPhone = svcDataPopulation.companyPhone();
 
@@ -2081,9 +2214,12 @@
 
           $rootScope.$emit('evAdminData');
           $location.path("/pages/verify");
-        }
-      }])
-      .controller("InsuranceCtrl", ["$scope", "$modal", "svcDataPopulation", function($scope, $modal, svcDataPopulation) {
+        };
+
+      }
+    ])
+    .controller("InsuranceCtrl", ["$scope", "$modal", "svcDataPopulation",
+      function($scope, $modal, svcDataPopulation) {
 
         $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
         $scope.coverageAmountWorkers = svcDataPopulation.insAmount();
@@ -2099,8 +2235,10 @@
 
         };
 
-      }])
-      .controller("InsuranceModalCtrl", ["$scope", "$modalInstance", "svcDataPopulation", function($scope, $modalInstance, svcDataPopulation) {
+      }
+    ])
+    .controller("InsuranceModalCtrl", ["$scope", "$modalInstance", "svcDataPopulation",
+      function($scope, $modalInstance, svcDataPopulation) {
         $scope.insuranceName = svcDataPopulation.insTypeGet();
         $scope.insPolicy = svcDataPopulation.insPolicy();
         $scope.insAmount = svcDataPopulation.insAmount();
@@ -2119,8 +2257,10 @@
           $modalInstance.dismiss('Clicked Cancel button');
         };
 
-      }])
-      .controller("GetOrganizedCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      }
+    ])
+    .controller("GetOrganizedCtrl", ["$scope", "svcDataPopulation",
+      function($scope, svcDataPopulation) {
         $scope.companyName = svcDataPopulation.companyName();
         $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
         $scope.uploadStatusMarkup = $scope.uploadStatus.markup;
@@ -2150,20 +2290,26 @@
           }
         };
 
-      }])
-      .controller("TimelineCtrl", ["$scope", "$location", "svcDataPopulation", function($scope, $location, svcDataPopulation) {
+      }
+    ])
+    .controller("TimelineCtrl", ["$scope", "$location", "svcDataPopulation",
+      function($scope, $location, svcDataPopulation) {
 
         $scope.reroute = function(inRoute) {
           // Redirect to a particular path
           $location.path(inRoute);
         };
 
-      }])
-      .controller("VerifyCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      }
+    ])
+    .controller("VerifyCtrl", ["$scope", "svcDataPopulation",
+      function($scope, svcDataPopulation) {
         $scope.companyUsername = svcDataPopulation.companyUsername();
 
-      }])
-      .controller("AdministratorCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      }
+    ])
+    .controller("AdministratorCtrl", ["$scope", "svcDataPopulation",
+      function($scope, svcDataPopulation) {
         $scope.companyUsername = svcDataPopulation.companyUsername();
         $scope.companyEmail = svcDataPopulation.companyEmail();
         $scope.companyFullNameFirst = svcDataPopulation.companyFullNameFirst();
@@ -2175,8 +2321,10 @@
           $scope.companyOwnerPrincipal = svcDataPopulation.companyOwnerPrincipal();
         }
 
-      }])
-      .controller("BusinessProfileCtrl", ["$scope", "svcDataPopulation", function($scope, svcDataPopulation) {
+      }
+    ])
+    .controller("BusinessProfileCtrl", ["$scope", "svcDataPopulation",
+      function($scope, svcDataPopulation) {
         $scope.companyAddress1 = svcDataPopulation.companyAddress1();
         $scope.companyCity = svcDataPopulation.companyCity();
         $scope.companyZip = svcDataPopulation.companyZip();
@@ -2202,8 +2350,10 @@
           };
         };
 
-      }])
-      .controller("NavBarCtrl", ["$scope", "$rootScope", "svcDataHTML", function($scope, $rootScope, svcDataHTML) {
+      }
+    ])
+    .controller("NavBarCtrl", ["$scope", "$rootScope", "svcDataHTML",
+      function($scope, $rootScope, svcDataHTML) {
         $scope.getCompanyIcon = svcDataHTML.getCompanyIcon();
         $scope.getCompanyName = svcDataHTML.getCompanyName();
         $scope.getAdminIcon = svcDataHTML.getAdminIcon();
@@ -2219,9 +2369,10 @@
           $scope.getAdminName = svcDataHTML.getAdminName();
           $scope.getAdminIcon = svcDataHTML.getAdminIcon();
         });
-      }])
-      .controller("TeamGeneralCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcTeamProgressBar", function($scope,
-        $rootScope, svcDataPopulation, svcTeamProgressBar) {
+      }
+    ])
+    .controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
+      function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
         $scope.progress = {};
         $scope.progress.now = svcTeamProgressBar.getProgBarValue();
         $scope.progress.step = svcTeamProgressBar.getProgBarStep();
@@ -2236,17 +2387,70 @@
           if ($scope.checkMailingAddressCheckbox) {
             $scope.techAddress1 = svcDataPopulation.companyAddress1();
             $scope.techAddress2 = "";
-            $scope.techCity     = svcDataPopulation.companyCity();
-            $scope.techState    = svcDataPopulation.companyState();
-            $scope.techZip      = svcDataPopulation.companyZip();
+            $scope.techCity = svcDataPopulation.companyCity();
+            $scope.techState = svcDataPopulation.companyState();
+            $scope.techZip = svcDataPopulation.companyZip();
           };
         };
 
         $scope.virtualType = function() {
+          $scope.techLegalNameFirst = svcDataPopulation.techLegalNameFirst();
+          $scope.techLegalNameLast = svcDataPopulation.techLegalNameLast();
+          $scope.techServiceProviderRole = svcDataPopulation.techServiceProviderRole();
+          $scope.techServiceRange = svcDataPopulation.techServiceRange();
+        };
+
+        $scope.changeCreateUserAccount = function() {
+          if ($scope.techCreateUser == 'yes') {
+            $scope.showTechUsernameField = true;
+          };
+
+          if ($scope.techCreateUser == 'no') {
+            $scope.showTechUsernameField = false;
+          };
+        };
+
+        $scope.nextPage = function() {
+          svcTeamProgressBar.setProgBarValue('25');
+          svcTeamProgressBar.setProgBarStep('2');
+
+          $location.path("/pages/team/preferences");
+        };
+
+      }
+    ]).controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
+      function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+        $scope.progress = {};
+        $scope.progress.now = svcTeamProgressBar.getProgBarValue();
+        $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+
+        $rootScope.$on('evTechProgressBar', function(event, data) {
+          $scope.progress.now = svcTeamProgressBar.getProgBarValue();
+          $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+        });
+
+        $scope.virtualType = function() {
+          $scope.techPermissionViewOrderPricing = svcDataPopulation.techPermissionViewOrderPricing();
+          $scope.techBusinessPhone = svcDataPopulation.techBusinessPhone();
+          $scope.techMobilePhone = svcDataPopulation.techMobilePhone();
+          $scope.techPrimaryEmailConfirm1 = svcDataPopulation.techPrimaryEmailConfirm1();
+          $scope.techPrimaryEmailConfirm2 = svcDataPopulation.techPrimaryEmailConfirm2();
+          $scope.techAlternateEmailConfirm1 = svcDataPopulation.techAlternateEmailConfirm1();
+          $scope.techAlternateEmailConfirm2 = svcDataPopulation.techAlternateEmailConfirm2();
+          $scope.techSMSAddressConfirm1 = svcDataPopulation.techSMSAddressConfirm1();
+          $scope.techSMSAddressConfirm2 = svcDataPopulation.techSMSAddressConfirm2();
+          $scope.techSecondaryContactMethod = svcDataPopulation.techSecondaryContactMethod();
+        };
+
+        $scope.nextPage = function() {
+          svcTeamProgressBar.setProgBarValue('50');
+          svcTeamProgressBar.setProgBarStep('3');
+
+          $location.path("/pages/team/skills");
+        };
+
+      }
+    ])
 
 
-        }
-
-      }])
-
-  }.call(this);
+}.call(this);

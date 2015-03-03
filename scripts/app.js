@@ -2232,7 +2232,6 @@ function() {
             templateUrl: "myModalContentInsurance.html",
             controller: 'InsuranceModalCtrl'
           });
-
         };
 
       }
@@ -2373,6 +2372,9 @@ function() {
     ])
     .controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
       function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+        svcTeamProgressBar.setProgBarValue('8');
+        svcTeamProgressBar.setProgBarStep('1');
+
         $scope.progress = {};
         $scope.progress.now = svcTeamProgressBar.getProgBarValue();
         $scope.progress.step = svcTeamProgressBar.getProgBarStep();
@@ -2418,8 +2420,12 @@ function() {
         };
 
       }
-    ]).controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
+    ])
+    .controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
       function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+        svcTeamProgressBar.setProgBarValue('25');
+        svcTeamProgressBar.setProgBarStep('2');
+
         $scope.progress = {};
         $scope.progress.now = svcTeamProgressBar.getProgBarValue();
         $scope.progress.step = svcTeamProgressBar.getProgBarStep();
@@ -2451,6 +2457,48 @@ function() {
 
       }
     ])
+    .controller("TeamSkillsCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar",
+      function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar) {
+        svcTeamProgressBar.setProgBarValue('50');
+        svcTeamProgressBar.setProgBarStep('3');
 
+        $scope.progress = {};
+        $scope.progress.now = svcTeamProgressBar.getProgBarValue();
+        $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+
+        $rootScope.$on('evTechProgressBar', function(event, data) {
+          $scope.progress.now = svcTeamProgressBar.getProgBarValue();
+          $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+        });
+
+        $scope.openSkillsetModal = function() {
+
+          var modalInstanceInsurance = $modal.open({
+            size: 'lg',
+            templateUrl: "myModalSkillset.html",
+            controller: 'SkillsetModalCtrl'
+          });
+        };
+
+        $scope.virtualType = function() {
+          // $scope.xxxxx = svcDataPopulation.xxxxx();
+
+          $scope.showListEnteredSkills = true;
+        };
+
+        $scope.nextPage = function() {
+          svcTeamProgressBar.setProgBarValue('75');
+          svcTeamProgressBar.setProgBarStep('4');
+
+          $location.path("/pages/team/background");
+        };
+
+      }
+    ])
+    .controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
+      function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+
+      }
+    ])
 
 }.call(this);

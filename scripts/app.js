@@ -1394,13 +1394,16 @@ function() {
             templateUrl: "views/pages/insurance.html"
           })
           .when("/pages/team/general", {
-            templateUrl: "views/pages/general.html"
+            templateUrl: "views/pages/team_general.html"
           })
           .when("/pages/team/preferences", {
-            templateUrl: "views/pages/preferences.html"
+            templateUrl: "views/pages/team_preferences.html"
           })
           .when("/pages/team/skills", {
-            templateUrl: "views/pages/skills.html"
+            templateUrl: "views/pages/team_skills.html"
+          })
+          .when("/pages/team/background", {
+            templateUrl: "views/pages/team_background.html"
           })
           .when("/pages/features", {
             templateUrl: "views/pages/features.html"
@@ -1890,6 +1893,9 @@ function() {
           },
           techSecondaryContactMethod: function() {
             return 'Alternate Email Address';
+          },
+          techSSN: function() {
+            return '***-**-1234';
           }
         };
       }
@@ -2481,10 +2487,12 @@ function() {
         };
 
         $scope.virtualType = function() {
-          // $scope.xxxxx = svcDataPopulation.xxxxx();
-
           $scope.showListEnteredSkills = true;
         };
+
+        $rootScope.$on('evShowTechSkillCategories', function(event, data) {
+          $scope.showListEnteredSkills = true;
+        });
 
         $scope.nextPage = function() {
           svcTeamProgressBar.setProgBarValue('75');
@@ -2495,8 +2503,48 @@ function() {
 
       }
     ])
-    .controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
-      function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+    .controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "$modalInstance",
+      "svcDataPopulation", "svcTeamProgressBar",
+      function($scope, $rootScope, $location, $modalInstance, svcDataPopulation, svcTeamProgressBar) {
+        $scope.ok = function() {
+          $modalInstance.close('Clicked Ok button');
+
+          $rootScope.$emit('evShowTechSkillCategories');
+        };
+
+        $scope.cancel = function() {
+          $modalInstance.dismiss('Clicked Cancel button');
+
+          $rootScope.$emit('evShowTechSkillCategories');
+        };
+
+      }
+    ])
+    .controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar",
+      function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar) {
+        svcTeamProgressBar.setProgBarValue('75');
+        svcTeamProgressBar.setProgBarStep('4');
+
+        $scope.progress = {};
+        $scope.progress.now = svcTeamProgressBar.getProgBarValue();
+        $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+
+        $rootScope.$on('evTechProgressBar', function(event, data) {
+          $scope.progress.now = svcTeamProgressBar.getProgBarValue();
+          $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+        });
+
+        $scope.virtualType = function() {
+          $scope.techSSN = svcDataPopulation.techSSN();
+          $scope.techPrimaryEmail1 = svcDataPopulation.techPrimaryEmailConfirm1();
+          $scope.techPrimaryEmail2 = svcDataPopulation.techPrimaryEmailConfirm2();
+          $scope.techAlternateEmail1 = svcDataPopulation.techAlternateEmailConfirm1();
+          $scope.techAlternateEmail2 = svcDataPopulation.techAlternateEmailConfirm2();
+        };
+
+        $scope.nextPage = function() {
+
+        };
 
       }
     ])

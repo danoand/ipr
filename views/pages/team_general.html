@@ -6,9 +6,15 @@
       <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered.</p>
       <p>Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
       <h5>Your Progress</h5>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
-          On {{ progress.step }} of 4 steps
+      <div class="row">
+        <div class="col-md-9">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
+              On {{ progress.step }} of 4 steps
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
         </div>
       </div>
     </div>

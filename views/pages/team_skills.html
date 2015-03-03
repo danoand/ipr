@@ -6,9 +6,15 @@
     <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered.</p>
     <p>Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
     <h5>Your Progress</h5>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
-        {{ progress.now }}% done - on {{ progress.step }} of 4 steps
+    <div class="row">
+      <div class="col-md-9">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
+            On {{ progress.step }} of 4 steps
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
       </div>
     </div>
   </div>
@@ -27,7 +33,7 @@
                 <div class="form-group">
                   <label for="techSkillCategory">Select Skill Category</label>
                   <select id="techSkillCategory" ng-model="techSkillCategory" class="form-control">
-                    <option value="-- All --" selected="">-- Select Skill Category --</option>
+                    <option value="-- All --">-- Select Skill Category --</option>
                     <option value="Automotive">Automotive</option>
                     <option value="Cabinets &amp; Countertops">Cabinets &amp; Countertops</option>
                     <option value="Carpentry &amp; Woodworking">Carpentry &amp; Woodworking</option>
@@ -62,11 +68,11 @@
               </form>
               <div ng-show="showListEnteredSkills">
                 <hr>
-                <label for="listEnteredSkills">Select Skill Category</label>
+                <label for="listEnteredSkills">Skill Categories</label>
                 <div id="listEnteredSkills" class="list-group">
-                  <a class="list-group-item">Skill #1</a>
-                  <a class="list-group-item">Skill #2</a>
+                  <a class="list-group-item">Home Electronics <span class="badge">14</span></a>
                 </div>
+                <p>Skills assigned to your Pro</p>
               </div>
             </div>
           </div>
@@ -75,64 +81,23 @@
     </div>
 </section>
 <script type="text/ng-template" id="myModalSkillset.html">
-<div class="modal-body">
-  <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Edit {{ insuranceName }} Insurance Details</strong></div>
-    <div class="panel-body">
-
-      <div class="row">
-          <form action="#">
-              <div class="col-xs-6">
-                  <div class="form-group">
-                      <label for="insPolicy">Policy*</label>
-                      <input type="text" class="form-control" id="insPolicy" ng-model="insPolicy">
-                  </div>
-                  <div class="form-group">
-                      <label for="insAmount">Amount*</label>
-                      <input type="text" class="form-control" id="insAmount" ng-model="insAmount">
-                  </div>
-                  <div class="form-group">
-                      <label for="insIssueDate">Issue Date*</label>
-                      <input type="date" class="form-control" id="insIssueDate" ng-model="insIssueDate">
-                  </div>
-                  <div class="form-group">
-                      <label for="insExpirationDate">Expiration Date*</label>
-                      <input type="date" class="form-control" id="insExpirationDate" ng-model="insExpirationDate">
-                  </div>
-              </div>
-              <div class="col-xs-6">
-                  <div class="form-group">
-                      <label for="insCarrier">Carrier Name*</label>
-                      <input type="text" class="form-control" id="insCarrier" ng-model="insCarrier">
-                  </div>
-                  <div class="form-group">
-                      <label for="insAgency">Agency Name*</label>
-                      <input type="text" class="form-control" id="insAgency" ng-model="insAgency">
-                  </div>
-                  <div class="form-group">
-                      <label for="insAgencyCounty">Agency County</label>
-                      <input type="text" class="form-control" id="insAgencyCounty" ng-model="insAgencyCounty">
-                  </div>
-                  </div>
-              </div>
-          </form>
+  <div class="modal-body">
+    <section class="panel panel-default">
+      <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Edit {{ insuranceName }} Insurance Details</strong></div>
+      <div class="panel-body">
+        <div class="row">
+          <img src="images/assets/skills_page.jpg">
+        </div>
       </div>
-
-
-    </div>
-
-  </section>
-
-
-</div>
-<div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-</div>
-
+    </section>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
 </script>
 
-<a href="/#/pages/team/skills" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Skills &amp; Services</a>
+<a href="/#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Background Check</a>
 <a type="button" class="btn btn-link pull-right">Save</a>
 <div ng-click="virtualType()" class="row">
 <i class="fa fa-keyboard-o"></i>

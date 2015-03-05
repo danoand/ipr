@@ -4,52 +4,45 @@
     <div class="panel-body">
       <p>Take advantage of opportunities by joining ServiceLive's Select Provider Networks (SPNs). SPNs are preferred relationships with ServiceLive's premium Buyers. <a href="">Learn More about SPNs</a></p>
       <p>Check out the SPN business activity for <a ng-click="openIndustry()">Home Electronics</a> in <a ng-click="openZipCode()">60179</a> in the last month!</p>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="panel panel-profile">
-            <div class="panel-heading bg-primary clearfix">
-              <a href="" class="pull-left profile">
-              <img alt="" src="images/shs-logo.png" class="img-circle img80_80">
-              </a>
-              <h3 class="ng-binding">Sears Home Services</h3>
-              <p>SHS Home Electronics Entertainment SPN</p>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item">
-                <span class="badge">712</span>
-                <i class="fa fa-wrench"></i>
-                Posted Jobs
-              </li>
-              <li class="list-group-item">
-                <span class="badge badge-warning">$174</span>
-                <i class="fa fa-dollar"></i>
-                Average Price
-              </li>
-            </ul>
-          </div>
+      <div class="row" ng-controller="FauxSPNCarouselCtrl">
+        <div class="col-md-3">
         </div>
         <div class="col-md-6">
-          <div class="panel panel-profile">
-            <div class="panel-heading bg-success clearfix">
-              <a href="" class="pull-left profile">
-              <img alt="" src="images/shs-logo.png" class="img-circle img80_80">
-              </a>
-              <h3 class="ng-binding">Sears Home Services</h3>
-              <p>SHS Home Automation SPN</p>
+          <div ng-class="spnClass">
+            <div class="panel panel-profile">
+              <div class="panel-heading bg-primary clearfix">
+                <a href="" class="pull-left profile">
+                <img alt="" ng-src="images/assets/logos/{{spnCurrentSlide.logo}}" class="img-circle img80_80">
+                </a>
+                <h3 class="ng-binding">{{spnCurrentSlide.buyer}}</h3>
+                <p>{{spnCurrentSlide.title}}</p>
+              </div>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <span class="badge">{{spnCurrentSlide.numJobs}}</span>
+                  <i class="fa fa-wrench"></i>
+                  Posted Jobs
+                </li>
+                <li class="list-group-item">
+                  <span class="badge badge-warning">{{spnCurrentSlide.avgPrice}}</span>
+                  <i class="fa fa-dollar"></i>
+                  Average Price
+                </li>
+                <li class="list-group-item">
+                  <button class="btn btn-primary btn-block">Learn More</button>
+                </li>
+              </ul>
             </div>
-            <ul class="list-group">
-              <li class="list-group-item">
-                <span class="badge">276</span>
-                <i class="fa fa-wrench"></i>
-                Posted Jobs
-              </li>
-              <li class="list-group-item">
-                <span class="badge badge-warning">$129</span>
-                <i class="fa fa-dollar"></i>
-                Average Price
-              </li>
-            </ul>
           </div>
+          <hr>
+          <div class="text-center">
+            <div class="btn-group">
+              <button type="button" ng-click="spnTransitionNext(spnCurrentSlideIndex)" class="btn btn-default"><i class="fa fa-angle-double-left"></i> See Previous SPN</button>
+              <button type="button" ng-click="spnTransitionPrevious(spnCurrentSlideIndex)" class="btn btn-default">See Next SPN <i class="fa fa-angle-double-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
         </div>
       </div>
       <button class="btn btn-info btn-xs pull-right" ng-click="openViewSPNs()">See More SPNs <i class="fa fa-chevron-right"></i></button>

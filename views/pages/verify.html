@@ -1,72 +1,71 @@
 <div class="page" ng-controller="VerifyCtrl">
   <section class="panel panel-primary">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Provider Benefits</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Provider Benefits</strong>
+    </div>
     <div class="panel-body">
-      <p>As a ServiceLive Provider you'll get access to great tools and offers. </p>
-      <div class="row">
+      <p>As a ServiceLive Provider you'll get access to great tools and offers.</p>
+      <div class="row" ng-controller="FauxPromoCarouselCtrl">
+        <div class="col-md-3">
+        </div>
         <div class="col-sm-6">
           <div class="thumbnail">
-            <img alt="" src="images/assets/banner_Mobile_App2.gif">
+            <img alt="" src="images/assets/{{promoCurrentSlide.image}}">
             <div class="caption">
-              <h3>ServiceLive Mobile App</h3>
-              <p>Your work is in the field. Take ServiceLive with you.</p>
+              <h3>{{promoCurrentSlide.title}}</h3>
+              <p>{{promoCurrentSlide.description}}</p>
+              <button class="btn btn-primary btn-block">Learn More</button>
+            </div>
+          </div>
+          <hr>
+          <div class="text-center">
+            <div class="btn-group">
+              <button type="button" ng-click="promoTransitionNext(promoCurrentSlideIndex)" class="btn btn-default"><i class="fa fa-angle-double-left"></i> See Previous Provider Benefit</button>
+              <button type="button" ng-click="promoTransitionPrevious(promoCurrentSlideIndex)" class="btn btn-default">See Next Provider Benefit <i class="fa fa-angle-double-right"></i>
+              </button>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="thumbnail">
-            <img alt="" src="images/assets/craftsman_2.gif">
-            <div class="caption">
-              <h3>ServiceLive Offers</h3>
-              <p>As a ServiceLive Provider, get access to valuable offers available nowhere eles</p>
-              </div>
-          </div>
+        <div class="col-md-3">
         </div>
       </div>
-      <button class="btn btn-info btn-xs pull-right">See More Offers <i class="fa fa-chevron-right"></i></button>
     </div>
-  </section>
-  <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Login &amp; Verify Account</strong></div>
-    <div class="panel-body">
-      <div class="signin-body">
-        <div class="container">
-          <div class="form-container">
-            <form class="form-horizontal">
-              <fieldset>
-                <div class="form-group">
-                  <div class="input-group input-group-lg">
-                    <span class="input-group-addon">
+    <button class="btn btn-info btn-xs pull-right">See More Offers <i class="fa fa-chevron-right"></i></button>
+</section>
+<section class="panel panel-default">
+  <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Login &amp; Verify Account</strong>
+  </div>
+  <div class="panel-body">
+    <div class="signin-body">
+      <div class="container">
+        <div class="form-container">
+          <form class="form-horizontal">
+            <fieldset>
+              <div class="form-group">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">
                     <span class="glyphicon glyphicon-user"></span>
-                    </span>
-                    <input type="text"
-                      class="form-control"
-                      placeholder="Username"
-                      ng-model="companyUsername"
-                      >
-                  </div>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Username" ng-model="companyUsername">
                 </div>
-                <div class="form-group">
-                  <div class="input-group input-group-lg">
-                    <span class="input-group-addon">
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
-                    </span>
-                    <input type="password"
-                      class="form-control"
-                      placeholder="Password"
-                      >
-                  </div>
+                  </span>
+                  <input type="password" class="form-control" placeholder="Password">
                 </div>
-                <div class="form-group">
-                </div>
-                <div class="form-group">
-                  <a href="#/pages/administrator" class="btn btn-primary btn-lg btn-block">Login &amp; Verify Account</a>
-                </div>
-              </fieldset>
-            </form>
-          </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="form-group">
+                <a href="#/pages/administrator" class="btn btn-primary btn-lg btn-block">Login &amp; Verify Account</a>
+              </div>
+            </fieldset>
+          </form>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </div>

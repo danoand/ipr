@@ -66,12 +66,7 @@
       <div class="pull-right" ng-click="uploadStatusClick()" ng-bind-html="uploadStatusMarkup"></div>
     </div>
     <div class="panel-body">
-      <div ng-show="uploadMessage">
-        <div class="alert alert-success alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          Your document has been loaded and we have pre-populated some of your business information.  Please verify and make edits if needed.
-        </div>
-      </div>
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="emptyAlert()">{{alert.msg}}</alert>
       <h4>Get a Jumpstart by Uploading a Document</h4>
       <p>Scan or take a picture of your insurance certificate.  We'll process it and pre-populate some of your information.</p>
       <div>

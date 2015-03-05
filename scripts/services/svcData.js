@@ -243,3 +243,87 @@ appServices.factory("svcTeamProgressBar", [
     };
   }
 ]);
+
+// svcTeamProgressBar is a service that populates a "progress bar" UI widget on the Team pages
+appServices.factory("svcCarouselData", [
+
+  function() {
+
+    mySPNSlides = [{
+      logo: 'shs-logo.png',
+      buyer: 'Sears Home Services',
+      title: 'SHS Home Electronics Entertainment SPN',
+      numJobs: '712',
+      avgPrice: '$174'
+    }, {
+      logo: 'shs-logo.png',
+      buyer: 'Sears Home Services',
+      title: 'SHS Home Automation SPN',
+      numJobs: '276',
+      avgPrice: '$129'
+    }, {
+      logo: 'searscommercial-logo.png',
+      buyer: 'Sears Commercial',
+      title: 'Sears Commercial SMB Repair SPN',
+      numJobs: '108',
+      avgPrice: '$248'
+    }, {
+      logo: 'ATTDigitalLife-logo.jpg',
+      buyer: 'AT&T Digital Life',
+      title: 'AT&T Digital Life Support SPN',
+      numJobs: '418',
+      avgPrice: '$98'
+    }, {
+      logo: 'kmartstartplan-logo.png',
+      buyer: 'Kmart Smart Plan',
+      title: 'Kmart Smart Plan Diagnostic SPN',
+      numJobs: '87',
+      avgPrice: '$75'
+    }];
+
+    myPromoSlides = [{
+        image: 'banner_Mobile_App2.gif',
+        title: 'ServiceLive Mobile App',
+        description: 'Your work is in the field. Take ServiceLive with you.'
+      }, {
+        image: 'craftsman_2.gif',
+        title: 'ServiceLive Mobile App',
+        description: 'As a ServiceLive Provider, get access to valuable offers available nowhere else.'
+      }
+    ];
+
+    mySPNTransitionEnter = [
+      'myopague10',
+      'myopague9',
+      'myopague8',
+      'myopague7',
+      'myopague6',
+      'myopague5'
+    ];
+
+    mySPNTransitionExit = [
+      'myopague5',
+      'myopague6',
+      'myopague7',
+      'myopague8',
+      'myopague9',
+      'myopague10'
+    ];
+
+    return {
+      getCarouselData: function() {
+        return mySPNSlides;
+      },
+      getEnterTransition: function() {
+        return mySPNTransitionEnter;
+      },
+      getExitTransition: function() {
+        return mySPNTransitionExit;
+      },
+      getCarouselDataPromo: function() {
+        return myPromoSlides;
+      }
+    };
+
+  }
+]);

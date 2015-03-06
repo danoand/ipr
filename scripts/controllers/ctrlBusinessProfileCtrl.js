@@ -9,6 +9,8 @@ appControllers.controller("BusinessProfileCtrl", ["$scope", "$rootScope", "svcDa
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
+    $rootScope.$emit('evStatusData');
+
     $scope.companyAddress1 = svcDataPopulation.companyAddress1();
     $scope.companyCity = svcDataPopulation.companyCity();
     $scope.companyZip = svcDataPopulation.companyZip();

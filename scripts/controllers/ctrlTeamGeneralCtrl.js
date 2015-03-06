@@ -9,6 +9,8 @@ appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
+    $rootScope.$emit('evStatusData');
+
     svcTeamProgressBar.setProgBarValue('8');
     svcTeamProgressBar.setProgBarStep('1');
 

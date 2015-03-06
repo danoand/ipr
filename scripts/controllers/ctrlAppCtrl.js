@@ -4,7 +4,7 @@ appControllers.controller("AppCtrl", ["$scope", "$location",
       var path;
       return path = $location.path(), _.contains(["/404", "/pages/signup"], path)
     }, $scope.main = {
-      brand: "ServiceLive Registration",
+      brand: "ServiceLive",
       name: "Lisa Doe"
     }
   }

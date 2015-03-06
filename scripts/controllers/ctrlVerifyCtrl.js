@@ -9,6 +9,8 @@ appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "$modal", "svcD
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
+    $rootScope.$emit('evStatusData');
+
     $scope.companyUsername = svcDataPopulation.companyUsername();
 
     $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
@@ -19,7 +21,8 @@ appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "$modal", "svcD
       var modalConfirmEmail;
 
       modalConfirmEmail = $modal.open({
-        templateUrl: "myModalMailVerify.html"
+        templateUrl: "myModalMailVerify.html",
+        size: 'lg'
       });
     };
   }

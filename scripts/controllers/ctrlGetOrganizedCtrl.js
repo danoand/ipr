@@ -1,11 +1,13 @@
 // GetOrganizedCtrl is a controller for the getorganized.html view
-appControllers.controller("GetOrganizedCtrl", ["$scope", "svcDataPopulation",
-  function($scope, svcDataPopulation) {
+appControllers.controller("GetOrganizedCtrl", ["$scope", "$rootScope", "svcDataPopulation",
+  function($scope, $rootScope, svcDataPopulation) {
     $scope.companyName = svcDataPopulation.companyName();
     $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
     $scope.uploadStatusMarkup = $scope.uploadStatus.markup;
     $scope.uploadMessage = false;
     $scope.alerts = [];
+
+    $rootScope.$emit('evStatusData');
 
     tmpSuccessAlert = { type: 'success', msg: 'Your document has been loaded and we have pre-populated some of your business information.  Please verify and make edits if needed.' };
 

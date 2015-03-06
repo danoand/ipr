@@ -1,6 +1,8 @@
 // CompanyNameCtrl is the controller for the companyname.html view
 appControllers.controller("CompanyNameCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML",
   function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
+    $rootScope.$emit('evStatusData');
+    
     // Initialize the company name
     $scope.companyDBAName = svcDataPopulation.companyName();
     // Initialize 'SELECT' button look & feel

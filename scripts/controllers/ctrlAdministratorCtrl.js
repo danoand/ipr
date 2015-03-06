@@ -9,6 +9,8 @@ appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "svcData
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
+    $rootScope.$emit('evStatusData');
+
     $scope.companyUsername = svcDataPopulation.companyUsername();
     $scope.companyEmail = svcDataPopulation.companyEmail();
     $scope.companyFullNameFirst = svcDataPopulation.companyFullNameFirst();

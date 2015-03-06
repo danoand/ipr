@@ -1,145 +1,153 @@
 <div class="page" ng-controller="TimelineCtrl">
-    <div class="ui-timline-container">
-        <section class="ui-timeline">
-            <article class="tl-item">
-                <div class="tl-body" ng-click="reroute('/pages/getorganized')">
-                    <div class="tl-entry">
-                        <div class="tl-caption">
-                            <a href="javascript:;" class="btn btn-primary btn-block">START</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
+  <div class="ui-timline-container">
+    <section class="ui-timeline">
+      <article class="tl-item">
+        <div class="tl-body" ng-click="reroute('/pages/getorganized')">
+          <div class="tl-entry">
+            <div class="tl-caption">
+              <a href="javascript:;" class="btn btn-primary btn-block">START</a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item alt">
-                <div class="tl-body">
-                    <div class="tl-entry">
-                        <div class="tl-icon round-icon sm bg-info"><i class="fa fa-info-circle"></i></div>
-                        <div class="tl-content" ng-click="reroute('/pages/getorganized')">
-                            <span class="label label-success pull-left">COMPLETE</span>
-                            <h4 class="tl-tile text-primary">Get Organized</h4>
-                            <p>Get acquainted with the registration process and gather your documents.  It will take about
-                            30 minutes from start to finish with everything in hand.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item alt">
+        <div class="tl-body">
+          <div class="tl-entry">
+            <div class="tl-icon round-icon sm bg-info"><i class="fa fa-info-circle"></i>
+            </div>
+            <div class="tl-content" ng-click="reroute('/pages/getorganized')">
+              <span class="label label-success pull-left">COMPLETE</span>
+              <h4 class="tl-tile text-primary">Get Organized</h4>
+              <p>Get acquainted with the registration process and gather your documents. It will take about 30 minutes from start to finish with everything in hand.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item">
-                <div class="tl-body">
-                    <div class="tl-entry" ng-click="reroute('/pages/companyname')">
-                        <div class="tl-icon round-icon sm bg-info"><i class="fa fa-building"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-success pull-right">COMPLETE</span>
-                            <h4 class="tl-tile text-primary">Company Name</h4>
-                            <p>Select or enter your legal business name and physical location.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item">
+        <div class="tl-body">
+          <div class="tl-entry" ng-click="reroute('/pages/companyname')">
+            <div class="tl-icon round-icon sm bg-info"><i class="fa fa-building"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-success pull-right">COMPLETE</span>
+              <h4 class="tl-tile text-primary">Company Name</h4>
+              <p>Select or enter your legal business name and physical location.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item alt">
-                <div class="tl-body">
-                    <div class="tl-entry" ng-click="reroute('/pages/account')">
-                        <div class="tl-icon round-icon sm bg-warning"><i class="fa fa-user-plus"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-info pull-left">IN PROGRESS</span>
-                            <h4 class="tl-tile text-danger">Account</h4>
-                            <p>Specify your login account details.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item alt">
+        <div class="tl-body">
+          <div class="tl-entry" ng-click="reroute('/pages/account')">
+            <div class="tl-icon round-icon sm bg-warning"><i class="fa fa-user-plus"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-info pull-left">IN PROGRESS</span>
+              <h4 class="tl-tile text-danger">Account</h4>
+              <p>Specify your login account details.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item">
-                <div class="tl-body">
-                    <div class="tl-entry" ng-click="reroute('/pages/verify')">
-                        <div class="tl-icon round-icon sm bg-success"><i class="fa fa-crosshairs"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-default pull-right">NOT STARTED</span>
-                            <h4 class="tl-tile text-warning">Verify</h4>
-                            <p>Verify your email address.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item">
+        <div class="tl-body">
+          <div class="tl-entry" ng-click="reroute('/pages/verify')">
+            <div class="tl-icon round-icon sm bg-success"><i class="fa fa-crosshairs"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-default pull-right">NOT STARTED</span>
+              <h4 class="tl-tile text-warning">Verify</h4>
+              <p>Verify your email address.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item alt">
-                <div class="tl-body">
-                    <div class="tl-entry" ng-click="reroute('/pages/administrator')">
-                        <div class="tl-icon round-icon sm bg-danger"><i class="fa fa-compass"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-default pull-left">NOT STARTED</span>
-                            <h4 class="tl-tile text-success">Administrator</h4>
-                            <p>Verify and enter the Account Administrator's details.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item alt">
+        <div class="tl-body">
+          <div class="tl-entry" ng-click="reroute('/pages/administrator')">
+            <div class="tl-icon round-icon sm bg-danger"><i class="fa fa-compass"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-default pull-left">NOT STARTED</span>
+              <h4 class="tl-tile text-success">Administrator</h4>
+              <p>Verify and enter the Account Administrator's details.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item">
-                <div class="tl-body">
-                    <div class="tl-entry" ng-click="reroute('/pages/businessprofile')">
-                        <div class="tl-icon round-icon sm bg-primary"><i class="fa fa-cogs"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-default pull-right">NOT STARTED</span>
-                            <h4 class="tl-tile text-info">Business</h4>
-                            <p>Verify and enter your business background and details.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item">
+        <div class="tl-body">
+          <div class="tl-entry" ng-click="reroute('/pages/businessprofile')">
+            <div class="tl-icon round-icon sm bg-primary"><i class="fa fa-cogs"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-default pull-right">NOT STARTED</span>
+              <h4 class="tl-tile text-info">Business</h4>
+              <p>Verify and enter your business background and details.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item alt">
-                <div class="tl-body">
-                    <div class="tl-entry" ng-click="reroute('/pages/insurance')">
-                        <div class="tl-icon round-icon sm bg-success"><i class="fa fa-certificate"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-default pull-left">NOT STARTED</span>
-                            <h4 class="tl-tile text-warning">Insurance</h4>
-                            <p>Declare the type and amount of your business insurance policies.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item alt">
+        <div class="tl-body">
+          <div class="tl-entry" ng-click="reroute('/pages/insurance')">
+            <div class="tl-icon round-icon sm bg-success"><i class="fa fa-certificate"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-default pull-left">NOT STARTED</span>
+              <h4 class="tl-tile text-warning">Insurance</h4>
+              <p>Declare the type and amount of your business insurance policies.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item">
-                <div class="tl-body">
-                    <div class="tl-entry">
-                        <div class="tl-icon round-icon sm bg-danger"><i class="fa fa-users"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-default pull-right">NOT STARTED</span>
-                            <h4 class="tl-tile text-success">Team</h4>
-                            <p>If you're not conducting service calls for your company, enter at least one technician to be profiled and complete a background check.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item">
+        <div class="tl-body">
+          <div class="tl-entry">
+            <div class="tl-icon round-icon sm bg-danger"><i class="fa fa-users"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-default pull-right">NOT STARTED</span>
+              <h4 class="tl-tile text-success">Team</h4>
+              <p>If you're not conducting service calls for your company, enter at least one technician to be profiled and complete a background check.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item alt">
-                <div class="tl-body">
-                    <div class="tl-entry">
-                        <div class="tl-icon round-icon sm bg-primary"><i class="fa fa-pencil-square-o"></i></div>
-                        <div class="tl-content">
-                            <span class="label label-default pull-left">NOT STARTED</span>
-                            <h4 class="tl-tile text-info">Complete!</h4>
-                            <p>Wrap up and complete your registration!</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item alt">
+        <div class="tl-body">
+          <div class="tl-entry">
+            <div class="tl-icon round-icon sm bg-primary"><i class="fa fa-pencil-square-o"></i>
+            </div>
+            <div class="tl-content">
+              <span class="label label-default pull-left">NOT STARTED</span>
+              <h4 class="tl-tile text-info">Complete!</h4>
+              <p>Wrap up and complete your registration!</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-            <article class="tl-item">
-                <div class="tl-body">
-                    <div class="tl-entry">
-                        <div class="tl-caption">
-                            <a href="javascript:;" class="btn btn-success btn-block">END</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
+      <article class="tl-item">
+        <div class="tl-body">
+          <div class="tl-entry">
+            <div class="tl-caption">
+              <a href="javascript:;" class="btn btn-success btn-block">END</a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-        </section>
-    </div>
+    </section>
+  </div>
 
 </div>

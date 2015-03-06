@@ -4,15 +4,17 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
 
+    $rootScope.$emit('evStatusData');
+
     $scope.companyPhone = svcDataPopulation.companyPhone();
 
     $scope.virtualType = function() {
-      $scope.companyFullName = svcDataPopulation.companyFullName();
-      $scope.companyEmail = svcDataPopulation.companyEmail();
-      $scope.companyUsername = svcDataPopulation.companyUsername();
-      $scope.companyPassword1 = svcDataPopulation.companyPassword1();
-      $scope.companyPassword2 = svcDataPopulation.companyPassword2();
-      $scope.companyMobilePhone = svcDataPopulation.companyMobilePhone();
+      $scope.companyFullName      = svcDataPopulation.companyFullName();
+      $scope.companyEmail         = svcDataPopulation.companyEmail();
+      $scope.companyUsername      = svcDataPopulation.companyUsername();
+      $scope.companyPassword1     = svcDataPopulation.companyPassword1();
+      $scope.companyPassword2     = svcDataPopulation.companyPassword2();
+      $scope.companyMobilePhone   = svcDataPopulation.companyMobilePhone();
       $scope.companyInquiryMethod = svcDataPopulation.companyInquiryMethod();
     };
 

@@ -7,7 +7,9 @@ appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$loca
 
     svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
-    $rootScope.$emit('evAdminData');;
+    $rootScope.$emit('evAdminData');
+
+    $rootScope.$emit('evStatusData');
 
     svcTeamProgressBar.setProgBarValue('25');
     svcTeamProgressBar.setProgBarStep('2');

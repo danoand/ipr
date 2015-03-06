@@ -9,6 +9,8 @@ appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "s
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
+    $rootScope.$emit('evStatusData');
+
     $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
     $scope.coverageAmountWorkers = svcDataPopulation.insAmount();
     $scope.coverageAmountVehicle = svcDataPopulation.insAmount();

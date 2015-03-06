@@ -181,20 +181,23 @@ appServices.factory("svcDataPopulation", [
 appServices.factory("svcDataHTML", ["$rootScope",
 
   function($rootScope) {
-    var navCompanyIcon = '<span></span>';
-    var navCompanyName = '<span></span>';
-    var navAdminIcon = '<span></span>';
-    var navAdminName = '<span></span>';
+    var navCompanyIcon    = '<span></span>';
+    var navCompanyName    = '<span></span>';
+    var navAdminIcon      = '<span></span>';
+    var navAdminName      = '<span></span>';
+
+    var navProcessStatus  = '<span class="label label-default">STATUS: In Progress</span>';
 
     return {
-      htmlCompanyIcon: '<i class="fa fa-building-o"></i>',
-      htmlCompanyName: '<span data-i18n="Acme Plumbing Corporation LLC (#86175)">Acme Plumbing Corporation LLC (#86175)</span>',
-      htmlAdminIcon: '<i class="fa fa-user"></i>',
-      htmlAdminName: '<span data-i18n="Chris Plummer (#47639)">Chris Plummer (#47639)</span>',
+      htmlCompanyIcon:     '<i class="fa fa-building-o"></i>',
+      htmlCompanyName:     '<span data-i18n="Acme Plumbing Corporation LLC (#86175)">Acme Plumbing Corporation LLC (#86175)</span>',
+      htmlAdminIcon:       '<i class="fa fa-user"></i>',
+      htmlAdminName:       '<span data-i18n="Chris Plummer (#47639)">Chris Plummer (#47639)</span>',
       htmlCompanyIconNull: '<span></span>',
       htmlCompanyNameNull: '<span></span>',
-      htmlAdminIconNull: '<span></span>',
-      htmlAdminNameNull: '<span></span>',
+      htmlAdminIconNull:   '<span></span>',
+      htmlAdminNameNull:   '<span></span>',
+      htmlProcessStatus:   navProcessStatus,
       setCompanyIcon: function(inHTML) {
         navCompanyIcon = inHTML;
       },
@@ -202,10 +205,10 @@ appServices.factory("svcDataHTML", ["$rootScope",
         navCompanyName = inHTML;
       },
       setAdminIcon: function(inHTML) {
-        navAdminIcon = inHTML;
+        navAdminIcon   = inHTML;
       },
       setAdminName: function(inHTML) {
-        navAdminName = inHTML;
+        navAdminName   = inHTML;
       },
       getCompanyIcon: function() {
         return navCompanyIcon;
@@ -218,6 +221,9 @@ appServices.factory("svcDataHTML", ["$rootScope",
       },
       getAdminName: function() {
         return navAdminName;
+      },
+      getProcessStatus: function() {
+        return navProcessStatus;
       }
     };
   }

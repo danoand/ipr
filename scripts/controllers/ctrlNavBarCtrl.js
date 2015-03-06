@@ -12,7 +12,6 @@ appControllers.controller("NavBarCtrl", ["$scope", "$rootScope", "svcDataHTML",
     });
 
     $rootScope.$on('evAdminData', function(event, data) {
-      console.log('Just got the evAdminData event ' + svcDataHTML.getAdminName() + ' ' + svcDataHTML.getAdminIcon());
       $scope.getAdminName = svcDataHTML.getAdminName();
       $scope.getAdminIcon = svcDataHTML.getAdminIcon();
     });

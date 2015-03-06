@@ -1,5 +1,8 @@
 appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML",
   function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
+    svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+    svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+    $rootScope.$emit('evCompanyData');
 
     $scope.companyPhone = svcDataPopulation.companyPhone();
 

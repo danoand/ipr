@@ -1,6 +1,14 @@
 // TeamPreferencesCtrl is the controller for the team_preferences.html view
-appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
-  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
+  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+    svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+    svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+    $rootScope.$emit('evCompanyData');
+
+    svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
+    svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
+    $rootScope.$emit('evAdminData');;
+
     svcTeamProgressBar.setProgBarValue('25');
     svcTeamProgressBar.setProgBarStep('2');
 

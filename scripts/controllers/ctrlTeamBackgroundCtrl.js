@@ -1,6 +1,14 @@
 // TeamBackgroundCtrl is a controller on the teambackground.html view
-appControllers.controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar",
-  function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar) {
+appControllers.controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
+  function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+    svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+    svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+    $rootScope.$emit('evCompanyData');
+
+    svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
+    svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
+    $rootScope.$emit('evAdminData');
+
     svcTeamProgressBar.setProgBarValue('75');
     svcTeamProgressBar.setProgBarStep('4');
 

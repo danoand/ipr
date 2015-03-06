@@ -1,6 +1,13 @@
 // InsuranceCtrl is the controller for the insurance.html view
-appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "svcDataPopulation",
-  function($scope, $modal, svcDataPopulation) {
+appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "svcDataPopulation", "svcDataHTML",
+  function($scope, $modal, $rootScope, svcDataPopulation, svcDataHTML) {
+    svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+    svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+    $rootScope.$emit('evCompanyData');
+
+    svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
+    svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
+    $rootScope.$emit('evAdminData');
 
     $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
     $scope.coverageAmountWorkers = svcDataPopulation.insAmount();

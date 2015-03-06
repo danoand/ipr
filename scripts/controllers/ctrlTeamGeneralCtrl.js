@@ -1,6 +1,14 @@
 // TeamGeneralCtrl is the controller for the teamg_eneral.html view
-appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar",
-  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar) {
+appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
+  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+    svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+    svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+    $rootScope.$emit('evCompanyData');
+
+    svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
+    svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
+    $rootScope.$emit('evAdminData');
+
     svcTeamProgressBar.setProgBarValue('8');
     svcTeamProgressBar.setProgBarStep('1');
 
@@ -50,4 +58,3 @@ appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location
 
   }
 ]);
-

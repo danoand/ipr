@@ -175,9 +175,9 @@ appServices.factory("svcDataPopulation", [
 ]);
 
 // svcDataHTML is a service that populates HTML into various views
-appServices.factory("svcDataHTML", [
+appServices.factory("svcDataHTML", ["$rootScope",
 
-  function() {
+  function($rootScope) {
     var navCompanyIcon = '<span></span>';
     var navCompanyName = '<span></span>';
     var navAdminIcon = '<span></span>';
@@ -287,7 +287,7 @@ appServices.factory("svcCarouselData", [
         description: 'Your work is in the field. Take ServiceLive with you.'
       }, {
         image: 'craftsman_2.gif',
-        title: 'ServiceLive Mobile App',
+        title: 'Craftsman Club',
         description: 'As a ServiceLive Provider, get access to valuable offers available nowhere else.'
       }
     ];

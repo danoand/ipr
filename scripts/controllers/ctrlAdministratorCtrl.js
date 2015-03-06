@@ -1,6 +1,14 @@
 // AdministratorCtrl is a controller for the administrator.html view
-appControllers.controller("AdministratorCtrl", ["$scope", "svcDataPopulation",
-  function($scope, svcDataPopulation) {
+appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcDataHTML",
+  function($scope, $rootScope, svcDataPopulation, svcDataHTML) {
+    svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
+    svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
+    $rootScope.$emit('evCompanyData');
+
+    svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
+    svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
+    $rootScope.$emit('evAdminData');
+
     $scope.companyUsername = svcDataPopulation.companyUsername();
     $scope.companyEmail = svcDataPopulation.companyEmail();
     $scope.companyFullNameFirst = svcDataPopulation.companyFullNameFirst();

@@ -11,6 +11,10 @@ appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "$modal", "svcD
 
     $scope.companyUsername = svcDataPopulation.companyUsername();
 
+    $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
+    $scope.techLastName  = svcDataPopulation.techLegalNameLast();
+    $scope.techId        = svcDataPopulation.techId();
+
     $scope.openConfirmEmail = function() {
       var modalConfirmEmail;
 

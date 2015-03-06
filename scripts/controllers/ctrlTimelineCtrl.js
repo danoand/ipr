@@ -9,6 +9,10 @@ appControllers.controller("TimelineCtrl", ["$scope", "$location", "svcDataPopula
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
+    $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
+    $scope.techLastName  = svcDataPopulation.techLegalNameLast();
+    $scope.techId        = svcDataPopulation.techId();
+
     $scope.reroute = function(inRoute) {
       // Redirect to a particular path
       $location.path(inRoute);

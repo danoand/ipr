@@ -16,6 +16,10 @@ appControllers.controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$locat
     $scope.progress.now = svcTeamProgressBar.getProgBarValue();
     $scope.progress.step = svcTeamProgressBar.getProgBarStep();
 
+    $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
+    $scope.techLastName  = svcDataPopulation.techLegalNameLast();
+    $scope.techId        = svcDataPopulation.techId();
+
     $rootScope.$on('evTechProgressBar', function(event, data) {
       $scope.progress.now = svcTeamProgressBar.getProgBarValue();
       $scope.progress.step = svcTeamProgressBar.getProgBarStep();

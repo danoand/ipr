@@ -131,6 +131,9 @@ appServices.factory("svcDataPopulation", [
       techLegalNameLast: function() {
         return 'Techout';
       },
+      techId: function() {
+        return '86345';
+      },
       techServiceProviderRole: function() {
         return true;
       },

@@ -6,43 +6,6 @@ appControllers.controller("FauxPromoCarouselCtrl", ["$scope", "$rootScope", "$mo
     $scope.promoSlides = svcCarouselData.getCarouselDataPromo();
     $scope.promoCurrentSlide = $scope.promoSlides[$scope.promoCurrentSlideIndex];
 
-    $scope.promoTransitionNext = function(inIndex) {
-
-      // setTimeout(function(){ $scope.promoClass = 'myopague9' }, 100);
-      // setTimeout(function(){ $scope.promoClass = 'myopague8' }, 200);
-      // setTimeout(function(){ $scope.promoClass = 'myopague7' }, 300);
-      // setTimeout(function(){ $scope.promoClass = 'myopague6' }, 400);
-      // setTimeout(function(){ $scope.promoClass = 'myopague5' }, 500);
-      setTimeout(function() {
-        $scope.promoNextSlide(inIndex)
-      }, 50);
-      // setTimeout(function(){ $scope.promoClass = 'myopague6' }, 700);
-      // setTimeout(function(){ $scope.promoClass = 'myopague7' }, 800);
-      // setTimeout(function(){ $scope.promoClass = 'myopague8' }, 900);
-      // setTimeout(function(){ $scope.promoClass = 'myopague9' }, 1000);
-      // setTimeout(function(){ $scope.promoClass = 'myopague10'}, 1100);
-
-    };
-
-    $scope.promoTransitionPrevious = function(inIndex) {
-
-      // setTimeout(function(){ $scope.promoClass = 'myopague9' }, 100);
-      // setTimeout(function(){ $scope.promoClass = 'myopague8' }, 200);
-      // setTimeout(function(){ $scope.promoClass = 'myopague7' }, 300);
-      // setTimeout(function(){ $scope.promoClass = 'myopague6' }, 400);
-      // setTimeout(function(){ $scope.promoClass = 'myopague5' }, 500);
-      setTimeout(function() {
-        $scope.promoPreviousSlide(inIndex)
-      }, 50);
-      // setTimeout(function(){ $scope.promoClass = 'myopague6' }, 700);
-      // setTimeout(function(){ $scope.promoClass = 'myopague7' }, 800);
-      // setTimeout(function(){ $scope.promoClass = 'myopague8' }, 900);
-      // setTimeout(function(){ $scope.promoClass = 'myopague9' }, 1000);
-      // setTimeout(function(){ $scope.promoClass = 'myopague10'}, 1100);
-
-    };
-
-
     $scope.promoNextSlide = function(inIndex) {
 
       if (inIndex == $scope.promoSlides.length - 1) {

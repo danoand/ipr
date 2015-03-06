@@ -1,6 +1,6 @@
 // VerifyCtrl is a controller for the verifyctrl.html view
-appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcDataHTML",
-  function($scope, $rootScope, svcDataPopulation, svcDataHTML) {
+appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "$modal", "svcDataPopulation", "svcDataHTML",
+  function($scope, $rootScope, $modal, svcDataPopulation, svcDataHTML) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -10,5 +10,13 @@ appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "svcDataPopulat
     $rootScope.$emit('evAdminData');
 
     $scope.companyUsername = svcDataPopulation.companyUsername();
+
+    $scope.openConfirmEmail = function() {
+      var modalConfirmEmail;
+
+      modalConfirmEmail = $modal.open({
+        templateUrl: "myModalMailVerify.html"
+      });
+    };
   }
 ]);

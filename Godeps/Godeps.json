@@ -1,0 +1,10 @@
+{
+	"ImportPath": "danolocal/ipr",
+	"GoVersion": "go1.3.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/justinas/alice",
+			"Rev": "e82c7d9ec9ebfd83e90d4fd39ce934f5fc0b0b5f"
+		}
+	]
+}

@@ -161,9 +161,80 @@
       </div>
     </div>
   </section>
-  <a type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right" ng-click="nextPage()">Next - Verify Login</a>
+  <a type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right" ng-click="openConfirmEmail()">Next - Verify Login</a>
   <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>
   </div>
+  <script type="text/ng-template" id="myModalMailVerify.html">
+    <div class="modal-header">
+        <h3>Email &amp; Account Verification</h3>
+    </div>
+    <div class="modal-body" ng-controller="MailVerifyCtrl">
+      <section class="panel panel-default mail-container">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> View Mail</strong></div>
+        <div class="panel-body">
+          <div class="mail-header row">
+            <div class="col-md-8">
+              <h3>ServiceLive Registration - You&#39;re Almost There!</h3>
+            </div>
+            <div class="col-md-4">
+              <div class="pull-right">
+                <a href="#/mail/compose" class="btn btn-sm btn-primary">Reply <i class="fa fa-mail-reply"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-default"><i class="fa fa-print"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-default"><i class="fa fa-trash-o"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="mail-info">
+            <div class="row">
+              <div class="col-md-8">
+                <strong>ServiceLive Provider Registration</strong> to
+                <strong>me</strong>
+              </div>
+              <div class="col-md-4">
+                <div class="pull-right">
+                  3/17/15 2:11 PM
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mail-content">
+            <p>{{emailFirstName}}</p>
+
+            <p>Thank you for registering with ServiceLive. To become a ServiceLive Approved Provider you will need to set your password and follow the 3 steps below:</p>
+
+            <ol>
+              <li>Confirm your email address by clicking the link below.</li>
+              <li>Complete your profile.</li>
+              <li>Complete a background check for yourself or enter your first Service Pro.</li>
+            </ol>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <button ng-click="firstLogin()" class="btn btn-warning btn-block">
+                  Confirm Email &amp; Account ({{emailUsername}})
+                </button>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+
+            <blockquote>Don't know what we'd do without Servicelive.  The new mobile app has totally changed how we manage our business. <small>Jim, Licensed Electrician, IL</small></blockquote>
+
+            <p>Thank You!</p>
+            <br>
+            <br>
+            <br>
+            <p>The ServiceLive Team</p>
+
+          </div>
+          <div class="mail-actions">
+            <a href="#/mail/compose" class="btn btn-sm btn-primary">Reply <i class="fa fa-mail-reply"></i></a>
+            <a href="#/mail/compose" class="btn btn-sm btn-default">Forward <i class="fa fa-mail-forward"></i></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </script>
 </div>

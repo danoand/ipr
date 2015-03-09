@@ -1,12 +1,18 @@
 // NavBarCtrl is a controller for the main nav bar
-appControllers.controller("NavCtrl", ["$scope", "taskStorage", "filterFilter",
-  function($scope, taskStorage, filterFilter) {
-    var tasks;
-    return tasks = $scope.tasks = taskStorage.get(), $scope.taskRemainingCount = filterFilter(tasks, {
-      completed: !1
-    })
-      .length, $scope.$on("taskRemaining:changed", function(event, count) {
-        return $scope.taskRemainingCount = count
-      })
+appControllers.controller("NavCtrl", ["$scope", "$rootScope", "svcAdminPart",
+  function($scope, $rootScope, svcAdminPart) {
+    $scope.showTeamMenu = false;
+
+    // Fire event when Admin participation radio button is changed
+    $rootScope.$on('evAdminIsParticipating', function(event, data) {
+      tmpAdminPart = svcAdminPart.getAdminPartFlag();
+
+      if (tmpAdminPart == 'no') {
+        $scope.showTeamMenu = true;
+      } else {
+        $scope.showTeamMenu = false;
+      }
+    });
+
   }
 ]);

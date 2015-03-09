@@ -46,12 +46,14 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
 
     };
 
-    $scope.nextPage = function() {
-      svcDataHTML.setAdminName(svcDataHTML.htmlAdminName);
-      svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
 
-      $rootScope.$emit('evAdminData');
-      $location.path("/pages/verify");
+    $scope.openConfirmEmail = function() {
+      var modalConfirmEmail;
+
+      modalConfirmEmail = $modal.open({
+        templateUrl: "myModalMailVerify.html",
+        size: 'lg'
+      });
     };
 
   }

@@ -116,15 +116,15 @@
           <dl class="dl-horizontal">
             <dt>Status</dt>
             <dd>
-              <label class="ui-radio"><input name="radio1" type="radio" value="yes"><span>Yes</span></label>
-              <label class="ui-radio"><input name="radio1" type="radio" value="no"><span>No</span></label>
+              <label class="ui-radio"><input ng-model="adminPartVal" ng-change="setAdminPart()" name="radio1" type="radio" value="yes"><span>Yes</span></label>
+              <label class="ui-radio"><input ng-model="adminPartVal" ng-change="setAdminPart()" name="radio1" type="radio" value="no"><span>No</span></label>
             </dd>
           </dl>
         </div>
       </form>
     </div>
   </section>
-  <a href="/#/pages/businessprofile" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Business Profile</a>
+  <a href="#/pages/businessprofile" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Business Profile</a>
   <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>

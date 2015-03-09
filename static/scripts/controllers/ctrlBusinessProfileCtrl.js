@@ -1,6 +1,6 @@
 // BusinessProfileCtrl is a controller for the businessprofile.html view
-appControllers.controller("BusinessProfileCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcDataHTML",
-  function($scope, $rootScope, svcDataPopulation, svcDataHTML) {
+appControllers.controller("BusinessProfileCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcDataHTML",
+  function($scope, $rootScope, $location, svcDataPopulation, svcDataHTML) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -34,6 +34,10 @@ appControllers.controller("BusinessProfileCtrl", ["$scope", "$rootScope", "svcDa
         $scope.companyMailingState = $scope.companyState;
         $scope.companyMailingZip = $scope.companyZip
       };
+    };
+
+    $scope.nextPage = function() {
+      $location.path('/pages/insurance');
     };
 
   }

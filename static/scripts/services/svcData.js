@@ -36,7 +36,7 @@ appServices.factory("svcDataPopulation", [
         return 'Plummer';
       },
       companyEmail: function() {
-        return 'cplummer@acmeplummingnw.com';
+        return 'cplummer@acmeplumbingnw.com';
       },
       companyUsername: function() {
         return 'acmeplumbingchris';
@@ -334,5 +334,22 @@ appServices.factory("svcCarouselData", [
       }
     };
 
+  }
+]);
+
+// svcAdminParticipation is a service that indicates if an Admin is participating in the marketplace
+appServices.factory("svcAdminPart", [
+
+  function() {
+    var adminPartFlag = false;
+
+    return {
+      setAdminPartFlag: function(inValue) {
+        adminPartFlag = inValue;
+      },
+      getAdminPartFlag: function() {
+        return adminPartFlag;
+      }
+    };
   }
 ]);

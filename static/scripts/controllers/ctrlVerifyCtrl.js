@@ -17,13 +17,5 @@ appControllers.controller("VerifyCtrl", ["$scope", "$rootScope", "$modal", "svcD
     $scope.techLastName  = svcDataPopulation.techLegalNameLast();
     $scope.techId        = svcDataPopulation.techId();
 
-    $scope.openConfirmEmail = function() {
-      var modalConfirmEmail;
-
-      modalConfirmEmail = $modal.open({
-        templateUrl: "myModalMailVerify.html",
-        size: 'lg'
-      });
-    };
   }
 ]);

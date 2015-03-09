@@ -1,6 +1,6 @@
 // InsuranceCtrl is the controller for the insurance.html view
-appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "svcDataPopulation", "svcDataHTML",
-  function($scope, $modal, $rootScope, svcDataPopulation, svcDataHTML) {
+appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "svcDataPopulation", "svcDataHTML", "svcAdminPart",
+  function($scope, $modal, $rootScope, svcDataPopulation, svcDataHTML, svcAdminPart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -14,6 +14,13 @@ appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "s
     $scope.coverageAmountGeneral = svcDataPopulation.insAmount();
     $scope.coverageAmountWorkers = svcDataPopulation.insAmount();
     $scope.coverageAmountVehicle = svcDataPopulation.insAmount();
+
+    $scope.adminPart = svcAdminPart.getAdminPartFlag();
+    if ($scope.adminPart == 'no') {
+      $scope.showTeamLink = true;
+    } else {
+      $scope.showTeamLink = false;
+    }
 
     $scope.openInsuranceModal = function(inInsuranceType) {
       svcDataPopulation.insTypeSet(inInsuranceType);

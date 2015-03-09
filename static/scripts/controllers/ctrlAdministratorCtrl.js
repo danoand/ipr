@@ -1,6 +1,6 @@
 // AdministratorCtrl is a controller for the administrator.html view
-appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcDataHTML",
-  function($scope, $rootScope, svcDataPopulation, svcDataHTML) {
+appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "svcDataPopulation", "svcDataHTML", "svcAdminPart",
+  function($scope, $rootScope, svcDataPopulation, svcDataHTML, svcAdminPart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -21,6 +21,12 @@ appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "svcData
       $scope.companyJobTitle = svcDataPopulation.companyJobTitle();
       $scope.companyOwnerPrincipal = svcDataPopulation.companyOwnerPrincipal();
     }
+
+    $scope.setAdminPart = function() {
+      svcAdminPart.setAdminPartFlag($scope.adminPartVal);
+
+      $rootScope.$emit('evAdminIsParticipating');
+    };
 
   }
 ]);

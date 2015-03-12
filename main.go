@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"net/http/httputil"
 	"os"
 	"time"
 
@@ -82,13 +81,6 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	switch len(r.URL.String()) {
 	// The URL is just the root path (serve the index page)
 	case 1:
-		log.Println("Dumping out the inbound request...")
-		dumpbytes, dumperr := httputil.DumpRequest(r, true)
-		if dumperr != nil {
-			log.Println("Got an error attempting to dump the request", dumperr)
-		}
-		log.Println(string(dumpbytes))
-
 		myIndexPagePath := "index.html"
 		log.Printf("[%s] %q %s\n", r.Method, r.URL.String(), "Serving the index page.")
 		http.ServeFile(w, r, myIndexPagePath)

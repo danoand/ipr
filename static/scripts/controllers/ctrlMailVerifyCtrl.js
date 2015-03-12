@@ -4,9 +4,9 @@ appControllers.controller("MailVerifyCtrl", ["$scope", "$rootScope", "$location"
     $scope.emailFirstName = svcDataPopulation.companyFullNameFirst();
     $scope.emailUsername  = svcDataPopulation.companyUsername();
 
-    $scope.firstLogin = function() {
+    $scope.nextPage = function() {
       $rootScope.$emit('evAdminData');
-      $location.path("/pages/verify");
+      $location.path("/pages/administrator");
 
       // $modalInstance.close('Clicked Ok button');
     };

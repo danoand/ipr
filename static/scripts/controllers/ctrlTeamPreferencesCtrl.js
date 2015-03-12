@@ -30,6 +30,18 @@ appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$loca
       $scope.techSecondaryContactMethod = svcDataPopulation.techSecondaryContactMethod();
     };
 
+    $scope.useBusEmail = function() {
+      if ($scope.techUseBusinessEmail) {
+        $scope.techPrimaryEmailConfirm1 = svcDataPopulation.companyEmail();
+        $scope.techPrimaryEmailConfirm2 = svcDataPopulation.companyEmail();
+
+      } else {
+        $scope.techPrimaryEmailConfirm1 = "";
+        $scope.techPrimaryEmailConfirm2 = "";
+
+      }
+    };
+
     $scope.nextPage = function() {
       svcTeamProgressBar.setProgBarValue('50');
       svcTeamProgressBar.setProgBarStep('3');

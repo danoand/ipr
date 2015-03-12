@@ -12,7 +12,7 @@ appServices.factory("svcDataGaugeChart", [
           return {
             maxValue: 100,
             animationSpeed: 20,
-            val: 7
+            val: 4
           };
         },
         generalGaugeOptions: function() {

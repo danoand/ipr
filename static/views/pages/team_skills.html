@@ -3,28 +3,21 @@
   <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Skills &amp; Services</strong>
   </div>
   <div class="panel-body">
-    <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered.</p>
-    <p>Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
-    <h5>Your Progress</h5>
+    <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered. Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
     <div class="row">
-      <div class="col-md-12">
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.now }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.now }}%;">
-            On {{ progress.step }} of 4 steps
-          </div>
-        </div>
-      </div>>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-6">
-          <h4 class="text-center"><i class="fa fa-user"></i> {{ techFirstName }}&nbsp;{{ techLastName }}&nbsp;&nbsp;<small>(#{{ techId }})</small></h4>
-        </div>
-        <div class="col-md-3">
-        </div>
-      </div>
+      <div class="col-md-4">
+        <h4><i class="fa fa-tachometer"></i> Your Progress</h4>
+        <p>On step <strong>{{progressGaugeStepNum}}</strong> of <strong>4</strong></p>
+          <canvas data-gauge-chart
+              data-data="progressGaugeData"
+              data-options="progressGaugeOptions"
+              style="width: 220px; height: 110px; ">
+          </canvas>
+       </div>
+       <div class="col-md-4">
+         <h4><i class="fa fa-user"></i> Your Pro</h4>
+         <h4>{{ techFirstName }}&nbsp;{{ techLastName }}&nbsp;&nbsp;<small>(#{{ techId }})</small></h4>
+       </div>
     </div>
   </div>
 </section>

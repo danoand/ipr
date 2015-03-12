@@ -1,6 +1,6 @@
 // TeamGeneralCtrl is the controller for the teamg_eneral.html view
-appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
-  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML", "svcDataGaugeChart",
+  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML, svcDataGaugeChart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -9,19 +9,9 @@ appControllers.controller("TeamGeneralCtrl", ["$scope", "$rootScope", "$location
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
-    $rootScope.$emit('evStatusData');
-
-    svcTeamProgressBar.setProgBarValue('8');
-    svcTeamProgressBar.setProgBarStep('1');
-
-    $scope.progress = {};
-    $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-    $scope.progress.step = svcTeamProgressBar.getProgBarStep();
-
-    $rootScope.$on('evTechProgressBar', function(event, data) {
-      $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-      $scope.progress.step = svcTeamProgressBar.getProgBarStep();
-    });
+    $scope.progressGaugeStepNum = svcDataGaugeChart.generalGaugeStepNum();
+    $scope.progressGaugeData    = svcDataGaugeChart.generalGaugeData();
+    $scope.progressGaugeOptions = svcDataGaugeChart.generalGaugeOptions();
 
     $scope.inspectDispatchCheckbox = function() {
 

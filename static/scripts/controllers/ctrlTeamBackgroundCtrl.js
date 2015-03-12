@@ -1,6 +1,6 @@
 // TeamBackgroundCtrl is a controller on the teambackground.html view
-appControllers.controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
-  function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+appControllers.controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML", "svcDataGaugeChart",
+  function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar, svcDataHTML, svcDataGaugeChart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -9,14 +9,9 @@ appControllers.controller("TeamBackgroundCtrl", ["$scope", "$rootScope", "$locat
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
-    $rootScope.$emit('evStatusData');
-
-    svcTeamProgressBar.setProgBarValue('75');
-    svcTeamProgressBar.setProgBarStep('4');
-
-    $scope.progress = {};
-    $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-    $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+    $scope.progressGaugeStepNum = svcDataGaugeChart.backgroundGaugeStepNum();
+    $scope.progressGaugeData    = svcDataGaugeChart.backgroundGaugeData();
+    $scope.progressGaugeOptions = svcDataGaugeChart.backgroundGaugeOptions();
 
     $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
     $scope.techLastName  = svcDataPopulation.techLegalNameLast();

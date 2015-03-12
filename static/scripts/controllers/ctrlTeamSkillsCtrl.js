@@ -1,6 +1,6 @@
 // GetOrganizedCtrl is a controller for the team_skills.html view
-appControllers.controller("TeamSkillsCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
-  function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+appControllers.controller("TeamSkillsCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML", "svcDataGaugeChart",
+  function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar, svcDataHTML, svcDataGaugeChart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -9,14 +9,9 @@ appControllers.controller("TeamSkillsCtrl", ["$scope", "$rootScope", "$location"
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
-    $rootScope.$emit('evStatusData');
-
-    svcTeamProgressBar.setProgBarValue('50');
-    svcTeamProgressBar.setProgBarStep('3');
-
-    $scope.progress = {};
-    $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-    $scope.progress.step = svcTeamProgressBar.getProgBarStep();
+    $scope.progressGaugeStepNum = svcDataGaugeChart.skillsGaugeStepNum();
+    $scope.progressGaugeData    = svcDataGaugeChart.skillsGaugeData();
+    $scope.progressGaugeOptions = svcDataGaugeChart.skillsGaugeOptions();
 
     $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
     $scope.techLastName  = svcDataPopulation.techLegalNameLast();

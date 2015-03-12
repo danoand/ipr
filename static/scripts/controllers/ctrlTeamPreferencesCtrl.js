@@ -1,6 +1,6 @@
 // TeamPreferencesCtrl is the controller for the team_preferences.html view
-appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML",
-  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML) {
+appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML", "svcDataGaugeChart",
+  function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML, svcDataGaugeChart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -9,23 +9,13 @@ appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$loca
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
-    $rootScope.$emit('evStatusData');
-
-    svcTeamProgressBar.setProgBarValue('25');
-    svcTeamProgressBar.setProgBarStep('2');
-
-    $scope.progress = {};
-    $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-    $scope.progress.step = svcTeamProgressBar.getProgBarStep();
-
     $scope.techFirstName = svcDataPopulation.techLegalNameFirst();
     $scope.techLastName  = svcDataPopulation.techLegalNameLast();
     $scope.techId        = svcDataPopulation.techId();
 
-    $rootScope.$on('evTechProgressBar', function(event, data) {
-      $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-      $scope.progress.step = svcTeamProgressBar.getProgBarStep();
-    });
+    $scope.progressGaugeStepNum = svcDataGaugeChart.preferencesGaugeStepNum();
+    $scope.progressGaugeData    = svcDataGaugeChart.preferencesGaugeData();
+    $scope.progressGaugeOptions = svcDataGaugeChart.preferencesGaugeOptions();
 
     $scope.virtualType = function() {
       $scope.techPermissionViewOrderPricing = svcDataPopulation.techPermissionViewOrderPricing();

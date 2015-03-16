@@ -3,27 +3,25 @@
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Background Screen</strong>
     </div>
     <div class="panel-body">
-      <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered. Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
+      <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered. Please enter that Service Provider below. You can update or add to this
+        Service Pro's details later.</p>
       <div class="row">
         <div class="col-md-4">
           <h4><i class="fa fa-tachometer"></i> Your Progress</h4>
-          <p>On step <strong>{{progressGaugeStepNum}}</strong> of <strong>4</strong></p>
-            <canvas data-gauge-chart
-                data-data="progressGaugeData"
-                data-options="progressGaugeOptions"
-                style="width: 220px; height: 110px; ">
-            </canvas>
-         </div>
-         <div class="col-md-4">
-           <h4><i class="fa fa-user"></i> Your Pro</h4>
-           <h4>{{ techFirstName }}&nbsp;{{ techLastName }}&nbsp;&nbsp;<small>(#{{ techId }})</small></h4>
-         </div>
+          <p>On step <strong>{{progressGaugeStepNum}}</strong> of <strong>4</strong>
+          </p>
+          <canvas data-gauge-chart data-data="progressGaugeData" data-options="progressGaugeOptions" style="width: 220px; height: 110px; ">
+          </canvas>
+        </div>
+        <div class="col-md-4">
+          <h4><i class="fa fa-user"></i> Your Pro</h4>
+          <h4>{{ techFirstName }}&nbsp;{{ techLastName }}&nbsp;&nbsp;<small>(#{{ techId }})</small></h4>
+        </div>
       </div>
     </div>
   </section>
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Background Check</strong>
-      <span class="pull-right">Status:&nbsp;&nbsp;<span class="label label-default">NOT STARTED</span></span>
     </div>
     <div class="panel-body">
       <h4>Why do we do background checks?</h4>
@@ -34,12 +32,7 @@
         <li>Your team member's status will be automatically update when the background check results come back. Average turn around time for results is 7-10 days.</li>
       </ol>
       <p><strong>NOTE:</strong> Administrators not performing work in the field and Dispatchers are not required to do a background check.</p>
-    </div>
-  </section>
-  <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Conduct Background Check</strong>
-    </div>
-    <div class="panel-body">
+      <h4>Social Security (SSN)</h4>
       <p>To complete a background check enter your Pro's Social Security Number</p>
       <form>
         <div class="col-md-4">
@@ -54,60 +47,42 @@
   </section>
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Conduct Background Check</strong>
+      <span class="pull-right">Status:&nbsp;&nbsp;<span class="label label-default">NOT STARTED</span></span>
     </div>
     <div class="panel-body">
       <p>Conduct the background on behalf of the Service Pro OR send an email to them to complete the background check process.</p>
-      <div class="well well-sm">
-        <h4>Conduct the Background Check:</h4>
-        <p>I will start and complete the background check on behalf of my Service Pro.</p>
-        <div class="row">
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-6">
-            <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
-            <p class="text-muted text-small text-center">By clicking, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a></p>
-          </div>
-          <div class="col-md-3">
-          </div>
+      <div class="col-md-6">
+        <div class="well well-sm">
+          <h4>Conduct the Background Check:</h4>
+          <p>I will start and complete the background check on behalf of my Service Pro.</p>
+          <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
+          <p class="text-muted text-small text-center">By clicking, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a>
+          </p>
         </div>
       </div>
-      <h4 class="text-center">OR</h4>
-      <div class="well well-sm">
-        <h4>Send Email Request to Service Pro:</h4>
-        <p>Email a link to complete a background check my Pro.</p>
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-md-12">Primary Email Address*</label>
-            <div class="col-md-6">
-              <input type="text" class="form-control" ng-model="techPrimaryEmail1">
-              <div class="help">Enter Primary Email address</div>
+      <div class="col-md-6">
+        <div class="well well-sm">
+          <h4>Send Email Request to Your Pro:</h4>
+          <p>Email a link to complete a background check my Pro.</p>
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-md-12">Primary Email Address*</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="techPrimaryEmail1">
+                <div class="help">Enter Primary Email address</div>
+              </div>
             </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" ng-model="techPrimaryEmail2">
-              <div class="help">Confirm Primary Email address</div>
+            <div class="form-group">
+              <label class="col-md-12">Alternate Email Address</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="techAlternateEmail1">
+                <div class="help">Enter Alternate Email address</div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-12">Alternate Email Address*</label>
-            <div class="col-md-6">
-              <input type="text" class="form-control" ng-model="techAlternateEmail1">
-              <div class="help">Enter Alternate Email address</div>
-            </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" ng-model="techAlternateEmail2">
-              <div class="help">Confirm Alternate Email address</div>
-            </div>
-          </div>
-        </form>
-        <div class="row">
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-6">
-            <button class='btn btn-block btn-info'>SEND BACKGROUND REQUEST</button>
-            <p class="text-muted text-small text-center">By clicking, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a></p>
-          </div>
-          <div class="col-md-3">
-          </div>
+            <button class='btn btn-block btn-info'>SEND BACKGROUND REQUEST EMAIL</button>
+            <p class="text-muted text-small text-center">By clicking, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a>
+            </p>
+          </form>
         </div>
       </div>
     </div>

@@ -1,107 +1,133 @@
 <div class="page" ng-controller="TeamSkillsCtrl">
-<section class="panel panel-default">
-  <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Skills &amp; Services</strong>
-  </div>
-  <div class="panel-body">
-    <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered. Please enter that Service Provider below. You can update or add to this Service Pro's details later.</p>
-    <div class="row">
-      <div class="col-md-4">
-        <h4><i class="fa fa-tachometer"></i> Your Progress</h4>
-        <p>On step <strong>{{progressGaugeStepNum}}</strong> of <strong>4</strong></p>
-          <canvas data-gauge-chart
-              data-data="progressGaugeData"
-              data-options="progressGaugeOptions"
-              style="width: 220px; height: 110px; ">
-          </canvas>
-       </div>
-       <div class="col-md-4">
-         <h4><i class="fa fa-user"></i> Your Pro</h4>
-         <h4>{{ techFirstName }}&nbsp;{{ techLastName }}&nbsp;&nbsp;<small>(#{{ techId }})</small></h4>
-       </div>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Skills &amp; Services</strong>
     </div>
-  </div>
-</section>
-<section class="panel panel-default">
-  <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Skills</strong>
-  </div>
-  <div class="panel-body">
-    <p>Add your Pro's skills by category.</p>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="col-md-6">
-              <form>
-                <div class="form-group">
-                  <label for="techSkillCategory">Select Skill Category</label>
-                  <select id="techSkillCategory" ng-model="techSkillCategory" class="form-control">
-                    <option value="-- All --">-- Select Skill Category --</option>
-                    <option value="Automotive">Automotive</option>
-                    <option value="Cabinets &amp; Countertops">Cabinets &amp; Countertops</option>
-                    <option value="Carpentry &amp; Woodworking">Carpentry &amp; Woodworking</option>
-                    <option value="Cleaning Services">Cleaning Services</option>
-                    <option value="Computer/Network Services">Computer/Network Services</option>
-                    <option value="Decorating">Decorating</option>
-                    <option value="Electrician">Electrician</option>
-                    <option value="Floors &amp; Patios">Floors &amp; Patios</option>
-                    <option value="Furniture Restoration">Furniture Restoration</option>
-                    <option value="Garage &amp; Shed">Garage &amp; Shed</option>
-                    <option value="General Plumbing &amp; Bathrooms">General Plumbing &amp; Bathrooms</option>
-                    <option value="Handyman Services">Handyman Services</option>
-                    <option value="Health &amp; Beauty">Health &amp; Beauty</option>
-                    <option value="Heating &amp; Cooling">Heating &amp; Cooling</option>
-                    <option value="Home Appliances">Home Appliances</option>
-                    <option value="Home Electronics">Home Electronics</option>
-                    <option value="Lawn &amp; Garden">Lawn &amp; Garden</option>
-                    <option value="Masonry &amp; Stone">Masonry &amp; Stone</option>
-                    <option value="Musical Instrument Service">Musical Instrument Service</option>
-                    <option value="Other Services">Other Services</option>
-                    <option value="Pet Care">Pet Care</option>
-                    <option value="Photography">Photography</option>
-                    <option value="Product Assembly">Product Assembly</option>
-                    <option value="Remodeling &amp; Construction">Remodeling &amp; Construction</option>
-                    <option value="Roofing, Gutters, Windows &amp; Siding">Roofing, Gutters, Windows &amp; Siding</option>
-                    <option value="Unclassified">Unclassified</option>
-                    <option value="Walls &amp; Ceilings">Walls &amp; Ceilings</option>
-                  </select>
-                  <p class="help-block">Select a Skill Catetory and add a skill set</p>
+    <div class="panel-body">
+      <p>As an Admin you have indicated you will not perform work in the ServiceLive Platform. To get work routed to your firm you need at least one Service Provider or Pro entered. Please enter that Service Provider below. You can update or add to this
+        Service Pro's details later.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <h4><i class="fa fa-tachometer"></i> Your Progress</h4>
+          <p>On step <strong>{{progressGaugeStepNum}}</strong> of <strong>4</strong>
+          </p>
+          <canvas data-gauge-chart data-data="progressGaugeData" data-options="progressGaugeOptions" style="width: 220px; height: 110px; ">
+          </canvas>
+        </div>
+        <div class="col-md-4">
+          <h4><i class="fa fa-user"></i> Your Pro</h4>
+          <h4>{{ techFirstName }}&nbsp;{{ techLastName }}&nbsp;&nbsp;<small>(#{{ techId }})</small></h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Skills</strong>
+    </div>
+    <div class="panel-body">
+      <p>Add your Pro's skills by category.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-md-6">
+                <form>
+                  <div class="form-group">
+                    <label for="techSkillCategory">Select Skill Category</label>
+                    <select id="techSkillCategory" ng-model="techSkillCategory" class="form-control">
+                      <option value="-- Select Skill Category --">-- Select Skill Category --</option>
+                      <option value="Automotive">Automotive</option>
+                      <option value="Cabinets &amp; Countertops">Cabinets &amp; Countertops</option>
+                      <option value="Carpentry &amp; Woodworking">Carpentry &amp; Woodworking</option>
+                      <option value="Cleaning Services">Cleaning Services</option>
+                      <option value="Computer/Network Services">Computer/Network Services</option>
+                      <option value="Decorating">Decorating</option>
+                      <option value="Electrician">Electrician</option>
+                      <option value="Floors &amp; Patios">Floors &amp; Patios</option>
+                      <option value="Furniture Restoration">Furniture Restoration</option>
+                      <option value="Garage &amp; Shed">Garage &amp; Shed</option>
+                      <option value="General Plumbing &amp; Bathrooms">General Plumbing &amp; Bathrooms</option>
+                      <option value="Handyman Services">Handyman Services</option>
+                      <option value="Health &amp; Beauty">Health &amp; Beauty</option>
+                      <option value="Heating &amp; Cooling">Heating &amp; Cooling</option>
+                      <option value="Home Appliances">Home Appliances</option>
+                      <option value="Home Electronics">Home Electronics</option>
+                      <option value="Lawn &amp; Garden">Lawn &amp; Garden</option>
+                      <option value="Masonry &amp; Stone">Masonry &amp; Stone</option>
+                      <option value="Musical Instrument Service">Musical Instrument Service</option>
+                      <option value="Other Services">Other Services</option>
+                      <option value="Pet Care">Pet Care</option>
+                      <option value="Photography">Photography</option>
+                      <option value="Product Assembly">Product Assembly</option>
+                      <option value="Remodeling &amp; Construction">Remodeling &amp; Construction</option>
+                      <option value="Roofing, Gutters, Windows &amp; Siding">Roofing, Gutters, Windows &amp; Siding</option>
+                      <option value="Unclassified">Unclassified</option>
+                      <option value="Walls &amp; Ceilings">Walls &amp; Ceilings</option>
+                    </select>
+                    <p class="help-block">Select a Skill Catetory and click add to assign a skill set to your Pro.</p>
+                  </div>
+                  <button type="submit" ng-click="openSkillsetModal()" class="btn btnsmall btn-warning">ADD</button>
+                </form>
+                <div ng-show="showListEnteredSkills">
+                  <hr>
+                  <label for="listEnteredSkills">Skill Categories</label>
+                  <div id="listEnteredSkills" class="list-group">
+                    <a class="list-group-item">Home Electronics <span class="badge">14</span></a>
+                  </div>
+                  <p>Your Pro's assigned skill categories and number of discrete skills.</p>
                 </div>
-                <button type="submit" ng-click="openSkillsetModal()" class="btn btnsmall btn-warning">ADD</button>
-              </form>
-              <div ng-show="showListEnteredSkills">
-                <hr>
-                <label for="listEnteredSkills">Skill Categories</label>
-                <div id="listEnteredSkills" class="list-group">
-                  <a class="list-group-item">Home Electronics <span class="badge">14</span></a>
-                </div>
-                <p>Skills assigned to your Pro</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+  </section>
+  <script type="text/ng-template" id="myModalSkillset.html">
+    <div class="modal-header">
+        <h3>{{techServiceCategory}} Skills</h3>
     </div>
-</section>
-<script type="text/ng-template" id="myModalSkillset.html">
-  <div class="modal-body">
-    <section class="panel panel-default">
-      <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Edit {{ insuranceName }} Insurance Details</strong></div>
-      <div class="panel-body">
+    <div class="modal-body">
+      <div>
+        <h4>Select Common Skillsets</h4>
+        <p>To assign skills to your Pro, click on one or more common skill sets.  You can adjust and refine these skills later.</p>
         <div class="row">
-          <img src="images/assets/skills_page.jpg">
+          <div class="col-md-6">
+            <button ng-click="clickSkillBtn1()" type="button" ng-class="btnTechSkillSet1">{{techSkillSet1}}</button>
+            <button ng-click="clickSkillBtn2()" type="button" ng-class="btnTechSkillSet2">{{techSkillSet2}}</button>
+            <button ng-click="clickSkillBtn3()" type="button" ng-class="btnTechSkillSet3">{{techSkillSet3}}</button>
+          </div>
+          <div class="col-md-6">
+            <button ng-click="clickSkillBtn4()" type="button" ng-class="btnTechSkillSet4" class="btn btn-block">{{techSkillSet4}}</button>
+          </div>
         </div>
       </div>
-    </section>
-  </div>
-  <div class="modal-footer">
-      <button class="btn btn-primary" ng-click="ok()">OK</button>
-      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-  </div>
-</script>
+      <div>
+        <h4>Select Skill Types</h4>
+        <p>To select a skill type, click on one or more types. You can adjust these later.</p>
+        <div class="row">
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn1()" type="button" ng-class="btnTechSkillType1">{{techSkillType1}}</button>
+          </div>
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn2()" type="button" ng-class="btnTechSkillType2">{{techSkillType2}}</button>
+          </div>
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn3()" type="button" ng-class="btnTechSkillType3">{{techSkillType3}}</button>
+          </div>
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn4()" type="button" ng-class="btnTechSkillType4">{{techSkillType4}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
 
-<a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Background Check</a>
-<a type="button" class="btn btn-link pull-right">Save</a>
-<div ng-click="virtualType()" class="row">
-<i class="fa fa-keyboard-o"></i>
-</div>
-</div>
+  <a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Background Check</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
+  </div>

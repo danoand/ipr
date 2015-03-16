@@ -126,10 +126,10 @@ appServices.factory("svcDataPopulation", [
         };
       },
       techLegalNameFirst: function() {
-        return 'Terry';
+        return 'Pat';
       },
       techLegalNameLast: function() {
-        return 'Techout';
+        return 'Johnson';
       },
       techId: function() {
         return '86345';

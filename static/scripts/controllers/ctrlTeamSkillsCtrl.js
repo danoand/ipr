@@ -17,13 +17,9 @@ appControllers.controller("TeamSkillsCtrl", ["$scope", "$rootScope", "$location"
     $scope.techLastName  = svcDataPopulation.techLegalNameLast();
     $scope.techId        = svcDataPopulation.techId();
 
-    $rootScope.$on('evTechProgressBar', function(event, data) {
-      $scope.progress.now = svcTeamProgressBar.getProgBarValue();
-      $scope.progress.step = svcTeamProgressBar.getProgBarStep();
-    });
+    $scope.techSkillCategory = '-- Select Skill Category --';
 
     $scope.openSkillsetModal = function() {
-
       var modalInstanceInsurance = $modal.open({
         size: 'lg',
         templateUrl: "myModalSkillset.html",

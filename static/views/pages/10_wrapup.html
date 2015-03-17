@@ -1,0 +1,57 @@
+<div class="page" ng-controller="WrapUpCtrl">
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Wrap Up</strong>
+    </div>
+    <div class="panel-body">
+      <div ng-show="optAdminPartYes">
+        <h4>Thank You!</h4>
+        <p>You have completed the steps to get "ServiceLive Approved".  Background checks usually take 7-10 days. Check back here to see your status.</p>
+        <p>Check the timeline for a detailed status or continue to your ServiceLive account to add Service Pros and additional detail about your company offerings.</p>
+        <div class="row">
+          <div class="col-md-4">
+            <h4><i class="fa fa-tachometer"></i> Profile Status</h4>
+            <canvas data-gauge-chart data-data="wrapupGaugeProfileData" data-options="wrapupGaugeProfileOpts" style="width: 220px; height: 110px; ">
+            </canvas>
+            <p>Your Background Check is in progress</p>
+          </div>
+        </div>
+      </div>
+      <div ng-show="optAdminPartNo">
+        <h4>Thank You!</h4>
+        <p>You have completed the steps to get "ServiceLive Approved".  Background checks usually take 7-10 days. Check back here to see your status.</p>
+        <p>Check the timeline for a detailed status or continue to your ServiceLive account to add Service Pros and additional detail about your company offerings.</p>
+        <div class="row">
+          <div class="col-md-4">
+            <h4><i class="fa fa-tachometer"></i> Profile Status</h4>
+            <canvas data-gauge-chart data-data="wrapupGaugeProfileData" data-options="wrapupGaugeProfileOpts" style="width: 220px; height: 110px; ">
+            </canvas>
+            <p>Your Background Check is in progress.</p>
+          </div>
+          <div class="col-md-4">
+            <h4><i class="fa fa-tachometer"></i> Profile Status</h4>
+            <canvas data-gauge-chart data-data="wrapupGaugeTechData" data-options="wrapupGaugeTechOpts" style="width: 220px; height: 110px; ">
+            </canvas>
+            <p>Your Pro's Background Check is in progress.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-primary btn-block">View Status Details</button>
+          <hr>
+          <button class="btn btn-primary btn-block">Go To Your ServiceLive Account</button>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Submit</a>
+  <a type="button" class="btn btn-link pull-right">Save</a>
+  <div ng-click="virtualType()" class="row">
+    <i class="fa fa-keyboard-o"></i>
+  </div>
+</div>

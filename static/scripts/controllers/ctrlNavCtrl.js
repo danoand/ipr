@@ -8,9 +8,11 @@ appControllers.controller("NavCtrl", ["$scope", "$rootScope", "svcAdminPart",
       tmpAdminPart = svcAdminPart.getAdminPartFlag();
 
       if (tmpAdminPart == 'no') {
-        $scope.showTeamMenu = true;
+        $scope.showTeamMenu  = true;
+        $scope.showAdminMenu = false;
       } else {
-        $scope.showTeamMenu = false;
+        $scope.showTeamMenu  = false;
+        $scope.showAdminMenu = true;
       }
     });
 

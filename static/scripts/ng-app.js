@@ -41,6 +41,9 @@ var appModConfig      = appMod.config(["$routeProvider",
       .when("/pages/team/background", {
         templateUrl: "views/pages/08_D_team_background.html"
       })
+      .when("/pages/background", {
+        templateUrl: "views/pages/09_background.html"
+      })
       .when("/pages/signup", {
         templateUrl: "views/pages/signup.html"
       })

@@ -172,6 +172,9 @@ appServices.factory("svcDataPopulation", [
       },
       techSSN: function() {
         return '***-**-1234';
+      },
+      adminSSN: function() {
+        return '***-**-6789';
       }
     };
   }

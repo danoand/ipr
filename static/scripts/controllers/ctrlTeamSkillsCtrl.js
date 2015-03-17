@@ -1,4 +1,4 @@
-// GetOrganizedCtrl is a controller for the team_skills.html view
+// GetOrganizedCtrl is a controller for the 08_C_team_skills.html view
 appControllers.controller("TeamSkillsCtrl", ["$scope", "$rootScope", "$location", "$modal", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML", "svcDataGaugeChart",
   function($scope, $rootScope, $location, $modal, svcDataPopulation, svcTeamProgressBar, svcDataHTML, svcDataGaugeChart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);

@@ -1,4 +1,4 @@
-// AdministratorCtrl is a controller for the administrator.html view
+// AdministratorCtrl is a controller for the 05_administrator.html view
 appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "$modal", "svcDataPopulation", "svcDataHTML", "svcAdminPart",
   function($scope, $rootScope, $modal, svcDataPopulation, svcDataHTML, svcAdminPart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);

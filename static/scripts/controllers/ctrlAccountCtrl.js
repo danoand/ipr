@@ -51,7 +51,7 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
       var modalConfirmEmail;
 
       modalConfirmEmail = $modal.open({
-        templateUrl: "myModalMailVerify.html",
+        templateUrl: "myModalMail04_verify.html",
         size: 'lg'
       });
     };

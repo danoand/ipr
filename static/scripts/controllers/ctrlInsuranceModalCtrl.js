@@ -1,4 +1,4 @@
-// InsuranceModalCtrl is a controller for a modal on the insurance.html view
+// InsuranceModalCtrl is a controller for a modal on the 07_insurance.html view
 appControllers.controller("InsuranceModalCtrl", ["$scope", "$modalInstance", "svcDataPopulation",
   function($scope, $modalInstance, svcDataPopulation) {
     $scope.insuranceName = svcDataPopulation.insTypeGet();

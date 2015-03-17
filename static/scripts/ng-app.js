@@ -9,37 +9,37 @@ var appModConfig      = appMod.config(["$routeProvider",
         templateUrl: "views/ui/timeline.html"
       })
       .when("/pages/getorganized", {
-        templateUrl: "views/pages/getorganized.html"
+        templateUrl: "views/pages/01_getorganized.html"
       })
       .when("/pages/companyname", {
-        templateUrl: "views/pages/companyname.html"
+        templateUrl: "views/pages/02_companyname.html"
       })
       .when("/pages/account", {
-        templateUrl: "views/pages/account.html"
+        templateUrl: "views/pages/03_account.html"
       })
       .when("/pages/verify", {
-        templateUrl: "views/pages/verify.html"
+        templateUrl: "views/pages/04_verify.html"
       })
       .when("/pages/administrator", {
-        templateUrl: "views/pages/administrator.html"
+        templateUrl: "views/pages/05_administrator.html"
       })
       .when("/pages/businessprofile", {
-        templateUrl: "views/pages/businessprofile.html"
+        templateUrl: "views/pages/06_businessprofile.html"
       })
       .when("/pages/insurance", {
-        templateUrl: "views/pages/insurance.html"
+        templateUrl: "views/pages/07_insurance.html"
       })
       .when("/pages/team/general", {
-        templateUrl: "views/pages/team_general.html"
+        templateUrl: "views/pages/08_A_team_general.html"
       })
       .when("/pages/team/preferences", {
-        templateUrl: "views/pages/team_preferences.html"
+        templateUrl: "views/pages/08_B_team_preferences.html"
       })
       .when("/pages/team/skills", {
-        templateUrl: "views/pages/team_skills.html"
+        templateUrl: "views/pages/08_C_team_skills.html"
       })
       .when("/pages/team/background", {
-        templateUrl: "views/pages/team_background.html"
+        templateUrl: "views/pages/08_D_team_background.html"
       })
       .when("/pages/signup", {
         templateUrl: "views/pages/signup.html"

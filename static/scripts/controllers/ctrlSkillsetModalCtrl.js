@@ -1,4 +1,4 @@
-// GetOrganizedCtrl is a controller for a modal on the team_skills.html view
+// GetOrganizedCtrl is a controller for a modal on the 08_C_team_skills.html view
 appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "$modalInstance",
   "svcDataPopulation", "svcTeamProgressBar", "svcSkillSelections",
   function($scope, $rootScope, $location, $modalInstance, svcDataPopulation, svcTeamProgressBar, svcSkillSelections) {

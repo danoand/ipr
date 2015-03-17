@@ -1,4 +1,4 @@
-// GetOrganizedCtrl is a controller for the getorganized.html view
+// GetOrganizedCtrl is a controller for the 01_getorganized.html view
 appControllers.controller("GetOrganizedCtrl", ["$scope", "$rootScope", "svcDataPopulation",
   function($scope, $rootScope, svcDataPopulation) {
     $scope.companyName = svcDataPopulation.companyName();

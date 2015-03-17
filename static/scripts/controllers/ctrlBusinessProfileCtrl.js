@@ -1,4 +1,4 @@
-// BusinessProfileCtrl is a controller for the businessprofile.html view
+// BusinessProfileCtrl is a controller for the 06_businessprofile.html view
 appControllers.controller("BusinessProfileCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcDataHTML",
   function($scope, $rootScope, $location, svcDataPopulation, svcDataHTML) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);

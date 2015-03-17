@@ -1,4 +1,4 @@
-// TeamPreferencesCtrl is the controller for the team_preferences.html view
+// TeamPreferencesCtrl is the controller for the 08_B_team_preferences.html view
 appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcTeamProgressBar", "svcDataHTML", "svcDataGaugeChart",
   function($scope, $rootScope, $location, svcDataPopulation, svcTeamProgressBar, svcDataHTML, svcDataGaugeChart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);

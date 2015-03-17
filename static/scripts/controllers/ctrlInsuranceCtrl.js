@@ -1,4 +1,4 @@
-// InsuranceCtrl is the controller for the insurance.html view
+// InsuranceCtrl is the controller for the 07_insurance.html view
 appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "svcDataPopulation", "svcDataHTML", "svcAdminPart",
   function($scope, $modal, $rootScope, svcDataPopulation, svcDataHTML, svcAdminPart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
@@ -26,7 +26,7 @@ appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "s
       svcDataPopulation.insTypeSet(inInsuranceType);
 
       var modalInstanceInsurance = $modal.open({
-        templateUrl: "myModalContentInsurance.html",
+        templateUrl: "myModalContentinsurance.html",
         controller: 'InsuranceModalCtrl'
       });
     };

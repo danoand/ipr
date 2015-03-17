@@ -17,9 +17,11 @@ appControllers.controller("InsuranceCtrl", ["$scope", "$modal", "$rootScope", "s
 
     $scope.adminPart = svcAdminPart.getAdminPartFlag();
     if ($scope.adminPart == 'no') {
-      $scope.showTeamLink = true;
+      $scope.showTeamLink  = true;
+      $scope.showAdminLink = false;
     } else {
-      $scope.showTeamLink = false;
+      $scope.showTeamLink  = false;
+      $scope.showAdminLink = true;
     }
 
     $scope.openInsuranceModal = function(inInsuranceType) {

@@ -6,31 +6,31 @@
       <p>As an Admin you have indicated you wil perform work in the ServiceLive Platform. To get work routed to your company you need to complete a background check.</p>
       <div class="well">
         <h4>Why do we do background checks?</h4>
-        <p>Since most service orders require a home visit, to ensure continued highest quality we require that all of our Service Pro undergo a background check. This requires these easy steps:</p>
-        <ol>
-          <li>Explain the process and gain approval from the Service Pro to submit their background check.</li>
-          <li>Click the Perform Background Check button to open the background check process form. Complete and submit.</li>
-          <li>Your team member's status will be automatically update when the background check results come back. Average turn around time for results is 7-10 days.</li>
-        </ol>
-        <p><strong>NOTE:</strong> Administrators not performing work in the field and Dispatchers are not required to do a background check.</p>
-        <h4>Social Security (SSN)</h4>
-        <p>To complete a background check enter your Pro's Social Security Number</p>
-        <form>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="techSSN">Social Security Number (SSN)*</label>
-              <input class="form-control" type="text" id="adminSSN" ng-model="adminSSN">
-              <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
-            </div>
-            <div class="form-group">
-              <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
-            </div>
-          </div>
-        </form>
+        <p>Since most service orders require a home visit, to ensure continued highest quality we require that all of our Service Pros undergo a background check. This requires these easy steps:</p>
+        <p>Your status will be automatically update when the background check results come back. Average turn around time for results is 7-10 days.</p>
       </div>
     </div>
   </section>
-  
+
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Social Security (SSN)</strong>
+    </div>
+    <div class="panel-body">
+      <p>As an Admin you have indicated you wil perform work in the ServiceLive Platform. To get work routed to your company you need to complete a background check.</p>
+        <p><strong>NOTE:</strong> Administrators not performing work in the field and Dispatchers are not required to do a background check.</p>
+        <p>To complete a background check enter your Pro's Social Security Number</p>
+        <div class="col-md-5">
+          <form>
+            <div class="form-group">
+              <label for="adminSSN">Social Security Number (SSN)*</label>
+              <input class="form-control" type="text" id="adminSSN" ng-model="adminSSN">
+            </div>
+            <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
+          </form>
+        </div>
+    </div>
+  </section>
+
   <a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Submit</a>
   <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">

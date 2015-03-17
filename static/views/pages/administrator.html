@@ -1,12 +1,14 @@
 <div class="page" ng-controller="AdministratorCtrl">
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Administrator&#39;s Primary Contact Information</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Administrator&#39;s Primary Contact Information</strong>
+    </div>
     <div class="panel-body">
       <p>By default the person who initiates the registration process is the ServiceLive account administrator. Based on the information already provided, we are a only a few clicks away from completing this process.</p>
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Personal Information</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Personal Information</strong>
+    </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-5">
@@ -14,7 +16,7 @@
             <div class="panel-body">
               <div class="media">
                 <a class="pull-left" href="javascript:;">
-                <img alt="" src="images/assets/upload_image.jpg" class="img-rounded img64_64">
+                  <img alt="" src="images/assets/upload_image.jpg" class="img-rounded img64_64">
                 </a>
                 <div class="media-body">
                   <p>Most Buyers look for and may even require a photo for identification. Please upload an image of your team member when ready.</p>
@@ -68,12 +70,15 @@
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Account Information</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Account Information</strong>
+    </div>
     <div class="panel-body">
       <form role="form" class="form-horizontal">
         <div class="form-group">
           <label class="col-sm-2" for="adUsername">Username</label>
-          <div class="col-sm-3"><input id="adUsername" class="form-control" type="text" ng-model="companyUsername" readonly></div>
+          <div class="col-sm-3">
+            <input id="adUsername" class="form-control" type="text" ng-model="companyUsername" readonly>
+          </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2">Email Address*</label>
@@ -88,45 +93,173 @@
         </div>
         <div class="form-group">
           <label class="col-sm-2" for="adJobTitle">Job Title</label>
-          <div class="col-sm-10"><input id="adJobTitle" type="text" class="form-control" ng-model="companyJobTitle"></div>
+          <div class="col-sm-10">
+            <input id="adJobTitle" type="text" class="form-control" ng-model="companyJobTitle">
+          </div>
         </div>
       </form>
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Account Role</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Account Role</strong>
+    </div>
     <div class="panel-body">
-      <p><strong>What other responsibilities are you assigned within your company?</strong> <a>Get Help</a></p>
-      <p>You can have more than one role.  As an administrative user, the <strong>Administrator</strong> role has already been selected for you.</p>
+      <p><strong>What other responsibilities are you assigned within your company?</strong>  <a>Get Help</a>
+      </p>
+      <p>You can have more than one role. As an administrative user, the <strong>Administrator</strong> role has already been selected for you.</p>
       <form role="form" class="form-horizontal">
         <dl class="dl-horizontal">
           <dt>Role</dt>
           <dd>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" disabled checked><span>ADMINISTRATOR</span></label>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option2"><span>SERVICE PROVIDER</span></label>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3" ng-model="companyOwnerPrincipal"><span>OWNER / PRINCIPAL</span></label>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>DISPATCHER / SCHEDULER</span></label>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>MANAGER</span></label>
-            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option3"><span>SERVICE ASSISTANT</span></label>
+            <label class="ui-checkbox">
+              <input name="checkbox1" type="checkbox" value="option1" disabled checked><span>ADMINISTRATOR</span>
+            </label>
+            <label class="ui-checkbox">
+              <input name="checkbox1" type="checkbox" value="option2"><span>SERVICE PROVIDER</span>
+            </label>
+            <label class="ui-checkbox">
+              <input name="checkbox1" type="checkbox" value="option3" ng-model="companyOwnerPrincipal"><span>OWNER / PRINCIPAL</span>
+            </label>
+            <label class="ui-checkbox">
+              <input name="checkbox1" type="checkbox" value="option3"><span>DISPATCHER / SCHEDULER</span>
+            </label>
+            <label class="ui-checkbox">
+              <input name="checkbox1" type="checkbox" value="option3"><span>MANAGER</span>
+            </label>
+            <label class="ui-checkbox">
+              <input name="checkbox1" type="checkbox" value="option3"><span>SERVICE ASSISTANT</span>
+            </label>
           </dd>
         </dl>
         <hr>
         <div class="callout callout-danger">
-          <p><strong>Will you be performing work in the ServiceLive Marketplace?</strong>* <a>Get Help</a></p>
+          <p><strong>Will you be performing work in the ServiceLive Marketplace?</strong>* <a>Get Help</a>
+          </p>
           <dl class="dl-horizontal">
             <dt>Status</dt>
             <dd>
-              <label class="ui-radio"><input ng-model="adminPartVal" ng-change="setAdminPart()" name="radio1" type="radio" value="yes"><span>Yes</span></label>
-              <label class="ui-radio"><input ng-model="adminPartVal" ng-change="setAdminPart()" name="radio1" type="radio" value="no"><span>No</span></label>
+              <label class="ui-radio">
+                <input ng-model="adminPartVal" ng-change="setAdminPart()" name="radio1" type="radio" value="yes"><span>Yes</span>
+              </label>
+              <label class="ui-radio">
+                <input ng-model="adminPartVal" ng-change="setAdminPart()" name="radio1" type="radio" value="no"><span>No</span>
+              </label>
             </dd>
           </dl>
+          <p ng-show="adminPart.yes">As an Admin, you have opted to also fufill on service orders. Please enter your service skills below.</p>
+          <p ng-show="adminPart.no">As an Admin, you have indicated that you will not fulfill on service orders. You will need to one Pro so your company can start receiving work.</p>
         </div>
       </form>
     </div>
   </section>
+  <section class="panel panel-default" ng-show="adminPart.yes">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Your Skills</strong>
+    </div>
+    <div class="panel-body">
+      <p>Add your service skills.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-md-6">
+                <form>
+                  <div class="form-group">
+                    <label for="techSkillCategory">Select Skill Category</label>
+                    <select id="techSkillCategory" ng-model="techSkillCategory" class="form-control">
+                      <option value="-- Select Skill Category --">-- Select Skill Category --</option>
+                      <option value="Automotive">Automotive</option>
+                      <option value="Cabinets &amp; Countertops">Cabinets &amp; Countertops</option>
+                      <option value="Carpentry &amp; Woodworking">Carpentry &amp; Woodworking</option>
+                      <option value="Cleaning Services">Cleaning Services</option>
+                      <option value="Computer/Network Services">Computer/Network Services</option>
+                      <option value="Decorating">Decorating</option>
+                      <option value="Electrician">Electrician</option>
+                      <option value="Floors &amp; Patios">Floors &amp; Patios</option>
+                      <option value="Furniture Restoration">Furniture Restoration</option>
+                      <option value="Garage &amp; Shed">Garage &amp; Shed</option>
+                      <option value="General Plumbing &amp; Bathrooms">General Plumbing &amp; Bathrooms</option>
+                      <option value="Handyman Services">Handyman Services</option>
+                      <option value="Health &amp; Beauty">Health &amp; Beauty</option>
+                      <option value="Heating &amp; Cooling">Heating &amp; Cooling</option>
+                      <option value="Home Appliances">Home Appliances</option>
+                      <option value="Home Electronics">Home Electronics</option>
+                      <option value="Lawn &amp; Garden">Lawn &amp; Garden</option>
+                      <option value="Masonry &amp; Stone">Masonry &amp; Stone</option>
+                      <option value="Musical Instrument Service">Musical Instrument Service</option>
+                      <option value="Other Services">Other Services</option>
+                      <option value="Pet Care">Pet Care</option>
+                      <option value="Photography">Photography</option>
+                      <option value="Product Assembly">Product Assembly</option>
+                      <option value="Remodeling &amp; Construction">Remodeling &amp; Construction</option>
+                      <option value="Roofing, Gutters, Windows &amp; Siding">Roofing, Gutters, Windows &amp; Siding</option>
+                      <option value="Unclassified">Unclassified</option>
+                      <option value="Walls &amp; Ceilings">Walls &amp; Ceilings</option>
+                    </select>
+                    <p class="help-block">Select a Skill Catetory and click add to assign a skill set to your Pro.</p>
+                  </div>
+                  <button type="submit" ng-click="openSkillsetModal()" class="btn btnsmall btn-warning">ADD</button>
+                </form>
+                <div ng-show="showListEnteredSkills">
+                  <hr>
+                  <label for="listEnteredSkills">Skill Categories</label>
+                  <div id="listEnteredSkills" class="list-group">
+                    <a class="list-group-item">Home Electronics <span class="badge">14</span></a>
+                  </div>
+                  <p>Your Pro's assigned skill categories and number of discrete skills.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <script type="text/ng-template" id="myAdminModalSkillset.html">
+    <div class="modal-header">
+        <h3>{{techServiceCategory}} Skills</h3>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h4>Select Common Skillsets</h4>
+        <p>To assign skills to your Pro, click on one or more common skill sets.  You can adjust and refine these skills later.</p>
+        <div class="row">
+          <div class="col-md-6">
+            <button ng-click="clickSkillBtn1()" type="button" ng-class="btnSkillStyle1">{{techSkillText1}}</button>
+            <button ng-click="clickSkillBtn2()" type="button" ng-class="btnSkillStyle2">{{techSkillText2}}</button>
+            <button ng-click="clickSkillBtn3()" type="button" ng-class="btnSkillStyle3">{{techSkillText3}}</button>
+          </div>
+          <div class="col-md-6">
+            <button ng-click="clickSkillBtn4()" type="button" ng-class="btnSkillStyle4">{{techSkillText4}}</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Select Skill Types</h4>
+        <p>To select a skill type, click on one or more types. You can adjust these later.</p>
+        <div class="row">
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn1()" type="button" ng-class="btnTypeStyle1">{{techTypeText1}}</button>
+          </div>
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn2()" type="button" ng-class="btnTypeStyle2">{{techTypeText2}}</button>
+          </div>
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn3()" type="button" ng-class="btnTypeStyle3">{{techTypeText3}}</button>
+          </div>
+          <div class="col-md-3">
+            <button ng-click="clickTypeBtn4()" type="button" ng-class="btnTypeStyle4">{{techTypeText4}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
+
   <a href="#/pages/businessprofile" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Business Profile</a>
   <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>
   </div>
-</div>
+  </div>

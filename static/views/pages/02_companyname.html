@@ -1,6 +1,7 @@
 <div class="page" ng-controller="CompanyNameCtrl">
   <section class="panel panel-primary">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Business Activity</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Business Activity</strong>
+    </div>
     <div class="panel-body">
       <p>Check out the business activity for <a ng-click="openIndustry()">Home Electronics</a> in <a ng-click="openZipCode()">60179</a> in the last month!</p>
       <div class="row">
@@ -13,7 +14,8 @@
             </span>
             <div class="box-info">
               <p class="size-h2">157</p>
-              <p class="text-muted"><span data-i18n="Posted Jobs"></span></p>
+              <p class="text-muted"><span data-i18n="Posted Jobs"></span>
+              </p>
             </div>
           </div>
         </div>
@@ -24,7 +26,8 @@
             </span>
             <div class="box-info">
               <p class="size-h2">$237</p>
-              <p class="text-muted"><span data-i18n="Average Price"></span></p>
+              <p class="text-muted"><span data-i18n="Average Price"></span>
+              </p>
             </div>
           </div>
         </div>
@@ -33,24 +36,19 @@
       </div>
     </div>
     <script type="text/ng-template" id="myModalIndustry.html">
-      <div class="modal-header">
-          <h3>Change Industry</h3>
-      </div>
-      <div class="modal-body">
-        <p>Vehicle to change the user&#39;s industry</p>
+      < div class = "modal-header" > < h3 > Change Industry < /h3>
+      </div > < div class = "modal-body" > < p > Vehicle to change the user & #39;s industry</p>
       </div>
     </script>
     <script type="text/ng-template" id="myModalZip.html">
-      <div class="modal-header">
-          <h3>Change Zip Code</h3>
-      </div>
-      <div class="modal-body">
-        <p>Vehicle to change the user&#39;s zip code</p>
+      < div class = "modal-header" > < h3 > Change Zip Code < /h3>
+      </div > < div class = "modal-body" > < p > Vehicle to change the user & #39;s zip code</p>
       </div>
     </script>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Company &amp; Legal Name</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Company &amp; Legal Name</strong>
+    </div>
     <div class="panel-body">
       <p>If your company legal name is different from your business name, please enter it below.</p>
       <div class="form-group">
@@ -71,17 +69,17 @@
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Select Your Location</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Select Your Location</strong>
+    </div>
     <div class="panel-body">
-      <p>We found these business locations for you.  Select one or enter your primary physical address.</p>
-      <p>I don't see my address. I'll enter one on my own. <button ng-click="openEnterAddress()" class="btn btn-info btn-xs">ENTER ADDRESS</button></p>
+      <p>We found these business locations for you. Select one or enter your primary physical address.</p>
+      <p>I don't see my address. I'll enter one on my own.
+        <button ng-click="openEnterAddress()" class="btn btn-info btn-xs">ENTER ADDRESS</button>
+      </p>
       <script type="text/ng-template" id="myModalEnterAddress.html">
-        <div class="modal-header">
-            <h3>Enter Address</h3>
-        </div>
-        <div class="modal-body">
-          <p>Modal page to enable the user to enter an updated address.</p>
-        </div>
+        < div class = "modal-header" > < h3 > Enter Address < /h3>
+        </div > < div class = "modal-body" > < p > Modal page to enable the user to enter an updated address. < /p>
+        </div >
       </script>
       <div class="row">
         <div class="col-sm-6">
@@ -103,7 +101,9 @@
                   </ul>
                 </div>
               </div>
-              <p><button ng-click="selectMe(1)" class="btn {{ selectButton1.color }}">{{ selectButton1.text }}</button></p>
+              <p>
+                <button ng-click="selectMe(1)" class="btn {{ selectButton1.color }}">{{ selectButton1.text }}</button>
+              </p>
             </div>
           </div>
         </div>
@@ -126,7 +126,9 @@
                   </ul>
                 </div>
               </div>
-              <p><button ng-click="selectMe(2)" class="btn {{ selectButton2.color }}">{{ selectButton2.text }}</button></p>
+              <p>
+                <button ng-click="selectMe(2)" class="btn {{ selectButton2.color }}">{{ selectButton2.text }}</button>
+              </p>
             </div>
           </div>
         </div>
@@ -151,7 +153,9 @@
                   </ul>
                 </div>
               </div>
-              <p><button ng-click="selectMe(3)" class="btn {{ selectButton3.color }}">{{ selectButton3.text }}</button></p>
+              <p>
+                <button ng-click="selectMe(3)" class="btn {{ selectButton3.color }}">{{ selectButton3.text }}</button>
+              </p>
             </div>
           </div>
         </div>

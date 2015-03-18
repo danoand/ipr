@@ -1,11 +1,20 @@
 // GetOrganizedCtrl is a controller for the 01_getorganized.html view
 appControllers.controller("GetOrganizedCtrl", ["$scope", "$rootScope", "svcDataPopulation",
   function($scope, $rootScope, svcDataPopulation) {
-    $scope.companyName = svcDataPopulation.companyName();
-    $scope.uploadStatus = svcDataPopulation.uploadStatusNotStarted();
+    $scope.companyName        = svcDataPopulation.companyName();
+    $scope.uploadStatus       = svcDataPopulation.uploadStatusNotStarted();
     $scope.uploadStatusMarkup = $scope.uploadStatus.markup;
-    $scope.uploadMessage = false;
-    $scope.alerts = [];
+    $scope.uploadMessage      = false;
+    $scope.alerts             = [];
+
+    $scope.postUpload = false;
+
+    $scope.companyAddress1 = svcDataPopulation.companyAddress1();
+    $scope.companyCity     = svcDataPopulation.companyCity();
+    $scope.companyState    = svcDataPopulation.companyState();
+    $scope.companyZip      = svcDataPopulation.companyZip();
+
+    $scope.insArray        = svcDataPopulation.getInsArray();
 
     $rootScope.$emit('evStatusData');
 
@@ -45,6 +54,12 @@ appControllers.controller("GetOrganizedCtrl", ["$scope", "$rootScope", "svcDataP
 
     $scope.emptyAlert = function() {
       emptyAlert();
-    }
+    };
+
+    $scope.uploadDoc = function() {
+      console.log('Just inside uploadDoc');
+      $scope.postUpload = true;
+    };
+
   }
 ]);

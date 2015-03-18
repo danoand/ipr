@@ -1,6 +1,7 @@
 <div class="page" ng-controller="GetOrganizedCtrl">
   <section class="panel panel-primary">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Get Going!</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Get Going!</strong>
+    </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-sm-4">
@@ -40,7 +41,8 @@
     </div>
   </section>
   <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Get Organized</strong></div>
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Get Organized</strong>
+    </div>
     <div class="panel-body">
       <h3>Welcome {{ companyName }}!</h3>
       <div class="callout callout-info">
@@ -54,9 +56,10 @@
         <li>Primary industry in which you do business such as "Home Electronics" or "General Plumbing"</li>
         <li>Main physical address</li>
         <li>Contact information such as phone numbers and email address</li>
-        <li>Details for the person will be the Administrator for your ServiceLive account. <span class="highlight">We assume that's you!</span></li>
+        <li>Details for the person will be the Administrator for your ServiceLive account. <span class="highlight">We assume that's you!</span>
+        </li>
         <li>Information on your business insurance. Scan and upload your insurance certificate and we can automatically populate some of your data!</li>
-        <li>Information for your first Pro.  If you're not going out and fulfilling on service, you'll need to enter at least one Pro who will get a background check.</li>
+        <li>Information for your first Pro. If you're not going out and fulfilling on service, you'll need to enter at least one Pro who will get a background check.</li>
       </ul>
     </div>
   </section>
@@ -68,9 +71,80 @@
     <div class="panel-body">
       <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="emptyAlert()">{{alert.msg}}</alert>
       <h4>Get a Jumpstart by Uploading a Document</h4>
-      <p>Scan or take a picture of your insurance certificate.  We'll process it and pre-populate some of your information.</p>
-      <div>
+      <p>Scan or take a picture of your insurance certificate. We'll process it and pre-populate some of your information.</p>
+      <div ng-click="uploadDoc()">
         <div class="drop-box">Drag and drop files here</div>
+      </div>
+      <div class="row" ng-show="postUpload">
+        <div class="col-md-12">
+          <hr>
+          <p>Your document has been uploaded. We have captured this data and will use it as a part of your registration.</p>
+        </div>
+        <div class="col-md-4">
+          <section class="panel panel-default">
+            <div class="panel-heading"><span class="glyphicon glyphicon-th"></span> Company Information</div>
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Company Name</strong>
+                    </td>
+                    <td>{{companyName}}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Address 1</strong>
+                    </td>
+                    <td>{{companyAddress1}}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>City</strong>
+                    </td>
+                    <td>{{companyCity}}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>State</strong>
+                    </td>
+                    <td>{{companyState}}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Zip Code</strong>
+                    </td>
+                    <td>{{companyZip}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <div class="col-md-8">
+          <section class="panel panel-default">
+            <div class="panel-heading"><span class="glyphicon glyphicon-th"></span> Insurance Information</div>
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Insurance</th>
+                    <th>Policy Number</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Coverage Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="insItemArray in insArray">
+                    <td ng-repeat="element in insItemArray">{{element}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </section>

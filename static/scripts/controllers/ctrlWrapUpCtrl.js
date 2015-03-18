@@ -1,5 +1,5 @@
 // BusinessProfileCtrl is a controller for the 06_businessprofile.html view
-appControllers.controller("AdminBackgroundCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcDataHTML", "svcDataGaugeChart", "svcAdminPart",
+appControllers.controller("WrapUpCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation", "svcDataHTML", "svcDataGaugeChart", "svcAdminPart",
   function($scope, $rootScope, $location, svcDataPopulation, svcDataHTML, svcDataGaugeChart, svcAdminPart) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);

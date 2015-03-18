@@ -2,7 +2,6 @@
 appControllers.controller("AdminBackgroundCtrl", ["$scope", "$rootScope", "$location", "svcDataPopulation",
   function($scope, $rootScope, $location, svcDataPopulation) {
 
-
     $scope.virtualType = function() {
       $scope.adminSSN = svcDataPopulation.adminSSN();
     };

@@ -5,7 +5,7 @@
     <div class="panel-body">
       <div ng-show="optAdminPartYes">
         <h4>Thank You!</h4>
-        <p>You have completed the steps to get "ServiceLive Approved".  Background checks usually take 7-10 days. Check back here to see your status.</p>
+        <p>You have completed the steps to get "ServiceLive Approved". Background checks usually take 7-10 days. Check back here to see your status.</p>
         <p>Check the timeline for a detailed status or continue to your ServiceLive account to add Service Pros and additional detail about your company offerings.</p>
         <div class="row">
           <div class="col-md-4">
@@ -18,7 +18,7 @@
       </div>
       <div ng-show="optAdminPartNo">
         <h4>Thank You!</h4>
-        <p>You have completed the steps to get "ServiceLive Approved".  Background checks usually take 7-10 days. Check back here to see your status.</p>
+        <p>You have completed the steps to get "ServiceLive Approved". Background checks usually take 7-10 days. Check back here to see your status.</p>
         <p>Check the timeline for a detailed status or continue to your ServiceLive account to add Service Pros and additional detail about your company offerings.</p>
         <div class="row">
           <div class="col-md-4">
@@ -35,13 +35,20 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="panel panel-default">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Next Steps</strong>
+    </div>
+    <div class="panel-body">
       <div class="row">
         <div class="col-md-3">
         </div>
         <div class="col-md-6">
-          <button class="btn btn-primary btn-block">View Status Details</button>
+          <a href="#/ui/timeline" class="btn btn-warning btn-block">View Status Details</a>
           <hr>
-          <button class="btn btn-primary btn-block">Go To Your ServiceLive Account</button>
+          <button class="btn btn-warning btn-block">Go To Your ServiceLive Account</button>
         </div>
         <div class="col-md-3">
         </div>
@@ -49,9 +56,4 @@
     </div>
   </section>
 
-  <a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Submit</a>
-  <a type="button" class="btn btn-link pull-right">Save</a>
-  <div ng-click="virtualType()" class="row">
-    <i class="fa fa-keyboard-o"></i>
-  </div>
 </div>

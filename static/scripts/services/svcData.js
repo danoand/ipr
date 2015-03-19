@@ -140,7 +140,7 @@ appServices.factory("svcDataPopulation", [
       techServiceRange: function() {
         return '50 miles or less';
       },
-      techPermissionViewOrderPricing: function() {
+      techPermViewOrderPricing: function() {
         return true;
       },
       techBusinessPhone: function() {

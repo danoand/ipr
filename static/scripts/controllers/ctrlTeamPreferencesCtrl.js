@@ -18,15 +18,15 @@ appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$loca
     $scope.progressGaugeOptions = svcDataGaugeChart.preferencesGaugeOptions();
 
     $scope.virtualType = function() {
-      $scope.techPermissionViewOrderPricing = svcDataPopulation.techPermissionViewOrderPricing();
-      $scope.techBusinessPhone = svcDataPopulation.techBusinessPhone();
-      $scope.techMobilePhone = svcDataPopulation.techMobilePhone();
-      $scope.techPrimaryEmailConfirm1 = svcDataPopulation.techPrimaryEmailConfirm1();
-      $scope.techPrimaryEmailConfirm2 = svcDataPopulation.techPrimaryEmailConfirm2();
+      $scope.techPermViewOrderPricing   = svcDataPopulation.techPermViewOrderPricing();
+      $scope.techBusinessPhone          = svcDataPopulation.techBusinessPhone();
+      $scope.techMobilePhone            = svcDataPopulation.techMobilePhone();
+      $scope.techPrimaryEmailConfirm1   = svcDataPopulation.techPrimaryEmailConfirm1();
+      $scope.techPrimaryEmailConfirm2   = svcDataPopulation.techPrimaryEmailConfirm2();
       $scope.techAlternateEmailConfirm1 = svcDataPopulation.techAlternateEmailConfirm1();
       $scope.techAlternateEmailConfirm2 = svcDataPopulation.techAlternateEmailConfirm2();
-      $scope.techSMSAddressConfirm1 = svcDataPopulation.techSMSAddressConfirm1();
-      $scope.techSMSAddressConfirm2 = svcDataPopulation.techSMSAddressConfirm2();
+      $scope.techSMSAddressConfirm1     = svcDataPopulation.techSMSAddressConfirm1();
+      $scope.techSMSAddressConfirm2     = svcDataPopulation.techSMSAddressConfirm2();
       $scope.techSecondaryContactMethod = svcDataPopulation.techSecondaryContactMethod();
     };
 

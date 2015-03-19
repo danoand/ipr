@@ -25,11 +25,36 @@
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> User Permissions</strong>
     </div>
     <div class="panel-body">
-      <p>Check all permissions that apply. Service Pro accounts can have other permissions. You can view other permissions after completing your registration.</p>
-      <div class="col-md-12">
+      <div class="col-md-6">
+        <h4>Common Service Pro Permissions <small><a>Get Help</a></small></h4>
+        <p>Enable permissions commonly assigned to new ServiceLive Pros.</p>
         <div class="checkbox">
           <label>
-            <input type="checkbox" ng-model="techPermissionViewOrderPricing">View Order Pricing
+            <input type="checkbox" ng-model="techPermViewOrderPricing">View Order Pricing
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="techPermManageServiceOrder">Manage Service Orders
+          </label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Other Service Pro Permissions</h4>
+        <p>Enable permissions that are not commonly assigned to new ServiceLive Pros.</p>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="techPermManageUserProfile">Manage User Profile
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="techPermManageBusinessProfile">Manage Business Profile
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="techPermUpdateW9Info">Update W9 Information
           </label>
         </div>
       </div>

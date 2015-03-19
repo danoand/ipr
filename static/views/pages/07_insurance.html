@@ -1,4 +1,7 @@
 <div class="page" ng-controller="InsuranceCtrl">
+  <div ng-controller="AlertUserTypeCtrl">
+    <alert ng-show="userIsAgent" type="danger">NOTE! You are logged in as an ServiceLive Agent acting on behalf of a prospective Provider.</alert>
+  </div>
   <div class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     Your uploaded document has been processed. Please verify your information

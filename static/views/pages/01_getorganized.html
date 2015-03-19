@@ -1,4 +1,7 @@
 <div class="page" ng-controller="GetOrganizedCtrl">
+  <div ng-controller="AlertUserTypeCtrl">
+    <alert ng-show="userIsAgent" type="danger">NOTE! You are logged in as an ServiceLive Agent acting on behalf of a prospective Provider.</alert>
+  </div>
   <section class="panel panel-primary">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Get Going!</strong>
     </div>

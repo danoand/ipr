@@ -1,64 +1,61 @@
 <header class="clearfix">
-    <a href="#/" data-toggle-min-nav
-                 class="toggle-min"
-                 ><i class="fa fa-bars"></i></a>
+  <a href="#/" data-toggle-min-nav class="toggle-min"><i class="fa fa-bars"></i></a>
 
-    <!-- Logo -->
-    <div class="logo">
-        <a href="#/">
-            <span>{{main.brand}}</span>
+  <!-- Logo -->
+  <div class="logo">
+    <a href="#/">
+      <span>{{main.brand}}</span>
+    </a>
+  </div>
+
+  <!-- needs to be put after logo to make it working-->
+  <div class="menu-button" toggle-off-canvas>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </div>
+
+  <div class="top-nav" ng-controller="TopNavCtrl">
+    <ul class="nav-left list-unstyled">
+      <li class="dropdown" dropdown is-open="isopeBell">
+        <a class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+          <i class="fa fa-user-times nav-icon"></i>
         </a>
-    </div>
-
-    <!-- needs to be put after logo to make it working-->
-    <div class="menu-button" toggle-off-canvas>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </div>
-
-    <div class="top-nav">
-        <ul class="nav-left list-unstyled">
-            <li class="dropdown" dropdown is-open="isopeBell">
-                <a href="javascript:;" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                    <i class="fa fa-bell-o nav-icon"></i>
-                    <span class="badge badge-warning">1</span>
-                </a>
-                <div class="dropdown-menu with-arrow panel panel-default">
-                    <div class="panel-heading">
-                        You have 2 notifications.
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-success"><i class="fa fa-bell-o"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">You have entered your Company Name.</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="panel-footer">
-                        <a href="javascript:;">Show all notifications.</a>
-                    </div>
+        <div class="dropdown-menu with-arrow panel panel-default">
+          <div class="panel-heading">
+            User Type
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a class="media">
+                <span class="media-left media-icon">
+                  <span class="round-icon sm bg-success"><i class="fa fa-user-times"></i></span>
+                </span>
+                <div class="media-body">
+                  <span class="block">
+                    <span ng-show="SLAgentOff" ng-click="typeSignIn('agent')" class="label label-primary">Self Signup</span>
+                    <span ng-show="SLAgentOn"  ng-click="typeSignIn('self')" class="label label-danger">Agent Signup</span>
+                  </span>
                 </div>
+              </a>
             </li>
-        </ul>
+          </ul>
+        </div>
+      </li>
+    </ul>
 
-        <ul class="nav-right pull-right list-unstyled" ng-controller="NavBarCtrl">
-            <li class="text-normal nav-profile">
-              <span ng-bind-html="getCompanyIcon"></span>
-              <span ng-bind-html="getCompanyName"></span>
-              &nbsp;
-              <span ng-bind-html="getAdminIcon"></span>
-              <span ng-bind-html="getAdminName"></span>
-              &nbsp;
-              <span ng-bind-html="getProcessStatus" ng-click="gotoProgress()"></span>
-            </li>
-        </ul>
+    <ul class="nav-right pull-right list-unstyled" ng-controller="NavBarCtrl">
+      <li class="text-normal nav-profile">
+        <span ng-bind-html="getCompanyIcon"></span>
+        <span ng-bind-html="getCompanyName"></span>
+        &nbsp;
+        <span ng-bind-html="getAdminIcon"></span>
+        <span ng-bind-html="getAdminName"></span>
+        &nbsp;
+        <span ng-bind-html="getProcessStatus" ng-click="gotoProgress()"></span>
+      </li>
+    </ul>
 
-    </div>
+  </div>
 
 </header>

@@ -150,16 +150,16 @@ appServices.factory("svcDataPopulation", [
         return '773-555-1213';
       },
       techPrimaryEmailConfirm1: function() {
-        return 'ttechout@geemail.com';
+        return 'pjohnson@geemail.com';
       },
       techPrimaryEmailConfirm2: function() {
-        return 'ttechout@geemail.com';
+        return 'pjohnson@geemail.com';
       },
       techAlternateEmailConfirm1: function() {
-        return 'ttechout@yeahoo.com';
+        return 'pat.johnson@yeahoo.com';
       },
       techAlternateEmailConfirm2: function() {
-        return 'ttechout@yeahoo.com';
+        return 'pat.johnson@yeahoo.com';
       },
       techSMSAddressConfirm1: function() {
         return '7736891245@messaging.sprintpcs.com';

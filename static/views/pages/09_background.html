@@ -23,12 +23,18 @@
         <p><strong>NOTE:</strong> Administrators not performing work in the field and Dispatchers are not required to do a background check.</p>
         <p>To complete a background check enter your Pro's Social Security Number</p>
         <div class="col-md-5">
-          <form>
+          <form ng-hide="userTypeAgent">
             <div class="form-group">
               <label for="adminSSN">Social Security Number (SSN)*</label>
               <input class="form-control" type="text" id="adminSSN" ng-model="adminSSN">
             </div>
             <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
+          </form>
+          <form ng-show="userTypeAgent">
+            <div class="form-group">
+              <label>Send a background check request to the new Admin user.</label>
+            </div>
+            <button class='btn btn-block btn-info'>SEND EMAIL REQUEST</button>
           </form>
         </div>
     </div>

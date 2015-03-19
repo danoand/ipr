@@ -35,9 +35,9 @@
         <li>Your team member's status will be automatically update when the background check results come back. Average turn around time for results is 7-10 days.</li>
       </ol>
       <p><strong>NOTE:</strong> Administrators not performing work in the field and Dispatchers are not required to do a background check.</p>
-      <h4>Social Security (SSN)</h4>
-      <p>To complete a background check enter your Pro's Social Security Number</p>
-      <form>
+      <h4 ng-hide="userTypeAgent">Social Security (SSN)</h4>
+      <p ng-hide="userTypeAgent">To complete a background check enter your Pro's Social Security Number</p>
+      <form ng-hide="userTypeAgent">
         <div class="col-md-4">
           <div class="form-group">
             <label for="techSSN">Social Security Number (SSN)*</label>
@@ -52,8 +52,8 @@
       <span class="pull-right">Status:&nbsp;&nbsp;<span class="label label-default">NOT STARTED</span></span>
     </div>
     <div class="panel-body">
-      <p>Conduct the background on behalf of the Service Pro OR send an email to them to complete the background check process.</p>
-      <div class="col-md-6">
+      <p ng-hide="userTypeAgent">Conduct the background on behalf of the Service Pro OR send an email to them to complete the background check process.</p>
+      <div  ng-hide="userTypeAgent" class="col-md-6">
         <div class="well well-sm">
           <h4>Conduct the Background Check:</h4>
           <p>I will start and complete the background check on behalf of my Service Pro.</p>
@@ -69,20 +69,20 @@
           <form class="form-horizontal" role="form">
             <div class="form-group">
               <label class="col-md-12">Primary Email Address*</label>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <input type="text" class="form-control" ng-model="techPrimaryEmail1">
                 <div class="help">Enter Primary Email address</div>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-12">Alternate Email Address</label>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <input type="text" class="form-control" ng-model="techAlternateEmail1">
                 <div class="help">Enter Alternate Email address</div>
               </div>
             </div>
             <button class='btn btn-block btn-info'>SEND BACKGROUND REQUEST EMAIL</button>
-            <p class="text-muted text-small text-center">By clicking, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a>
+            <p ng-hide="userTypeAgent" class="text-muted text-small text-center">By clicking, you agree to <a href="javascript:;">terms & conditions</a> and <a href="javascript:;">privacy policy</a>
             </p>
           </form>
         </div>

@@ -1,5 +1,5 @@
-appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML",
-  function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML) {
+appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", "svcDataTypeUser",
+  function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML, svcDataTypeUser) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -7,6 +7,19 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
     $rootScope.$emit('evStatusData');
 
     $scope.companyPhone = svcDataPopulation.companyPhone();
+
+    $scope.userType = svcDataTypeUser.getUserType();
+    if ($scope.userType == 'agent') {
+      $scope.userTypeAgent = true;
+    }
+    $rootScope.$on('chgUserType', function(event, data) {
+      $scope.userType = svcDataTypeUser.getUserType();
+
+      if ($scope.userType == 'agent') {
+        $scope.userTypeAgent = true;
+      }
+      
+    });
 
     $scope.virtualType = function() {
       $scope.companyFullName      = svcDataPopulation.companyFullName();

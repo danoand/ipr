@@ -115,14 +115,14 @@
                 <input class="form-control" id="coEmail" type="email" ng-model="companyEmail">
               </div>
             </div>
-            <hr>
-            <div class="form-group">
+            <hr ng-hide="userTypeAgent">
+            <div ng-hide="userTypeAgent" class="form-group">
               <label for="coUsername" class="col-sm-2 control-label">Username</label>
               <div class="col-sm-10">
                 <input class="form-control" id="coUsername" type="text" ng-model="companyUsername">
               </div>
             </div>
-            <div class="form-group">
+            <div ng-hide="userTypeAgent" class="form-group">
               <label for="coPassword" class="col-sm-2 control-label">Password</label>
               <div class="col-sm-10">
                 <div class="form-inline">

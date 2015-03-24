@@ -110,17 +110,17 @@
                 <div class="form-group">
                   <label class="col-md-12">Alternate Email*</label>
                   <div class="col-md-6">
-                    <input class="form-control" type="email" id="techAlternateEmail1" ng-model="techAlternateEmailConfirm1">
+                    <input class="form-control" ng-blur="chkEnableAlerts()" type="text" id="techAlternateEmail1" ng-model="techAlternateEmailConfirm1">
                     <div class="help">Alternate Email Address*</div>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control" type="email" id="techAlternateEmail2" ng-model="techAlternateEmailConfirm2">
+                    <input class="form-control" ng-blur="chkEnableAlerts()" type="text" id="techAlternateEmail2" ng-model="techAlternateEmailConfirm2">
                     <div class="help">Confirm Alternate Email Address*</div>
                   </div>
                   <div class="col-md-12">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" ng-model="techSendAlertsToAltEmail">Send order alerts to my alternate email address
+                        <input ng-disabled="notMe(enAlertsToAltEmail)" type="checkbox" ng-model="techSendAlertsToAltEmail">Send order alerts to my alternate email address
                       </label>
                     </div>
                   </div>

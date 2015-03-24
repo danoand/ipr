@@ -17,6 +17,10 @@ appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$loca
     $scope.progressGaugeData    = svcDataGaugeChart.preferencesGaugeData();
     $scope.progressGaugeOptions = svcDataGaugeChart.preferencesGaugeOptions();
 
+    $scope.enAlertsToAltEmail         = false;
+    $scope.techAlternateEmailConfirm1 = "";
+    $scope.techAlternateEmailConfirm2 = "";
+
     $scope.virtualType = function() {
       $scope.techPermViewOrderPricing   = svcDataPopulation.techPermViewOrderPricing();
       $scope.techBusinessPhone          = svcDataPopulation.techBusinessPhone();
@@ -47,6 +51,32 @@ appControllers.controller("TeamPreferencesCtrl", ["$scope", "$rootScope", "$loca
       svcTeamProgressBar.setProgBarStep('3');
 
       $location.path("/pages/team/skills");
+    };
+
+    $scope.chkEnableAlerts = function() {
+      // If both alt emails are the same then enable the checkbox asking the user if
+      //    wants to send order alerts to their alternate email address
+      if ($scope.techAlternateEmailConfirm1.length > 0) {
+        if ($scope.techAlternateEmailConfirm1 == $scope.techAlternateEmailConfirm2) {
+          $scope.enAlertsToAltEmail = true;
+
+          return;
+        }
+      }
+
+      // Alt emails are not the same, disable checkbox
+      $scope.techSendAlertsToAltEmail = false;
+      $scope.enAlertsToAltEmail = false;
+    };
+
+    $scope.notMe = function(inVal) {
+      retValue = true;
+
+      if (inVal) {
+        retValue = false;
+      }
+
+      return retValue;
     };
 
   }

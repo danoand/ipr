@@ -9,7 +9,8 @@ appControllers.controller("WrapUpCtrl", ["$scope", "$rootScope", "$location", "s
     svcDataHTML.setAdminIcon(svcDataHTML.htmlAdminIcon);
     $rootScope.$emit('evAdminData');
 
-    $scope.wrapupGaugeProfileData = svcDataGaugeChart.wrapupGaugeProfileData();
+    $scope.wrapupGaugeProfileDataAdminYes = svcDataGaugeChart.wrapupGaugeProfileDataAdminYes();
+    $scope.wrapupGaugeProfileDataAdminNo = svcDataGaugeChart.wrapupGaugeProfileDataAdminNo();
     $scope.wrapupGaugeProfileOpts = svcDataGaugeChart.wrapupGaugeProfileOpts();
     $scope.wrapupGaugeTechData    = svcDataGaugeChart.wrapupGaugeTechData();
     $scope.wrapupGaugeTechOpts    = svcDataGaugeChart.wrapupGaugeTechOpts();

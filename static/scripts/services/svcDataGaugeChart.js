@@ -129,11 +129,18 @@ appServices.factory("svcDataGaugeChart", [
             ]
           };
         },
-        wrapupGaugeProfileData: function() {
+        wrapupGaugeProfileDataAdminYes: function() {
           return {
             maxValue: 800,
             animationSpeed: 20,
             val: 700
+          };
+        },
+        wrapupGaugeProfileDataAdminNo: function() {
+          return {
+            maxValue: 800,
+            animationSpeed: 20,
+            val: 800
           };
         },
         wrapupGaugeProfileOpts: function() {

@@ -23,7 +23,11 @@ appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "$modal"
       $scope.companyMiddleName = svcDataPopulation.companyMiddleName();
       $scope.companyJobTitle = svcDataPopulation.companyJobTitle();
       $scope.companyOwnerPrincipal = svcDataPopulation.companyOwnerPrincipal();
-    }
+    };
+
+    $rootScope.$on('evShowTechSkillCategories', function(event, data) {
+      $scope.showListEnteredSkills = true;
+    });
 
     $scope.setAdminPart = function() {
       svcAdminPart.setAdminPartFlag($scope.adminPartVal);

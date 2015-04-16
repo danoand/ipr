@@ -79,91 +79,76 @@
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Account Information</strong></div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="thumbnail">
-            <h4>Your Address:</h4>
-            <img alt="" src="images/map-01.png">
-            <div class="caption">
-              <div class="media">
-                <div class="media-body">
-                  <ul class="list-unstyled list-info">
-                    <li>
-                      <span class="icon glyphicon glyphicon-home"> </span>
-                      230 S. Wacker Drive, STE#3301, Chicago IL 60606
-                    </li>
-                    <li>
-                      <span class="icon glyphicon glyphicon-earphone"> </span>
-                      312-555-1212
-                    </li>
-                  </ul>
-                </div>
-              </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Address</label>
+            <address>
+              230 S. Wacker Drive STE#3301<br>
+              Chicago, IL 60606<br>
+            </address>
+          </div>
+          <div class="form-group">
+            <label for="coBusinessPhone">Business Phone</label>
+            <div class="form-inline">
+              <input type="text" class="form-control" placeholder="Phone Number" ng-model="companyPhone"/>
+              <input type="text" class="form-control" placeholder="Extension"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="coMobilePhone">Mobile Phone</label>
+            <div class="form-inline">
+              <input class="form-control" id="coMobilePhone" type="tel" ng-model="companyMobilePhone">
+              <input ng-hide="true" type="text" class="form-control" placeholder="Extension"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="selectBestContact">Service Inquiries</label>
+            <div>
+              <select class="form-control" ng-model="companyInquiryMethod">
+                <option>-- Select Method --</option>
+                <option>Business Phone</option>
+                <option>Mobile Phone</option>
+                <option>Other Phone</option>
+              </select>
+              <p class="help-block">Select the best way to contact you for service inquiries.</p>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <form class="form-horizontal ng-pristine ng-valid" role="form">
-            <div class="form-group">
-              <label for="coFullName" class="col-sm-2 control-label">Full Name</label>
-              <div class="col-sm-10">
-                <input class="form-control" id="coFullName" type="text" ng-model="companyFullName">
-              </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="coFullName" class="control-label">Full Name</label>
+            <div>
+              <input class="form-control" id="coFullName" type="text" ng-model="companyFullName">
             </div>
-            <div class="form-group">
-              <label for="coEmail" class="col-sm-2 control-label">Email Address</label>
-              <div class="col-sm-10">
-                <input class="form-control" id="coEmail" type="email" ng-model="companyEmail">
-              </div>
+          </div>
+          <div class="form-group">
+            <label for="coEmail" class="control-label">Email Address</label>
+            <div>
+              <input class="form-control" id="coEmail" type="email" ng-model="companyEmail">
             </div>
-            <hr ng-hide="userTypeAgent">
-            <div ng-hide="userTypeAgent" class="form-group">
-              <label for="coUsername" class="col-sm-2 control-label">Username</label>
-              <div class="col-sm-10">
-                <input class="form-control" id="coUsername" type="text" ng-model="companyUsername">
-              </div>
+          </div>
+          <div ng-hide="userTypeAgent" class="form-group">
+            <label for="coUsername" class="control-label">Username</label>
+            <div>
+              <input class="form-control" id="coUsername" type="text" ng-model="companyUsername">
             </div>
-            <div ng-hide="userTypeAgent" class="form-group">
-              <label for="coPassword" class="col-sm-2 control-label">Password</label>
-              <div class="col-sm-10">
-                <div class="form-inline">
-                  <input type="password" class="form-control" placeholder="Enter Password" ng-model="companyPassword1"/>
-                  <input type="password" class="form-control" placeholder="Confirm Password" ng-model="companyPassword2"/>
-                </div>
-              </div>
+          </div>
+          <div ng-hide="userTypeAgent" class="form-group">
+            <label for="coPassword" class="control-label">Password</label>
+            <div>
+              <input id="coPassword" type="password" class="form-control" placeholder="Enter Password" ng-model="companyPassword1"/>
             </div>
-            <hr>
-            <div class="form-group">
-              <label for="coBusinessPhone" class="col-sm-2 control-label">Business Phone</label>
-              <div class="col-sm-10">
-                <div class="form-inline">
-                  <input type="text" class="form-control" placeholder="Phone Number" ng-model="companyPhone"/>
-                  <input type="text" class="form-control" placeholder="Extension"/>
-                </div>
-              </div>
+          </div>
+          <div ng-hide="userTypeAgent" class="form-group">
+            <div>
+              <input type="password" class="form-control" placeholder="Confirm Password" ng-model="companyPassword2"/>
             </div>
-            <div class="form-group">
-              <label for="coMobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
-              <div class="col-sm-10">
-                <input class="form-control" id="coMobilePhone" type="tel" ng-model="companyMobilePhone">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="selectBestContact" class="col-sm-2 control-label">Service Inquiries</label>
-              <div class="col-sm-10">
-                <select class="form-control" ng-model="companyInquiryMethod">
-                  <option>-- Select Method --</option>
-                  <option>Business Phone</option>
-                  <option>Mobile Phone</option>
-                  <option>Other Phone</option>
-                </select>
-                <p class="help-block">Select the best way to contact you for service inquiries.</p>
-              </div>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
+  <a type="button" ng-show="showResendBtn" class="btn btn-w-md btn-gap-v btn-link pull-right">Resend Email</a>
   <a type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right" ng-click="openConfirmEmail()">Next - Verify Email</a>
   <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">

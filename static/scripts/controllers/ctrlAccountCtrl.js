@@ -18,8 +18,10 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
       if ($scope.userType == 'agent') {
         $scope.userTypeAgent = true;
       }
-      
+
     });
+
+    $scope.showResendBtn = svcDataTypeUser.getShowResendBtn();
 
     $scope.virtualType = function() {
       $scope.companyFullName      = svcDataPopulation.companyFullName();
@@ -61,6 +63,10 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
 
 
     $scope.openConfirmEmail = function() {
+      svcDataTypeUser.setShowResendBtn(true);
+
+      $scope.showResendBtn = svcDataTypeUser.getShowResendBtn();
+
       var modalConfirmEmail;
 
       modalConfirmEmail = $modal.open({

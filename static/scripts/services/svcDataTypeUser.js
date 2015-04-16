@@ -4,6 +4,7 @@ appServices.factory("svcDataTypeUser", [
 
   function() {
     var dataUserType = "self";
+    var varShowResendBtn = false;
 
     return {
       getUserType: function() {
@@ -25,6 +26,12 @@ appServices.factory("svcDataTypeUser", [
       },
       setUserType: function(inVal) {
         dataUserType = inVal;
+      },
+      getShowResendBtn: function() {
+        return varShowResendBtn;
+      },
+      setShowResendBtn: function(inVal) {
+        varShowResendBtn = inVal;
       }
     };
   }

@@ -59,20 +59,19 @@
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Company &amp; Legal Name</strong>
     </div>
     <div class="panel-body">
-      <p>If your company legal name is different from your business name, please enter it below.</p>
-      <div class="form-group">
-        <label for="" class="col-sm-2">Company Names</label>
-        <div class="col-sm-10">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
-            <input class="form-control" placeholder="DBA Name (Doing Business As)" type="text" ng-model="companyDBAName">
-          </div>
-          <div class="divider"></div>
-          <div class="input-group">
-            <span class="input-group-addon" ng-click="clickLegalName()"><i class="fa fa-gavel"></i></span>
-            <input class="form-control" placeholder="Legal Name" type="text" ng-model="companyLegalName">
-          </div>
-          <div class="divider"></div>
+      <p>Many companies use a public facing name that is different from the company's legal name. For example, a public facing name could be "<strong>AAA Plumbing Services</strong>" and a legal name be "<strong>Bob Smith Plumbing LLC</strong>".</p>
+      <hr>
+      <p>If your company's public facing name is different from your legal name, please enter both below.</p>
+      <div class="row col-md-10">
+        <div class="form-group">
+          <label for="companyDBAName">Public Facing / "DBA" Name</label>
+          <input type="text" class="form-control" id="companyDBAName" ng-model="companyDBAName">
+          <p class="help-block">Enter your public facing name sometimes called a "DBA" ("Doing Business As") name.</p>
+        </div>
+        <div class="form-group">
+          <label for="companyLegalName">Legal Name</label>
+          <input type="text" class="form-control" id="companyLegalName" ng-model="companyLegalName" ng-click="clickLegalName()">
+          <p class="help-block">Enter your legal name you use on legal documents and government forms.</p>
         </div>
       </div>
     </div>
@@ -121,8 +120,8 @@
               <tr>
                 <td>2</td>
                 <td>
-                  230 S. Wacker Drive STE#3301<br>
-                  Chicago IL 60606
+                  230 S. Wacker Drive, STE#3301<br>
+                  Chicago, IL 60606
                 </td>
                 <td><a href="tel:+13125551212">312.555.1212</a></td>
                 <td class="text-center">
@@ -131,8 +130,8 @@
               <tr class="active">
                 <td>3</td>
                 <td>
-                  230 S. Wacker Drive STE#3301<br>
-                  Chicago IL 60606
+                  230 S. Wacker Drive, STE#3301<br>
+                  Chicago, IL 60606
                 </td>
                 <td><a href="tel:+13125551212">312.555.1212</a></td>
                 <td class="text-center">

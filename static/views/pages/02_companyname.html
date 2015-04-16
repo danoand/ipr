@@ -39,13 +39,19 @@
       </div>
     </div>
     <script type="text/ng-template" id="myModalIndustry.html">
-      < div class = "modal-header" > < h3 > Change Industry < /h3>
-      </div > < div class = "modal-body" > < p > Vehicle to change the user & #39;s industry</p>
+      <div class="modal-header">
+      <h3>Change Industry</h3>
+      </div >
+      <div class="modal-body">
+      <p>Vehicle to change the user & #39;s industry</p>
       </div>
     </script>
     <script type="text/ng-template" id="myModalZip.html">
-      < div class = "modal-header" > < h3 > Change Zip Code < /h3>
-      </div > < div class = "modal-body" > < p > Vehicle to change the user & #39;s zip code</p>
+      <div class="modal-header">
+      <h3>Change Zip Code</h3>
+      </div >
+      <div class="modal-body">
+      <p>Vehicle to change the user & #39;s zip code</p>
       </div>
     </script>
   </section>
@@ -80,87 +86,62 @@
         <button ng-click="openEnterAddress()" class="btn btn-info btn-xs">ENTER ADDRESS</button>
       </p>
       <script type="text/ng-template" id="myModalEnterAddress.html">
-        < div class = "modal-header" > < h3 > Enter Address < /h3>
-        </div > < div class = "modal-body" > < p > Modal page to enable the user to enter an updated address. < /p>
-        </div >
+        <div class = "modal-header">
+        <h3>Enter Address</h3>
+        </div>
+        <div class="modal-body">
+        <p>Modal page to enable the user to enter an updated address.</p>
+        </div>
       </script>
       <div class="row">
-        <div class="col-sm-6">
-          <div class="thumbnail">
-            <h4>Address #1</h4>
-            <img alt="" src="images/map-01.png">
-            <div class="caption">
-              <div class="media">
-                <div class="media-body">
-                  <ul class="list-unstyled list-info">
-                    <li>
-                      <span class="icon glyphicon glyphicon-home"> </span>
-                      230 S. Wacker Drive, STE#3301, Chicago IL 60606
-                    </li>
-                    <li>
-                      <span class="icon glyphicon glyphicon-earphone"> </span>
-                      312-555-1212
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p>
-                <button ng-click="selectMe(1)" class="btn {{ selectButton1.color }}">{{ selectButton1.text }}</button>
-              </p>
-            </div>
-          </div>
+        <div class="col-md-2">
         </div>
-        <div class="col-sm-6">
-          <div class="thumbnail">
-            <h4>Address #2</h4>
-            <img alt="" src="images/map-01.png">
-            <div class="caption">
-              <div class="media">
-                <div class="media-body">
-                  <ul class="list-unstyled list-info">
-                    <li>
-                      <span class="icon glyphicon glyphicon-home"> </span>
-                      230 S. Wacker Drive, STE#3301, Chicago IL 60606
-                    </li>
-                    <li>
-                      <span class="icon glyphicon glyphicon-earphone"> </span>
-                      312-555-1212
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p>
-                <button ng-click="selectMe(2)" class="btn {{ selectButton2.color }}">{{ selectButton2.text }}</button>
-              </p>
-            </div>
-          </div>
+        <div class="col-md-8">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">ADDRESS</th>
+                <th class="text-center">PHONE</th>
+                <th class="text-center">SELECT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="active">
+                <td>1</td>
+                <td>
+                  230 S. Wacker Drive STE#3301<br>
+                  Chicago IL 60606
+                </td>
+                <td><a href="tel:+13125551212">312.555.1212</a></td>
+                <td class="text-center">
+                  <button ng-click="selectMe(1)" class="btn {{ selectButton1.color }} btn-block">{{ selectButton1.text }}</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  230 S. Wacker Drive STE#3301<br>
+                  Chicago IL 60606
+                </td>
+                <td><a href="tel:+13125551212">312.555.1212</a></td>
+                <td class="text-center">
+                  <button ng-click="selectMe(2)" class="btn {{ selectButton2.color }} btn-block">{{ selectButton2.text }}</button>                </td>
+              </tr>
+              <tr class="active">
+                <td>3</td>
+                <td>
+                  230 S. Wacker Drive STE#3301<br>
+                  Chicago IL 60606
+                </td>
+                <td><a href="tel:+13125551212">312.555.1212</a></td>
+                <td class="text-center">
+                  <button ng-click="selectMe(3)" class="btn {{ selectButton3.color }} btn-block">{{ selectButton3.text }}</button>                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="thumbnail">
-            <h4>Address #3</h4>
-            <img alt="" src="images/map-01.png">
-            <div class="caption">
-              <div class="media">
-                <div class="media-body">
-                  <ul class="list-unstyled list-info">
-                    <li>
-                      <span class="icon glyphicon glyphicon-home"> </span>
-                      230 S. Wacker Drive, STE#3301, Chicago IL 60606
-                    </li>
-                    <li>
-                      <span class="icon glyphicon glyphicon-earphone"> </span>
-                      312-555-1212
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p>
-                <button ng-click="selectMe(3)" class="btn {{ selectButton3.color }}">{{ selectButton3.text }}</button>
-              </p>
-            </div>
-          </div>
+        <div class="col-md-2">
         </div>
       </div>
     </div>

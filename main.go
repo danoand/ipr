@@ -120,7 +120,7 @@ func authHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// Set up a middleware handlers using Alice
+	// Set up middleware handlers using Alice
 	publicHandlers := alice.New(loggingHandler, recoverHandler)
 
 	// Set up route handlers

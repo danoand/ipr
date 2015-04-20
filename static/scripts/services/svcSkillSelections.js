@@ -8,6 +8,51 @@ appServices.factory("svcSkillSelections", [
     var initSkillText3 = 'Media & Gaming Systems';
     var initSkillText4 = 'Security Systems';
 
+    var initTypeToggle = [
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ];
+
     var initTypeText1 = 'Delivery';
     var initTypeText2 = 'Install';
     var initTypeText3 = 'Repair';
@@ -28,14 +73,12 @@ appServices.factory("svcSkillSelections", [
     var btnSkillToggle3 = false;
     var btnSkillToggle4 = false;
 
-    var btnTypeToggle1 = false;
-    var btnTypeToggle2 = false;
-    var btnTypeToggle3 = false;
-    var btnTypeToggle4 = false;
+    // Initialize the display state of each Skill<->Skill Type combination
+    var btnTypeToggle = initTypeToggle;
 
-    var initBtnStyle          = 'btn btn-block btn-default';
+    var initBtnStyle = 'btn btn-block btn-default';
     var selectedBtnStyleSkill = 'btn btn-block btn-primary';
-    var selectedBtnStyleType  = 'btn btn-block btn-warning';
+    var selectedBtnStyleType = 'btn btn-block btn-warning';
 
     return {
       intBtnSkillText1: function() {
@@ -61,6 +104,15 @@ appServices.factory("svcSkillSelections", [
       },
       intBtnTypeText4: function() {
         return initTypeText4;
+      },
+      resetTypeBtns: function(inVal) {
+        btnTypeToggle[inVal] = [
+          false,
+          false,
+          false,
+          false,
+          false
+        ];
       },
       getBtnSkillText1: function() {
         return techSkillText1;
@@ -137,29 +189,11 @@ appServices.factory("svcSkillSelections", [
 
         return retStyle;
       },
-      getBtnTypeStyle: function(inVal) {
+      getBtnTypeStyle: function(inSkill, inType) {
         retStyle = initBtnStyle;
-        switch (inVal) {
-          case 1:
-            if (btnTypeToggle1) {
-              retStyle = selectedBtnStyleType;
-            }
-            break;
-          case 2:
-            if (btnTypeToggle2) {
-              retStyle = selectedBtnStyleType;
-            }
-            break;
-          case 3:
-            if (btnTypeToggle3) {
-              retStyle = selectedBtnStyleType;
-            }
-            break;
-          case 4:
-            if (btnTypeToggle4) {
-              retStyle = selectedBtnStyleType;
-            }
-            break;
+
+        if (btnTypeToggle[inSkill][inType]) {
+          retStyle = selectedBtnStyleType;
         }
 
         return retStyle;
@@ -188,29 +222,14 @@ appServices.factory("svcSkillSelections", [
       setBtnSkillToggle4: function(inVal) {
         btnSkillToggle4 = inVal;
       },
-      getBtnTypeToggle1: function() {
-        return btnTypeToggle1;
+      getBtnTypeToggle: function(inSkill, inType) {
+        return btnTypeToggle[inSkill][inType];
       },
-      getBtnTypeToggle2: function() {
-        return btnTypeToggle2;
+      setBtnTypeToggle: function(inSkill, inType, inVal) {
+        btnTypeToggle[inSkill][inType] = inVal;
       },
-      getBtnTypeToggle3: function() {
-        return btnTypeToggle3;
-      },
-      getBtnTypeToggle4: function() {
-        return btnTypeToggle4;
-      },
-      setBtnTypeToggle1: function(inVal) {
-        btnTypeToggle1 = inVal;
-      },
-      setBtnTypeToggle2: function(inVal) {
-        btnTypeToggle2 = inVal;
-      },
-      setBtnTypeToggle3: function(inVal) {
-        btnTypeToggle3 = inVal;
-      },
-      setBtnTypeToggle4: function(inVal) {
-        btnTypeToggle4 = inVal;
+      getBtnTypeToggleSet: function(inSkill) {
+        return btnTypeToggle[inSkill];
       }
     };
   }

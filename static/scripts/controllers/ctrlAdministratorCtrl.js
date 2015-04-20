@@ -36,6 +36,8 @@ appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "$modal"
 
       if ($scope.adminPartVal == 'yes') {
         $scope.adminPart.yes = true;
+
+        $scope.companyServiceProvider = true;
       } else {
         $scope.adminPart.yes = false;
       }

@@ -85,47 +85,35 @@
       </div>
   </section>
   <script type="text/ng-template" id="myModalSkillset.html">
-    <div class="modal-header">
-        <h3>{{techServiceCategory}} Skills</h3>
-    </div>
-    <div class="modal-body">
-      <div>
+  <div class="modal-header">
+    <h3>{{techServiceCategory}} Skills</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6">
         <h4>Select Common Skillsets</h4>
         <p>To assign skills to your Pro, click on one or more common skill sets.  You can adjust and refine these skills later.</p>
-        <div class="row">
-          <div class="col-md-6">
-            <button ng-click="clickSkillBtn1()" type="button" ng-class="btnSkillStyle1">{{techSkillText1}}</button>
-            <button ng-click="clickSkillBtn2()" type="button" ng-class="btnSkillStyle2">{{techSkillText2}}</button>
-            <button ng-click="clickSkillBtn3()" type="button" ng-class="btnSkillStyle3">{{techSkillText3}}</button>
-          </div>
-          <div class="col-md-6">
-            <button ng-click="clickSkillBtn4()" type="button" ng-class="btnSkillStyle4">{{techSkillText4}}</button>
-          </div>
-        </div>
+        <button ng-mouseenter="skillMouseEnter(1)" ng-click="clickSkillBtn(1)" type="button" ng-class="btnSkillStyle[1]">{{techSkillText[1]}}</button>
+        <button ng-mouseenter="skillMouseEnter(2)" ng-click="clickSkillBtn(2)" type="button" ng-class="btnSkillStyle[2]">{{techSkillText[2]}}</button>
+        <button ng-mouseenter="skillMouseEnter(3)" ng-click="clickSkillBtn(3)" type="button" ng-class="btnSkillStyle[3]">{{techSkillText[3]}}</button>
+        <button ng-mouseenter="skillMouseEnter(4)" ng-click="clickSkillBtn(4)" type="button" ng-class="btnSkillStyle[4]">{{techSkillText[4]}}</button>
       </div>
-      <div>
-        <h4>Select Skill Types</h4>
+      <div class="col-md-6">
+        <h4>Select Skill Types for <strong>{{ curSkill }}</strong></h4>
         <p>To select a skill type, click on one or more types. You can adjust these later.</p>
-        <div class="row">
-          <div class="col-md-3">
-            <button ng-click="clickTypeBtn1()" type="button" ng-class="btnTypeStyle1">{{techTypeText1}}</button>
-          </div>
-          <div class="col-md-3">
-            <button ng-click="clickTypeBtn2()" type="button" ng-class="btnTypeStyle2">{{techTypeText2}}</button>
-          </div>
-          <div class="col-md-3">
-            <button ng-click="clickTypeBtn3()" type="button" ng-class="btnTypeStyle3">{{techTypeText3}}</button>
-          </div>
-          <div class="col-md-3">
-            <button ng-click="clickTypeBtn4()" type="button" ng-class="btnTypeStyle4">{{techTypeText4}}</button>
-          </div>
+        <div class="btn-group btn-group-justified">
+          <a ng-click="clickTypeBtn(1)" ng-class="btnTypeStyle[1]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[1]}}</a>
+          <a ng-click="clickTypeBtn(2)" ng-class="btnTypeStyle[2]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[2]}}</a>
+          <a ng-click="clickTypeBtn(3)" ng-class="btnTypeStyle[3]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[3]}}</a>
+          <a ng-click="clickTypeBtn(4)" ng-class="btnTypeStyle[4]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[4]}}</a>
         </div>
       </div>
     </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
   </script>
 
   <a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Background Check</a>

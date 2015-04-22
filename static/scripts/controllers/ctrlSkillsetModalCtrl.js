@@ -2,7 +2,6 @@
 appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "$modalInstance",
   "svcDataPopulation", "svcTeamProgressBar", "svcSkillSelections",
   function($scope, $rootScope, $location, $modalInstance, svcDataPopulation, svcTeamProgressBar, svcSkillSelections) {
-    console.log('Just inside the SkillsetModalCtrl controller');
 
     // Initialize the button styles used in the view
     var intBtnStyle      = svcSkillSelections.initBtnStyle();
@@ -44,6 +43,104 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
 
     // Disable the Skill Type buttons
     $scope.disableTypeBtns = true;
+
+    // Initialize variables for Addon Skills
+    $scope.addonSkillCtr      = 0;
+    $scope.addonSkills        = [];
+    $scope.addonTypeToggleVal = [
+      false,
+      false,
+      false,
+      false
+    ];
+    $scope.curAddonSkill      = '';
+    $scope.curAddonSkillIndex = 0;
+
+    // Initialize the Addon Skill Type button style
+    $scope.btnAddonTypeStyle = [];
+    for (i = 1; i < 5; i++) {
+      $scope.btnAddonTypeStyle[i] = intBtnStyle;
+    }
+
+    // Disable the Addon Skill Type buttons
+    $scope.disableAddonTypeBtns = true;
+
+    // Initialize the Addon Skill Types used in the view
+    $scope.addonTypeText  = [];
+    for (i = 1; i < 5; i++) {
+      $scope.addonTypeText[i] = svcSkillSelections.getBtnTypeText(i);
+    }
+
+    // Function pushAddonSkill adds an element on to the list
+    //    of Addon Skills
+    $scope.pushAddonSkill = function(inVal) {
+      // Get the length of the current array (list of Addon Skills)
+      tmpIndex = $scope.addonSkills.length;
+      newIndex = tmpIndex + 1;
+
+      // Create an object to push onto the Addon Skills (array)
+      tmpPushObj = {
+        text: inVal,
+        index: newIndex,
+        "typeToggle": [
+          false,
+          false,
+          false,
+          false
+        ]
+      };
+
+      // Push the object (new Addon Skill) onto the array
+      $scope.addonSkills[tmpIndex] = tmpPushObj;
+    };
+
+    // Function deleteAddonSkill deletes an element from the list
+    //    of Addon Skills
+    $scope.deleteAddonSkill = function(inVal) {
+      // Iterate through the array and delete the appropriate element
+      for (i = 0; i < $scope.addonSkills.length; i++) {
+        tmpElement = $scope.addonSkills[i];
+
+        if (tmpElement.index == inVal) {
+          // Found the element, grab the Skill Type toggle values
+          $scope.addonSkills.splice(i, 1);
+        }
+
+      };
+    };
+
+    // Function addonMouseEnter displays the Skill Type buttons for an
+    //    Addon Skill
+    $scope.addonMouseEnter = function(inVal) {
+
+      // Iterate through the array and find the appropriate element
+      for (i = 0; i < $scope.addonSkills.length; i++) {
+        tmpElement = $scope.addonSkills[i];
+
+        if (tmpElement.index == inVal) {
+          // Found the element, assign the Addon Skill Type toggle values
+          $scope.addonTypeToggleVal = tmpElement.typeToggle;
+
+          // Assign the Addon Skill name and index value (identifier)
+          $scope.curAddonSkill      = tmpElement.text;
+          $scope.curAddonSkillIndex = tmpElement.index;
+
+          // Enable the Addon Skill Type buttons
+          $scope.disableAddonTypeBtns = false;
+        }
+
+      };
+    }
+
+    $scope.showAddonSkillTypes = function() {
+      tmpRetValue = false;
+
+      if ($scope.addonSkills.length > 0) {
+        tmpRetValue = true;
+      }
+
+      return tmpRetValue;
+    };
 
     $scope.ok = function() {
       $modalInstance.close('Clicked Ok button');

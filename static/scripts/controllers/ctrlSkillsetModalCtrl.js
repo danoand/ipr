@@ -1,7 +1,7 @@
 // GetOrganizedCtrl is a controller for a modal on the 08_C_team_skills.html view
-appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "$modalInstance",
+appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$location", "$modalInstance", "uuid2",
   "svcDataPopulation", "svcTeamProgressBar", "svcSkillSelections",
-  function($scope, $rootScope, $location, $modalInstance, svcDataPopulation, svcTeamProgressBar, svcSkillSelections) {
+  function($scope, $rootScope, $location, $modalInstance, uuid2, svcDataPopulation, svcTeamProgressBar, svcSkillSelections) {
 
     // Initialize the button styles used in the view
     var intBtnStyle      = svcSkillSelections.initBtnStyle();
@@ -54,7 +54,7 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
       false
     ];
     $scope.curAddonSkill      = '';
-    $scope.curAddonSkillIndex = 0;
+    $scope.curAddonSkillIndex = '';
 
     // Initialize the Addon Skill Type button style
     $scope.btnAddonTypeStyle = [];
@@ -76,13 +76,13 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
     $scope.pushAddonSkill = function(inVal) {
       // Get the length of the current array (list of Addon Skills)
       tmpIndex = $scope.addonSkills.length;
-      newIndex = tmpIndex + 1;
 
       // Create an object to push onto the Addon Skills (array)
       tmpPushObj = {
         text: inVal,
-        index: newIndex,
+        index: fncGetUUID(),
         "typeToggle": [
+          false,
           false,
           false,
           false,
@@ -92,6 +92,13 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
 
       // Push the object (new Addon Skill) onto the array
       $scope.addonSkills[tmpIndex] = tmpPushObj;
+
+      // Call the "mouse over" function for the new Addon Skill
+      $scope.addonMouseEnter($scope.addonSkills[tmpIndex].index);
+    };
+
+    fncGetUUID = function() {
+      return uuid2.newuuid();
     };
 
     // Function deleteAddonSkill deletes an element from the list
@@ -104,9 +111,14 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
         if (tmpElement.index == inVal) {
           // Found the element, grab the Skill Type toggle values
           $scope.addonSkills.splice(i, 1);
-        }
 
-      };
+          // "Mouse over" the first Addon Skill (if it exists)
+          if ($scope.addonSkills.length > 0) {
+            // Call the "mouse over" function on the first Addon Skill
+            $scope.addonMouseEnter($scope.addonSkills[0].index);
+          }
+        }
+      }
     };
 
     // Function addonMouseEnter displays the Skill Type buttons for an
@@ -127,11 +139,44 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
 
           // Enable the Addon Skill Type buttons
           $scope.disableAddonTypeBtns = false;
+
+          // Apply styles to the Addon Skill Type buttons
+          fncStyleAddonTypeBtns($scope.addonTypeToggleVal);
         }
 
       };
-    }
+    };
 
+    // Function fncStyleAddonTypeBtns styles the Addon Skill Type buttons given the Addon Skill Type toggle values
+    fncStyleAddonTypeBtns = function(inArray) {
+      // Iterate through the toggle values
+      for (i = 1; i < 5; i++) {
+
+        tmpAddonTypeToggleVal = inArray[i];
+
+        if (tmpAddonTypeToggleVal) {
+          // Toggle value is 'true': apply selected styles
+
+          // Change to default button style
+          $scope.btnAddonTypeStyle[i] = selBtnStyleType;
+
+          // Change to default button label text
+          $scope.addonTypeText[i] = svcSkillSelections.getInitSkillTypeText(i).toUpperCase();
+        } else {
+          // Toggle value is 'false': apply default styles
+
+          // Change to default button style
+          $scope.btnAddonTypeStyle[i] = intBtnStyle;
+
+          // Change to default button label text
+          $scope.addonTypeText[i] = svcSkillSelections.getInitSkillTypeText(i);
+        }
+
+      }
+    };
+
+    // Function showAddonSkillTypes returns a value that drives whether
+    //   the Addon Skill Type buttons should be displayed
     $scope.showAddonSkillTypes = function() {
       tmpRetValue = false;
 
@@ -140,6 +185,40 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
       }
 
       return tmpRetValue;
+    };
+
+    // Function clickAddonTypeBtn applies styling and manages the underlying data structure
+    //    after an Addon Skill Type button has been clicked
+    $scope.clickAddonTypeBtn = function(inVal) {
+      // Iterate through the Addon Skills and find the Skill that is currently "moused over"
+      for (i = 0; i < $scope.addonSkills.length; i++) {
+        // Grab the data structure representing the Skill
+        tmpIterElement = $scope.addonSkills[i];
+
+        // Fetch the Addon Skill Type toggle values from the "moused over" Addon Skill
+        if (tmpIterElement.index == $scope.curAddonSkillIndex) {
+          // Get the toggle values data
+          tmpIterElementToggle = tmpIterElement.typeToggle;
+
+          // Toggle the toggle value due to the click
+          if (tmpIterElementToggle[inVal]) {
+            // Toggle value is currently 'true', flip to false
+            tmpIterElementToggle[inVal] = false;
+
+          } else {
+            // Toggle value is currently 'true', flip to true
+            tmpIterElementToggle[inVal] = true;
+
+          }
+
+          // "Write" the new toggle values to the Addon Skill data structure
+          $scope.addonSkills[i].typeToggle = tmpIterElementToggle;
+
+          // Style the Addon Skill Type buttons according to the updated toggle values
+          fncStyleAddonTypeBtns($scope.addonSkills[i].typeToggle);
+        }
+      }
+
     };
 
     $scope.ok = function() {

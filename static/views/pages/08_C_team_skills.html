@@ -85,35 +85,67 @@
       </div>
   </section>
   <script type="text/ng-template" id="myModalSkillset.html">
-  <div class="modal-header">
-    <h3>{{techServiceCategory}} Skills</h3>
-  </div>
-  <div class="modal-body">
-    <div class="row">
-      <div class="col-md-6">
-        <h4>Select Common Skillsets</h4>
-        <p>To assign skills to your Pro, click on one or more common skill sets.  You can adjust and refine these skills later.</p>
-        <button ng-mouseenter="skillMouseEnter(1)" ng-click="clickSkillBtn(1)" type="button" ng-class="btnSkillStyle[1]">{{techSkillText[1]}}</button>
-        <button ng-mouseenter="skillMouseEnter(2)" ng-click="clickSkillBtn(2)" type="button" ng-class="btnSkillStyle[2]">{{techSkillText[2]}}</button>
-        <button ng-mouseenter="skillMouseEnter(3)" ng-click="clickSkillBtn(3)" type="button" ng-class="btnSkillStyle[3]">{{techSkillText[3]}}</button>
-        <button ng-mouseenter="skillMouseEnter(4)" ng-click="clickSkillBtn(4)" type="button" ng-class="btnSkillStyle[4]">{{techSkillText[4]}}</button>
+    <div class="modal-header">
+      <h3>{{techServiceCategory}} Skills</h3>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Select Common Skillsets</h4>
+          <p>To assign skills to your Pro, click on one or more common skill sets.  You can adjust and refine these skills later.</p>
+          <button ng-mouseenter="skillMouseEnter(1)" ng-click="clickSkillBtn(1)" type="button" ng-class="btnSkillStyle[1]">{{techSkillText[1]}}</button>
+          <button ng-mouseenter="skillMouseEnter(2)" ng-click="clickSkillBtn(2)" type="button" ng-class="btnSkillStyle[2]">{{techSkillText[2]}}</button>
+          <button ng-mouseenter="skillMouseEnter(3)" ng-click="clickSkillBtn(3)" type="button" ng-class="btnSkillStyle[3]">{{techSkillText[3]}}</button>
+          <button ng-mouseenter="skillMouseEnter(4)" ng-click="clickSkillBtn(4)" type="button" ng-class="btnSkillStyle[4]">{{techSkillText[4]}}</button>
+        </div>
+        <div class="col-md-6">
+          <h4>Select Skill Types for <strong>{{ curSkill }}</strong></h4>
+          <p>To select a skill type, click on one or more types. You can adjust these later.</p>
+          <div class="btn-group btn-group-justified">
+            <a ng-click="clickTypeBtn(1)" ng-class="btnTypeStyle[1]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[1]}}</a>
+            <a ng-click="clickTypeBtn(2)" ng-class="btnTypeStyle[2]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[2]}}</a>
+            <a ng-click="clickTypeBtn(3)" ng-class="btnTypeStyle[3]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[3]}}</a>
+            <a ng-click="clickTypeBtn(4)" ng-class="btnTypeStyle[4]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[4]}}</a>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h4>Select Skill Types for <strong>{{ curSkill }}</strong></h4>
-        <p>To select a skill type, click on one or more types. You can adjust these later.</p>
-        <div class="btn-group btn-group-justified">
-          <a ng-click="clickTypeBtn(1)" ng-class="btnTypeStyle[1]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[1]}}</a>
-          <a ng-click="clickTypeBtn(2)" ng-class="btnTypeStyle[2]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[2]}}</a>
-          <a ng-click="clickTypeBtn(3)" ng-class="btnTypeStyle[3]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[3]}}</a>
-          <a ng-click="clickTypeBtn(4)" ng-class="btnTypeStyle[4]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[4]}}</a>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Other Skillsets</h4>
+          <p><strong>Don&#39;t see your skill?</strong> Enter it below.</p>
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="tmpAddSkill">
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-primary" ng-click="pushAddonSkill(tmpAddSkill)">Save</button>
+            </span>
+          </div>
+          <br>
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="addonSkill in addonSkills">
+                <td class="col-md-10" ng-mouseenter="addonMouseEnter(addonSkill.index)">{{addonSkill.text}}</td>
+                <td><button class="btn btn-danger btn-xs pull-right" type="button" ng-click="deleteAddonSkill(addonSkill.index)">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-show="showAddonSkillTypes()" class="col-md-6">
+          <h4>Select Skill Types for <strong>{{ curAddonSkill }}</strong></h4>
+          <p>To select a skill type, click on one or more types. You can adjust these later.</p>
+          <div class="btn-group btn-group-justified">
+            <a ng-click="clickAddonTypeBtn(1)" ng-class="btnAddonTypeStyle[1]" ng-disabled="disableAddonTypeBtns" role="button">{{addonTypeText[1]}}</a>
+            <a ng-click="clickAddonTypeBtn(2)" ng-class="btnAddonTypeStyle[2]" ng-disabled="disableAddonTypeBtns" role="button">{{addonTypeText[2]}}</a>
+            <a ng-click="clickAddonTypeBtn(3)" ng-class="btnAddonTypeStyle[3]" ng-disabled="disableAddonTypeBtns" role="button">{{addonTypeText[3]}}</a>
+            <a ng-click="clickAddonTypeBtn(4)" ng-class="btnAddonTypeStyle[4]" ng-disabled="disableAddonTypeBtns" role="button">{{addonTypeText[4]}}</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-  </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
   </script>
 
   <a href="#/pages/team/background" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Background Check</a>

@@ -7,36 +7,29 @@
     </div>
     <div class="panel-body">
       <p>As an Admin you have indicated you wil perform work in the ServiceLive Platform. To get work routed to your company you need to complete a background check.</p>
-      <div class="well">
+      <div class="well well-sm">
         <h4>Why do we do background checks?</h4>
         <p>Since most service orders require a home visit, to ensure continued highest quality we require that all of our Service Pros undergo a background check. This requires these easy steps:</p>
         <p>Your status will be automatically update when the background check results come back. Average turn around time for results is 7-10 days.</p>
       </div>
-    </div>
-  </section>
+      <hr>
+      <p>To complete a background check enter your Pro's Social Security Number</p>
+      <div class="col-md-5">
+        <form ng-hide="userTypeAgent">
+          <div class="form-group">
+            <label for="adminSSN">Social Security Number (SSN)*</label>
+            <input class="form-control" type="text" id="adminSSN" ng-model="adminSSN">
+          </div>
+          <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
+        </form>
+        <form ng-show="userTypeAgent">
+          <div class="form-group">
+            <label>Send a background check request to the new Admin user.</label>
+          </div>
+          <button class='btn btn-block btn-info'>SEND EMAIL REQUEST</button>
+        </form>
+      </div>
 
-  <section class="panel panel-default">
-    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Social Security (SSN)</strong>
-    </div>
-    <div class="panel-body">
-      <p>As an Admin you have indicated you wil perform work in the ServiceLive Platform. To get work routed to your company you need to complete a background check.</p>
-        <p><strong>NOTE:</strong> Administrators not performing work in the field and Dispatchers are not required to do a background check.</p>
-        <p>To complete a background check enter your Pro's Social Security Number</p>
-        <div class="col-md-5">
-          <form ng-hide="userTypeAgent">
-            <div class="form-group">
-              <label for="adminSSN">Social Security Number (SSN)*</label>
-              <input class="form-control" type="text" id="adminSSN" ng-model="adminSSN">
-            </div>
-            <button class='btn btn-block btn-info'>START BACKGROUND CHECK</button>
-          </form>
-          <form ng-show="userTypeAgent">
-            <div class="form-group">
-              <label>Send a background check request to the new Admin user.</label>
-            </div>
-            <button class='btn btn-block btn-info'>SEND EMAIL REQUEST</button>
-          </form>
-        </div>
     </div>
   </section>
 

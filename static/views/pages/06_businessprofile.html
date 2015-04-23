@@ -126,89 +126,90 @@
           Chicago, IL 60606<br>
         </address>
       </div>
-      <hr>
+      <div class="spacer15">
+      </div>
       <form class="form-horizontal ng-pristine ng-valid" role="form">
-        <div class="form-group">
-          <label class="col-sm-2">Address*</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" ng-model="companyMailingAddress1">
-            <div class="help">Address 1*</div>
+          <div class="form-group">
+            <label class="col-sm-2">Address*</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" ng-model="companyMailingAddress1">
+              <div class="help">Address 1*</div>
+            </div>
+            <div class="col-sm-5">
+              <input type="text" class="form-control">
+              <div class="help">Address 2</div>
+            </div>
           </div>
-          <div class="col-sm-5">
-            <input type="text" class="form-control">
-            <div class="help">Address 2</div>
+          <div class="form-group">
+            <label class="col-sm-2"></label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" ng-model="companyMailingCity">
+              <div class="help">City*</div>
+            </div>
+            <div class="col-sm-3">
+              <span class="ui-select">
+                <select ng-model="companyMailingState">
+                  <option>-Select State-</option>
+                  <option>AL - Alabama</option>
+                  <option>AK - Alaska</option>
+                  <option>AZ - Arizona</option>
+                  <option>AR - Arkansas</option>
+                  <option>CA - California</option>
+                  <option>CO - Colorado</option>
+                  <option>CT - Connecticut</option>
+                  <option>DE - Delaware</option>
+                  <option>FL - Florida</option>
+                  <option>GA - Georgia</option>
+                  <option>HI - Hawaii</option>
+                  <option>ID - Idaho</option>
+                  <option>IL - Illinois</option>
+                  <option>IN - Indiana</option>
+                  <option>IA - Iowa</option>
+                  <option>KS - Kansas</option>
+                  <option>KY - Kentucky</option>
+                  <option>LA - Louisiana</option>
+                  <option>ME - Maine</option>
+                  <option>MD - Maryland</option>
+                  <option>MA - Massachusetts</option>
+                  <option>MI - Michigan</option>
+                  <option>MN - Minnesota</option>
+                  <option>MS - Mississippi</option>
+                  <option>MO - Missouri</option>
+                  <option>MT - Montana</option>
+                  <option>NE - Nebraska</option>
+                  <option>NV - Nevada</option>
+                  <option>NH - New Hampshire</option>
+                  <option>NJ - New Jersey</option>
+                  <option>NM - New Mexico</option>
+                  <option>NY - New York</option>
+                  <option>NC - North Carolina</option>
+                  <option>ND - North Dakota</option>
+                  <option>OH - Ohio</option>
+                  <option>OK - Oklahoma</option>
+                  <option>OR - Oregon</option>
+                  <option>PA - Pennsylvania</option>
+                  <option>RI - Rhode Island</option>
+                  <option>SC - South Carolina</option>
+                  <option>SD - South Dakota</option>
+                  <option>TN - Tennessee</option>
+                  <option>TX - Texas</option>
+                  <option>UT - Utah</option>
+                  <option>VT - Vermont</option>
+                  <option>VA - Virginia[G]</option>
+                  <option>WA - Washington</option>
+                  <option>WV - West Virginia</option>
+                  <option>WI - Wisconsin</option>
+                  <option>WY - Wyoming</option>
+                </select>
+              </span>
+              <div class="help">State*</div>
+            </div>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" ng-model="companyMailingZip">
+              <div class="help">Zip*</div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-2"></label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" ng-model="companyMailingCity">
-            <div class="help">City*</div>
-          </div>
-          <div class="col-sm-3">
-            <span class="ui-select">
-              <select ng-model="companyMailingState">
-                <option>-Select State-</option>
-                <option>AL - Alabama</option>
-                <option>AK - Alaska</option>
-                <option>AZ - Arizona</option>
-                <option>AR - Arkansas</option>
-                <option>CA - California</option>
-                <option>CO - Colorado</option>
-                <option>CT - Connecticut</option>
-                <option>DE - Delaware</option>
-                <option>FL - Florida</option>
-                <option>GA - Georgia</option>
-                <option>HI - Hawaii</option>
-                <option>ID - Idaho</option>
-                <option>IL - Illinois</option>
-                <option>IN - Indiana</option>
-                <option>IA - Iowa</option>
-                <option>KS - Kansas</option>
-                <option>KY - Kentucky</option>
-                <option>LA - Louisiana</option>
-                <option>ME - Maine</option>
-                <option>MD - Maryland</option>
-                <option>MA - Massachusetts</option>
-                <option>MI - Michigan</option>
-                <option>MN - Minnesota</option>
-                <option>MS - Mississippi</option>
-                <option>MO - Missouri</option>
-                <option>MT - Montana</option>
-                <option>NE - Nebraska</option>
-                <option>NV - Nevada</option>
-                <option>NH - New Hampshire</option>
-                <option>NJ - New Jersey</option>
-                <option>NM - New Mexico</option>
-                <option>NY - New York</option>
-                <option>NC - North Carolina</option>
-                <option>ND - North Dakota</option>
-                <option>OH - Ohio</option>
-                <option>OK - Oklahoma</option>
-                <option>OR - Oregon</option>
-                <option>PA - Pennsylvania</option>
-                <option>RI - Rhode Island</option>
-                <option>SC - South Carolina</option>
-                <option>SD - South Dakota</option>
-                <option>TN - Tennessee</option>
-                <option>TX - Texas</option>
-                <option>UT - Utah</option>
-                <option>VT - Vermont</option>
-                <option>VA - Virginia[G]</option>
-                <option>WA - Washington</option>
-                <option>WV - West Virginia</option>
-                <option>WI - Wisconsin</option>
-                <option>WY - Wyoming</option>
-              </select>
-            </span>
-            <div class="help">State*</div>
-          </div>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" ng-model="companyMailingZip">
-            <div class="help">Zip*</div>
-          </div>
-        </div>
-      </form>
+        </form>
     </div>
   </section>
   <a href="#/pages/insurance" type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right">Next - Insurance</a>

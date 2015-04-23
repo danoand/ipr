@@ -231,7 +231,7 @@
         <button ng-mouseenter="skillMouseEnter(4)" ng-click="clickSkillBtn(4)" type="button" ng-class="btnSkillStyle[4]">{{techSkillText[4]}}</button>
       </div>
       <div class="col-md-6">
-        <h4>Select Skill Types for <strong>{{ curSkill }}</strong></h4>
+        <h4>Select Skill Types for <strong class="text-primary">{{ curSkill }}</strong></h4>
         <p>To select a skill type, click on one or more types. You can adjust these later.</p>
         <div class="btn-group btn-group-justified">
           <a ng-click="clickTypeBtn(1)" ng-class="btnTypeStyle[1]" ng-disabled="disableTypeBtns" role="button">{{techTypeText[1]}}</a>
@@ -263,7 +263,7 @@
         </table>
       </div>
       <div ng-show="showAddonSkillTypes()" class="col-md-6">
-        <h4>Select Skill Types for <strong>{{ curAddonSkill }}</strong></h4>
+        <h4>Select Skill Types for <strong class="text-primary">{{ curAddonSkill }}</strong></h4>
         <p>To select a skill type, click on one or more types. You can adjust these later.</p>
         <div class="btn-group btn-group-justified">
           <a ng-click="clickAddonTypeBtn(1)" ng-class="btnAddonTypeStyle[1]" ng-disabled="disableAddonTypeBtns" role="button">{{addonTypeText[1]}}</a>

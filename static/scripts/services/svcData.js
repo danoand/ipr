@@ -12,7 +12,7 @@ appServices.factory("svcDataPopulation", [
         return 'Acme Plumbing Corporation LLC';
       },
       companyZip: function() {
-        return '60179';
+        return '60606';
       },
       companyAddress1: function() {
         return '230 S. Wacker Drove';

@@ -99,7 +99,7 @@ appServices.factory("svcDataPopulation", [
         return 'IL - Illinois';
       },
       insTypeSet: function(inType) {
-        myInsuranceType = 'General Liability';
+        myInsuranceType = inType;
       },
       insTypeGet: function(inType) {
         return myInsuranceType;

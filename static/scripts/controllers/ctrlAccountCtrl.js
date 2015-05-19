@@ -1,5 +1,5 @@
-appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", "svcDataTypeUser",
-  function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML, svcDataTypeUser) {
+appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$location", "svcDataPopulation", "svcDataHTML", "svcDataTypeUser", "svcSPNSelect",
+  function($scope, $rootScope, $modal, $location, svcDataPopulation, svcDataHTML, svcDataTypeUser, svcSPNSelect) {
     svcDataHTML.setCompanyName(svcDataHTML.htmlCompanyName);
     svcDataHTML.setCompanyIcon(svcDataHTML.htmlCompanyIcon);
     $rootScope.$emit('evCompanyData');
@@ -12,6 +12,7 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
     if ($scope.userType == 'agent') {
       $scope.userTypeAgent = true;
     }
+
     $rootScope.$on('chgUserType', function(event, data) {
       $scope.userType = svcDataTypeUser.getUserType();
 
@@ -21,15 +22,24 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
 
     });
 
+    $scope.regSPNs = false;
+
     $scope.showResendBtn = svcDataTypeUser.getShowResendBtn();
 
+    // Populated the SPN list
+    $scope.fetchSPNValues1 = svcSPNSelect.getSPNValues(1);
+    $scope.fetchSPNValues2 = svcSPNSelect.getSPNValues(2);
+    $scope.fetchSPNValues3 = svcSPNSelect.getSPNValues(3);
+    $scope.fetchSPNValues4 = svcSPNSelect.getSPNValues(4);
+    $scope.fetchSPNValues5 = svcSPNSelect.getSPNValues(5);
+
     $scope.virtualType = function() {
-      $scope.companyFullName      = svcDataPopulation.companyFullName();
-      $scope.companyEmail         = svcDataPopulation.companyEmail();
-      $scope.companyUsername      = svcDataPopulation.companyUsername();
-      $scope.companyPassword1     = svcDataPopulation.companyPassword1();
-      $scope.companyPassword2     = svcDataPopulation.companyPassword2();
-      $scope.companyMobilePhone   = svcDataPopulation.companyMobilePhone();
+      $scope.companyFullName = svcDataPopulation.companyFullName();
+      $scope.companyEmail = svcDataPopulation.companyEmail();
+      $scope.companyUsername = svcDataPopulation.companyUsername();
+      $scope.companyPassword1 = svcDataPopulation.companyPassword1();
+      $scope.companyPassword2 = svcDataPopulation.companyPassword2();
+      $scope.companyMobilePhone = svcDataPopulation.companyMobilePhone();
       $scope.companyInquiryMethod = svcDataPopulation.companyInquiryMethod();
     };
 
@@ -61,6 +71,16 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
 
     };
 
+    // Function toggRegSPNs toggles a scope varable that
+    //   drives the display controls to select an SPN
+    $scope.toggRegSPNs = function() {
+      if ($scope.regSPNs == true) {
+        $scope.regSPNs = false;
+      } else {
+        $scope.regSPNs = true;
+      }
+
+    };
 
     $scope.openConfirmEmail = function() {
       svcDataTypeUser.setShowResendBtn(true);
@@ -75,5 +95,30 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
       });
     };
 
+    // Function clkSelSPN sets the style and label of the button
+    //   clicked when the user selects/de-selects an SPN
+    $scope.clkSelSPN = function(inVal) {
+      console.log('Just clicked SPN select button with value of: ' + inVal);
+
+      // Toggle the button that was clicked
+      svcSPNSelect.togSPNSelectVal(inVal);
+
+      switch (inVal) {
+        case 1:
+          $scope.fetchSPNValues1 = svcSPNSelect.getSPNValues(1);
+          break;
+        case 2:
+          $scope.fetchSPNValues2 = svcSPNSelect.getSPNValues(2);
+          break;
+        case 3:
+          $scope.fetchSPNValues3 = svcSPNSelect.getSPNValues(3);
+          break;
+        case 4:
+          $scope.fetchSPNValues4 = svcSPNSelect.getSPNValues(4);
+          break;
+        case 5:
+          $scope.fetchSPNValues5 = svcSPNSelect.getSPNValues(5);
+      }
+    }
   }
 ])

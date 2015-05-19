@@ -2,7 +2,7 @@
   <div ng-controller="AlertUserTypeCtrl">
     <alert ng-show="userIsAgent" type="danger">NOTE! You are logged in as an ServiceLive Agent acting on behalf of a prospective Provider.</alert>
   </div>
-  <section class="panel panel-primary">
+  <section class="panel panel-primary" ng-hide="regSPNs">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Select Provider Networks</strong></div>
     <div class="panel-body">
       <p>Take advantage of opportunities by joining ServiceLive's Select Provider Networks (SPNs). SPNs are preferred relationships with ServiceLive's premium Buyers. <a href="">Learn More about SPNs</a></p>
@@ -31,9 +31,6 @@
                   <i class="fa fa-dollar"></i>
                   Average Price
                 </li>
-                <li class="list-group-item">
-                  <button class="btn btn-primary btn-block">Learn More</button>
-                </li>
               </ul>
             </div>
           </div>
@@ -48,7 +45,17 @@
         <div class="col-md-3">
         </div>
       </div>
-      <button class="btn btn-info btn-xs pull-right" ng-click="openViewSPNs()">See More SPNs <i class="fa fa-chevron-right"></i></button>
+      <div class="spacer10">
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-info btn-block" ng-click="toggRegSPNs()">Ready to Choose an SPN? Click Here </button>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
       <script type="text/ng-template" id="myModalViewSPNs.html">
         <div class="modal-header">
             <h3>View SPNs</h3>
@@ -75,6 +82,120 @@
       </div>
     </script>
   </section>
+
+  <section class="panel panel-default" ng-show="regSPNs">
+    <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Choose a Select Provider Networks</strong><span class="label label-default pull-right" ng-click="toggRegSPNs()">Hide</span></div>
+    <div class="panel-body">
+      <p>Ready to choose a Select Provider Network (SPN)? Choose one or more SPNs from the list below.</p>
+      <p>Members agree to the network terms and conditions and in return get access to service opportunities from leading service buyers.</p>
+      <hr>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="media">
+            <a class="pull-left" href="javascript:;">
+            <img alt="" src="images/assets/logos/{{fetchSPNValues1.logo}}" class="img-thumbnail img64_64">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{fetchSPNValues1.buyer}}</h4>
+              <p>{{fetchSPNValues1.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>{{fetchSPNValues1.requirements}}</p>
+        </div>
+        <div class="col-md-3">
+          <button class="btn {{fetchSPNValues1.btnstyle}} btn-block" ng-click="clkSelSPN(1)">{{fetchSPNValues1.btnlabel}}</button>
+          <button class="btn btn-link btn-block">View Documents</button>
+        </div>
+      </div>
+      <div class="spacer10"></div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="media">
+            <a class="pull-left" href="javascript:;">
+            <img alt="" src="images/assets/logos/{{fetchSPNValues2.logo}}" class="img-thumbnail img64_64">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{fetchSPNValues2.buyer}}</h4>
+              <p>{{fetchSPNValues2.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>{{fetchSPNValues2.requirements}}</p>
+        </div>
+        <div class="col-md-3">
+          <button class="btn {{fetchSPNValues2.btnstyle}} btn-block" ng-click="clkSelSPN(2)">{{fetchSPNValues2.btnlabel}}</button>
+          <button class="btn btn-link btn-block">View Documents</button>
+        </div>
+      </div>
+      <div class="spacer10"></div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="media">
+            <a class="pull-left" href="javascript:;">
+            <img alt="" src="images/assets/logos/{{fetchSPNValues3.logo}}" class="img-thumbnail img64_64">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{fetchSPNValues3.buyer}}</h4>
+              <p>{{fetchSPNValues3.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>{{fetchSPNValues3.requirements}}</p>
+        </div>
+        <div class="col-md-3">
+          <button class="btn {{fetchSPNValues3.btnstyle}} btn-block" ng-click="clkSelSPN(3)">{{fetchSPNValues3.btnlabel}}</button>
+          <button class="btn btn-link btn-block">View Documents</button>
+        </div>
+      </div>
+      <div class="spacer10"></div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="media">
+            <a class="pull-left" href="javascript:;">
+            <img alt="" src="images/assets/logos/{{fetchSPNValues4.logo}}" class="img-thumbnail img64_64">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{fetchSPNValues4.buyer}}</h4>
+              <p>{{fetchSPNValues4.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>{{fetchSPNValues4.requirements}}</p>
+        </div>
+        <div class="col-md-3">
+          <button class="btn {{fetchSPNValues4.btnstyle}} btn-block" ng-click="clkSelSPN(4)">{{fetchSPNValues4.btnlabel}}</button>
+          <button class="btn btn-link btn-block">View Documents</button>
+        </div>
+      </div>
+      <div class="spacer10"></div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="media">
+            <a class="pull-left" href="javascript:;">
+            <img alt="" src="images/assets/logos/{{fetchSPNValues5.logo}}" class="img-thumbnail img64_64">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{fetchSPNValues5.buyer}}</h4>
+              <p>{{fetchSPNValues5.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>{{fetchSPNValues5.requirements}}</p>
+        </div>
+        <div class="col-md-3">
+          <button class="btn {{fetchSPNValues5.btnstyle}} btn-block" ng-click="clkSelSPN(5)">{{fetchSPNValues5.btnlabel}}</button>
+          <button class="btn btn-link btn-block">View Documents</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="panel panel-default">
     <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Account Information</strong></div>
     <div class="panel-body">
@@ -148,12 +269,14 @@
       </div>
     </div>
   </section>
+
   <a type="button" ng-show="showResendBtn" class="btn btn-w-md btn-gap-v btn-link pull-right">Resend Email</a>
   <a type="button" class="btn btn-w-md btn-gap-v btn-primary pull-right" ng-click="openConfirmEmail()">Next - Verify Email</a>
   <a type="button" class="btn btn-link pull-right">Save</a>
   <div ng-click="virtualType()" class="row">
     <i class="fa fa-keyboard-o"></i>
   </div>
+
   <script type="text/ng-template" id="myModalMail04_verify.html">
     <div class="modal-header">
         <h3>Email &amp; Account Verification</h3>

@@ -382,3 +382,104 @@ appServices.factory("svcAdminPart", [
     };
   }
 ]);
+
+// svcSPNSelect is a service that indicates if the Admin has selected an SPN
+appServices.factory("svcSPNSelect", [
+
+  function() {
+
+    // Collection of SPNs
+    spnSelects = {
+      selSPN1: {
+        selected: false,
+        btnlabel: "Not Selected",
+        btnstyle: "btn-default",
+        logo: 'shs-logo.png',
+        buyer: 'Sears Home Services',
+        title: 'SHS Home Electronics Entertainment SPN',
+        description: 'This Select Provider Network is designed to aggregate an elite group of Service provider firms, who have a commitment to quality, and are interested in performing repair services for Sears\' Members and new customers.',
+        requirements: 'Agree to the terms and conditions outlined in the SELECT PROVIDER SERVICES AGREEMENT, Upload proof of insurance',
+        numJobs: '712',
+        avgPrice: '$174'
+      },
+      selSPN2: {
+        selected: false,
+        btnlabel: "Not Selected",
+        btnstyle: "btn-default",
+        logo: 'shs-logo.png',
+        buyer: 'Sears Home Services',
+        title: 'SHS Home Automation SPN',
+        description: 'This Select Provider Network is designed to aggregate an elite group of Service provider firms, who have a commitment to quality, and are interested in performing installation and repair services for "Connected Home" and other home automation products.',
+        requirements: 'Agree to the terms and conditions outlined in the SELECT PROVIDER SERVICES AGREEMENT, Upload proof of insurance',
+        numJobs: '276',
+        avgPrice: '$129'
+      },
+      selSPN3: {
+        selected: false,
+        btnlabel: "Not Selected",
+        btnstyle: "btn-default",
+        logo: 'searscommercial-logo.png',
+        buyer: 'Sears Commercial',
+        title: 'Sears Commercial SMB Repair SPN',
+        description: 'This Select Provider Network is designed to aggregate an elite group of Service provider firms, who have a commitment to quality, and are interested in performing repair services for Sears\' small and medium sized commercial customers.',
+        requirements: 'Agree to the terms and conditions outlined in the SELECT PROVIDER SERVICES AGREEMENT, Upload proof of insurance',
+        numJobs: '108',
+        avgPrice: '$248'
+      },
+      selSPN4: {
+        selected: false,
+        btnlabel: "Not Selected",
+        btnstyle: "btn-default",
+        logo: 'ATTDigitalLife-logo.jpg',
+        buyer: 'AT&T Digital Life',
+        title: 'AT&T Digital Life Support SPN',
+        description: "Members of this SPN will receive service order opportunities for SMART device installations (e.g. zwave smart light switch, outlet, etc.) as part of AT&T\'s Digital Life program.",
+        requirements: "Members must maintain high customer satisfaction ratings, verified general liability insurance of $1,000,000 or greater any applicable commercial vehicle liability insurance, workers compensation insurance and must adhere to all AT&T terms.",
+        numJobs: '418',
+        avgPrice: '$98'
+      },
+      selSPN5: {
+        selected: false,
+        btnlabel: "Not Selected",
+        btnstyle: "btn-default",
+        logo: 'kmartstartplan-logo.png',
+        buyer: 'Kmart Smart Plan',
+        title: 'Kmart Smart Plan Diagnostic SPN',
+        description: 'This Select Provider Network is designed to aggregate an elite group of Service provider firms, who have a commitment to quality, and are interested in performing repair and replacement services for Kmart\'s Smart Plan customers.',
+        requirements: 'Agree to the terms and conditions outlined in the SELECT PROVIDER SERVICES AGREEMENT, Upload proof of insurance',
+        numJobs: '87',
+        avgPrice: '$75'
+      }
+    };
+
+    return {
+      getSPNSelectVal: function(inSPN) {
+        tmpKey = 'selSPN' + inSPN;
+
+        return spnSelects[tmpKey]["selected"];
+      },
+      togSPNSelectVal: function(inSPN) {
+        tmpKey = 'selSPN' + inSPN;
+
+
+        if (spnSelects[tmpKey].selected == true) {
+          // Toggle from selected to de-selected
+          spnSelects[tmpKey]["selected"] = false;
+          spnSelects[tmpKey]["btnlabel"] = "Not Selected";
+          spnSelects[tmpKey]["btnstyle"] = "btn-default";
+        } else {
+          // Toggle from de-selected to selected
+          spnSelects[tmpKey]["selected"] = true;
+          spnSelects[tmpKey]["btnlabel"] = "SELECTED";
+          spnSelects[tmpKey]["btnstyle"] = "btn-primary";
+        }
+
+      },
+      getSPNValues: function(inSPN) {
+        tmpKey = 'selSPN' + inSPN;
+
+        return spnSelects[tmpKey];
+      }
+    };
+  }
+]);

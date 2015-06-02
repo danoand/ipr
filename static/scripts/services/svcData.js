@@ -392,7 +392,7 @@ appServices.factory("svcSPNSelect", [
     spnSelects = {
       selSPN1: {
         selected: false,
-        btnlabel: "Not Selected",
+        btnlabel: "Select This SPN?",
         btnstyle: "btn-default",
         logo: 'shs-logo.png',
         buyer: 'Sears Home Services',
@@ -404,7 +404,7 @@ appServices.factory("svcSPNSelect", [
       },
       selSPN2: {
         selected: false,
-        btnlabel: "Not Selected",
+        btnlabel: "Select This SPN?",
         btnstyle: "btn-default",
         logo: 'shs-logo.png',
         buyer: 'Sears Home Services',
@@ -416,7 +416,7 @@ appServices.factory("svcSPNSelect", [
       },
       selSPN3: {
         selected: false,
-        btnlabel: "Not Selected",
+        btnlabel: "Select This SPN?",
         btnstyle: "btn-default",
         logo: 'searscommercial-logo.png',
         buyer: 'Sears Commercial',
@@ -428,7 +428,7 @@ appServices.factory("svcSPNSelect", [
       },
       selSPN4: {
         selected: false,
-        btnlabel: "Not Selected",
+        btnlabel: "Select This SPN?",
         btnstyle: "btn-default",
         logo: 'ATTDigitalLife-logo.jpg',
         buyer: 'AT&T Digital Life',
@@ -440,7 +440,7 @@ appServices.factory("svcSPNSelect", [
       },
       selSPN5: {
         selected: false,
-        btnlabel: "Not Selected",
+        btnlabel: "Select This SPN?",
         btnstyle: "btn-default",
         logo: 'kmartstartplan-logo.png',
         buyer: 'Kmart Smart Plan',
@@ -465,12 +465,12 @@ appServices.factory("svcSPNSelect", [
         if (spnSelects[tmpKey].selected == true) {
           // Toggle from selected to de-selected
           spnSelects[tmpKey]["selected"] = false;
-          spnSelects[tmpKey]["btnlabel"] = "Not Selected";
+          spnSelects[tmpKey]["btnlabel"] = "Select This SPN?";
           spnSelects[tmpKey]["btnstyle"] = "btn-default";
         } else {
           // Toggle from de-selected to selected
           spnSelects[tmpKey]["selected"] = true;
-          spnSelects[tmpKey]["btnlabel"] = "SELECTED";
+          spnSelects[tmpKey]["btnlabel"] = "Yes. I am interested in this SPN.";
           spnSelects[tmpKey]["btnstyle"] = "btn-primary";
         }
 

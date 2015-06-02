@@ -224,6 +224,8 @@ appControllers.controller("SkillsetModalCtrl", ["$scope", "$rootScope", "$locati
     $scope.ok = function() {
       $modalInstance.close('Clicked Ok button');
 
+      // Emit an event that will trigger the div to display
+      $rootScope.$emit('evShowTechSkillCategories');
     };
 
     $scope.cancel = function() {

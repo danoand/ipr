@@ -26,6 +26,8 @@ appControllers.controller("AdministratorCtrl", ["$scope", "$rootScope", "$modal"
     };
 
     $rootScope.$on('evShowTechSkillCategories', function(event, data) {
+      console.log('Fired event: evShowTechSkillCategories and setting $scope.showListEnteredSkills to true.');
+      
       $scope.showListEnteredSkills = true;
     });
 

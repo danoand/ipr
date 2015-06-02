@@ -106,7 +106,7 @@
         </div>
         <div class="col-md-3">
           <button class="btn {{fetchSPNValues1.btnstyle}} btn-block" ng-click="clkSelSPN(1)">{{fetchSPNValues1.btnlabel}}</button>
-          <button class="btn btn-link btn-block">View Documents</button>
+          <button class="btn btn-link btn-block" ng-click="openSPNIntro()">View Documents</button>
         </div>
       </div>
       <div class="spacer10"></div>
@@ -127,7 +127,7 @@
         </div>
         <div class="col-md-3">
           <button class="btn {{fetchSPNValues2.btnstyle}} btn-block" ng-click="clkSelSPN(2)">{{fetchSPNValues2.btnlabel}}</button>
-          <button class="btn btn-link btn-block">View Documents</button>
+          <button class="btn btn-link btn-block" ng-click="openSPNIntro()">View Documents</button>
         </div>
       </div>
       <div class="spacer10"></div>
@@ -148,7 +148,7 @@
         </div>
         <div class="col-md-3">
           <button class="btn {{fetchSPNValues3.btnstyle}} btn-block" ng-click="clkSelSPN(3)">{{fetchSPNValues3.btnlabel}}</button>
-          <button class="btn btn-link btn-block">View Documents</button>
+          <button class="btn btn-link btn-block" ng-click="openSPNIntro()">View Documents</button>
         </div>
       </div>
       <div class="spacer10"></div>
@@ -169,7 +169,7 @@
         </div>
         <div class="col-md-3">
           <button class="btn {{fetchSPNValues4.btnstyle}} btn-block" ng-click="clkSelSPN(4)">{{fetchSPNValues4.btnlabel}}</button>
-          <button class="btn btn-link btn-block">View Documents</button>
+          <button class="btn btn-link btn-block" ng-click="openSPNIntro()">View Documents</button>
         </div>
       </div>
       <div class="spacer10"></div>
@@ -190,7 +190,7 @@
         </div>
         <div class="col-md-3">
           <button class="btn {{fetchSPNValues5.btnstyle}} btn-block" ng-click="clkSelSPN(5)">{{fetchSPNValues5.btnlabel}}</button>
-          <button class="btn btn-link btn-block">View Documents</button>
+          <button class="btn btn-link btn-block" ng-click="openSPNIntro()">View Documents</button>
         </div>
       </div>
     </div>
@@ -348,4 +348,51 @@
       </section>
     </div>
   </script>
+
+  <script type="text/ng-template" id="myModalViewSPNIntro.html">
+    <div class="modal-header">
+        <h3>Welcome to the Sears In Home Repair SPN</h3>
+    </div>
+    <div class="modal-body" ng-controller="ViewSPNIntroCtrl">
+      <section>
+          <div class="row">
+              <div class="col-xs-12">
+          		<div class="row">
+          			<div class="col-xs-6">
+          				<address>
+          				<strong>To:</strong><br>
+                    New ServiceLive Providers!
+          				</address>
+          			</div>
+          			<div class="col-xs-6 text-right">
+          				<address>
+              			<strong>From:</strong><br>
+          					Sears Home Services<br>
+          					Contractor Services<br>
+          					3333 Beverly Road<br>
+          					Hoffman Estates, IL 60179
+          				</address>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+
+          <div class="row">
+          	<div class="col-md-12">
+          		<div class="panel panel-default">
+          			<div class="panel-heading">
+          				<h3 class="panel-title"><strong>New ServiceLive Provider!</strong></h3>
+          			</div>
+          			<div class="panel-body">
+                  <h4>{{adminFirstName}}</h4>
+                  <p>Welcome to ServiceLive!</p>
+                  <p>We know you have a lot of work to do but Sears Home Services is busy as well.  We are supporting millions of in home repair events every year and we need help from quality service providers such as yourself.</p>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+      </section>
+    </div>
+ </script>
+
 </div>

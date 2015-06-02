@@ -82,6 +82,18 @@ appControllers.controller("AccountCtrl", ["$scope", "$rootScope", "$modal", "$lo
 
     };
 
+    // Function openSPNIntro displays the modal surfacing
+    //   a faux SPN Introduction Letter
+    $scope.openSPNIntro = function() {
+      var modalSPNIntro;
+
+      modalSPNIntro = $modal.open({
+        templateUrl: "myModalViewSPNIntro.html",
+        size: 'lg'
+      });
+
+    };
+
     $scope.openConfirmEmail = function() {
       svcDataTypeUser.setShowResendBtn(true);
 

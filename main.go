@@ -128,7 +128,7 @@ func main() {
 	http.Handle("/", publicHandlers.ThenFunc(indexHandler))
 
 	// Start the web server listening on the specified port
-	defaultPort := getport()
+	defaultPort := "localhost:8086"
 	log.Println("Starting the webserver on port:", defaultPort)
 	serveErr := http.ListenAndServe(defaultPort, nil)
 	log.Printf("Program terminating with error (if any): %v", serveErr)

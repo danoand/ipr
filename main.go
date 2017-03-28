@@ -35,7 +35,7 @@ func (credentials authParams) Validate() error {
 
 // getport fetches the port number from an environment variable so we can run on Heroku
 func getport() string {
-	var port = os.Getenv("PORT")
+	var port = os.Getenv("IPR_PORT")
 	// Set a default port if there is nothing in the environment
 	if port == "" {
 		port = "4567"
